@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['functionTyp']) || !isset($_GET['payload'])) {
-    exit;
+    exit();
 }
 
 switch ($_GET['functionTyp']) {
@@ -11,7 +11,8 @@ switch ($_GET['functionTyp']) {
         createProduct($_GET['payload']);
         break;
     default:
-        exit;
+    //error
+        exit();
 }
 
 function createUser($payload)
