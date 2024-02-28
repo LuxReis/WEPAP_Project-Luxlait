@@ -4,10 +4,10 @@ if (!isset($_GET['functionTyp']) || !isset($_GET['payload'])) {
 }
 
 switch ($_GET['functionTyp']) {
-    case 'User':
+    case 'user':
         createUser($_GET['payload']);
         break;
-    case 'Product':
+    case 'product':
         createProduct($_GET['payload']);
         break;
     default:
