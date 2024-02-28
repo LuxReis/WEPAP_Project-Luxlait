@@ -7,11 +7,11 @@
     }
 
     switch ($_GET['payload']) {
-        case 'User':
+        case 'user':
             deleteUser();
             break;
         
-        case 'Product':
+        case 'product':
             deleteProduct();
             break;
 
