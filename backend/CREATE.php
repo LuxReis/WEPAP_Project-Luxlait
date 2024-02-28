@@ -11,6 +11,7 @@ switch ($_GET['functionTyp']) {
         createProduct($_GET['payload']);
         break;
     default:
+    //error
         exit();
 }
 
