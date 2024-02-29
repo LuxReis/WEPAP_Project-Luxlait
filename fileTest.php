@@ -26,7 +26,7 @@ function DeleteUser()
     }
     $userId = $_GET['Payload'];
 
-    echo "User with ID deleted"
+    echo "User with ID deleted";
 }
 
 function DeleteProduct()
@@ -36,6 +36,6 @@ function DeleteProduct()
     }
     $userId = $_GET['Payload'];
 
-    echo "Product with ID deleted"
+    echo "Product with ID deleted";
 }
 ?>
