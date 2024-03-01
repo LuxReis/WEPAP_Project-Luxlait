@@ -280,6 +280,8 @@ CREATE TABLE tblAddresse(
 
 CREATE TABLE tblUser(
     idUsername VARCHAR(10) UNIQUE,
+    dtFirstName VARCHAR(40) NOT NULL,
+    dtLastName VARCHAR(40) NOT NULL,
     dtPassword VARCHAR(40) NOT NULL,
     dtEmail VARCHAR(50) NOT NULL,
     dtTelephone VARCHAR(9),
