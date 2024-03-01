@@ -17,7 +17,7 @@ switch ($_GET['functionTyp']) {
 
 function createUser($payload)
 {
-
+    $query = "INSERT INTO tblUser (dtUsername, dtPassword, dtEmail, dtTelephone, dtPLZ, dtAdresse)";
 }
 
 function createProduct($payload)
