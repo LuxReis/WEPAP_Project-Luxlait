@@ -1,6 +1,6 @@
 <?php
-    define('DB_HOST', 'localhost'); // set database host (normally localhost)
-    define('DB_USER', 'luxlait'); 	// set database user
-    define('DB_PASSWORD', 'LuxlaitIsTheBestWEPAP2024'); // set database password
+    define('DB_HOST', '89.58.47.144'); // set database host (normally localhost)
+    define('DB_USER', 'luxLaitUser'); 	// set database user
+    define('DB_PASSWORD', 'luxLaitPass'); // set database password
     define('DB_NAME', 'luxlait'); // set database name 
 ?>
