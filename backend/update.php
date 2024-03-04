@@ -1,22 +1,22 @@
 <?php
     if (!isset($_GET['functionTyp']) || !isset($_GET['payload'])) {
-        exit;
+        exit();
     }
 
     switch ($_GET['functionTyp']) {
-        case 'User':
+        case 'user':
             updateUser($_GET['payload']);
             break;
-        case 'Product':
+        case 'product':
             updateProduct($_GET['payload']);
             break;
         default:
-            exit;
+            exit();
     }
 
     function updateUser($payload) 
     {
-
+        
     }
 
     function updateProduct($payload)
