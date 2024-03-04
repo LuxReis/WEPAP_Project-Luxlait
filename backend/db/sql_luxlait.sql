@@ -291,5 +291,7 @@ CREATE TABLE tblUser(
 CREATE TABLE tblProduct(
     idProduct INT NOT NULL AUTO_INCREMENT,
     dtProduct VARCHAR(100),
-
+    dtPrice INT NOT NULL,
+    dtImage VARCHAR(200) NOT NULL,
+    PRIMARY KEY (idProduct)
 );
