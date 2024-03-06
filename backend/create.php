@@ -17,11 +17,11 @@ switch ($_GET['functionTyp']) {
 
 function createUser($payload)
 {
-    insertUser();
+    insertUser($payload);
 }
 
 function createProduct($payload)
 {
-
+    insertProduct($payload);
 }
 ?>
