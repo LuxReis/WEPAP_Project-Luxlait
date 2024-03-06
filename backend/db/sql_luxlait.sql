@@ -251,7 +251,7 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('UZ', 'Uzbekistan', 998, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/188px-Flag_of_Uzbekistan.svg.png'),
         ('VU', 'Vanuatu', 678, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Vanuatu.svg/188px-Flag_of_Vanuatu.svg.png'),
         ('VE', 'Venezuela', 58, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/188px-Flag_of_Venezuela.svg.png'),
-        ('VN', 'Viet Nam', 84, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/188px-Flag_of_Vietnam.svg.png'),
+        ('VN', 'Vietnam', 84, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/188px-Flag_of_Vietnam.svg.png'),
         ('VG', 'Virgin Islands, British', 1284, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Flag_of_the_British_Virgin_Islands.svg/195px-Flag_of_the_British_Virgin_Islands.svg.png'),
         ('VI', 'Virgin Islands, U.s.', 1340, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Flag_of_the_United_States_Virgin_Islands.svg/188px-Flag_of_the_United_States_Virgin_Islands.svg.png'),
         ('WF', 'Wallis and Futuna', 681, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Flag_of_Wallis_and_Futuna.svg/195px-Flag_of_Wallis_and_Futuna.svg.png'),
