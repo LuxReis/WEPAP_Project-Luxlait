@@ -73,7 +73,7 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('DO', 'Dominican Republic', 1809, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_the_Dominican_Republic.svg/188px-Flag_of_the_Dominican_Republic.svg.png'),
         ('EC', 'Ecuador', 593, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/188px-Flag_of_Ecuador.svg.png'),
         ('EG', 'Egypt', 20, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/188px-Flag_of_Egypt.svg.png'),
-        ('SV', 'El Salvador', 503, ''),
+        ('SV', 'El Salvador', 503, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_El_Salvador.svg/270px-Flag_of_El_Salvador.svg.png'),
         ('GQ', 'Equatorial Guinea', 240, ''),
         ('ER', 'Eritrea', 291, ''),
         ('EE', 'Estonia', 372, ''),
@@ -268,16 +268,6 @@ CREATE TABLE tblRights(
     PRIMARY KEY (idRight)
 );
 
-CREATE TABLE tblAddresse(
-    idAddresse INT NOT NULL AUTO_INCREMENT,
-    dtPLZ VARCHAR(6) NOT NULL,
-    dtHouseNR VARCHAR(3) NOT NULL,
-    dtStreet VARCHAR(15) NOT NULL,
-    fiCountry VARCHAR(5) NOT NULL,
-    PRIMARY KEY (idAddresse),
-    FOREIGN KEY (fiCountry) REFERENCES tblCountry (idCountry)
-);
-
 
 CREATE TABLE tblUser(
     idUsername VARCHAR(10) UNIQUE,
@@ -286,7 +276,12 @@ CREATE TABLE tblUser(
     dtPassword VARCHAR(40) NOT NULL,
     dtEmail VARCHAR(50) NOT NULL,
     dtTelephone VARCHAR(9),
-    PRIMARY KEY (idUsername)
+    dtPLZ VARCHAR(6) NOT NULL,
+    dtHouseNR VARCHAR(3) NOT NULL,
+    dtStreet VARCHAR(15) NOT NULL,
+    fiCountry VARCHAR(5) NOT NULL,
+    PRIMARY KEY (idUsername),
+    FOREIGN KEY (fiCountry) REFERENCES tblCountry (idCountry)
 );
 
 CREATE TABLE tblProduct(
