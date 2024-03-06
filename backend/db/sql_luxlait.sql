@@ -255,10 +255,10 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('VG', 'Virgin Islands, British', 1284, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Flag_of_the_British_Virgin_Islands.svg/195px-Flag_of_the_British_Virgin_Islands.svg.png'),
         ('VI', 'Virgin Islands, U.s.', 1340, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Flag_of_the_United_States_Virgin_Islands.svg/188px-Flag_of_the_United_States_Virgin_Islands.svg.png'),
         ('WF', 'Wallis and Futuna', 681, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Flag_of_Wallis_and_Futuna.svg/195px-Flag_of_Wallis_and_Futuna.svg.png'),
-        ('EH', 'Western Sahara', 212, ''),
-        ('YE', 'Yemen', 967, ''),
-        ('ZM', 'Zambia', 260, ''),
-        ('ZW', 'Zimbabwe', 263, '');
+        ('EH', 'Western Sahara', 212, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_the_Sahrawi_Arab_Democratic_Republic.svg/300px-Flag_of_the_Sahrawi_Arab_Democratic_Republic.svg.png'),
+        ('YE', 'Yemen', 967, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/188px-Flag_of_Zimbabwe.svg.png'),
+        ('ZM', 'Zambia', 260, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Zambia.svg/188px-Flag_of_Zambia.svg.png'),
+        ('ZW', 'Zimbabwe', 263, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/188px-Flag_of_Zimbabwe.svg.png');
 
 
 
