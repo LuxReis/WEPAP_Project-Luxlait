@@ -1,13 +1,7 @@
 <?php
-// Establish the database connection
-$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PW, DB_NAME);
-if (mysqli_connect_errno()) {
-    die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
-}
-
 // Function to insert user
 function insertUser($payload) {
-    global $dbc; // Access the global $dbc variable
+    $dbc = dbConnections();
     
     // Prepare the SQL statement
     $query = "INSERT INTO tblUser (idUsername, dtFirstName, dtLastName, dtPassword, dtEmail, dtTelephone, dtPLZ, dtHouseNR, dtStreet, fiCountry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -47,7 +41,7 @@ function insertUser($payload) {
 }
 
 function insertProduct($payload) {
-    global $dbc; // Access the global $dbc variable
+    $dbc = dbConnections();
     
     // Prepare the SQL statement
     $query = "INSERT INTO tblProduct (dtProduct, dtPrice, dtImage) VALUES (?, ?, ?)";
