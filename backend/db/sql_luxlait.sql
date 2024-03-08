@@ -300,3 +300,4 @@ CREATE TABLE tblProduct(
     dtImage VARCHAR(200) NOT NULL,
     PRIMARY KEY (idProduct)
 );
+
