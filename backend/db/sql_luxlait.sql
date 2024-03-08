@@ -270,6 +270,11 @@ CREATE TABLE tblRights(
     PRIMARY KEY (idRight)
 );
 
+INSERT INTO tblRights (idRight, dtRight)
+VALUES (1, 'Admin'),
+       (2, 'Staff'),
+       (3, 'User'); 
+
 
 CREATE TABLE tblUser(
     idUsername VARCHAR(10) UNIQUE,
@@ -285,6 +290,8 @@ CREATE TABLE tblUser(
     PRIMARY KEY (idUsername),
     FOREIGN KEY (fiCountry) REFERENCES tblCountry (idCountry)
 );
+
+
 
 CREATE TABLE tblProduct(
     idProduct INT NOT NULL AUTO_INCREMENT,
