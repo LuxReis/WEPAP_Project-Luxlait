@@ -1,4 +1,6 @@
 DROP TABLE IF EXISTS tblCountry;
+DROP TABLE IF EXISTS tblRights;
+
 
 CREATE TABLE tblCountry(
     idCountry VARCHAR(5) NOT NULL,
