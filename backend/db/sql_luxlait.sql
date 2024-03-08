@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tblCountry;
+
 CREATE TABLE tblCountry(
     idCountry VARCHAR(5) NOT NULL,
     dtCountry VARCHAR(50) NOT NULL,
@@ -229,8 +231,8 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('SY', 'Syria', 963, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Syria.svg/300px-Flag_of_Syria.svg.png'),
         ('TW', 'Taiwan, Province of China', 886, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/188px-Flag_of_the_Republic_of_China.svg.png'),
         ('TJ', 'Tajikistan', 992, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/188px-Flag_of_Tajikistan.svg.png'),
-        ('TZ', 'Tanzania, United Republic of', 255, ''),
-        ('TH', 'Thailand', 66, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/188px-Flag_of_Tanzania.svg.png'),
+        ('TZ', 'Tanzania, United Republic of', 255, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/125px-Flag_of_Tanzania.svg.png'),
+        ('TH', 'Thailand', 66, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/125px-Flag_of_Thailand.svg.png'),
         ('TL', 'Timor-Leste', 670, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/188px-Flag_of_East_Timor.svg.png'),
         ('TG', 'Togo', 228, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/188px-Flag_of_Togo.svg.png'),
         ('TK', 'Tokelau', 690, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flag_of_Tokelau.svg/188px-Flag_of_Tokelau.svg.png'),
