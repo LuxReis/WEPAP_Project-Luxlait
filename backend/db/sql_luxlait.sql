@@ -304,13 +304,10 @@ CREATE TABLE tblProduct(
     dtImage VARCHAR(200) NOT NULL,
     PRIMARY KEY (idProduct)
 );
-<<<<<<< HEAD
+
 INSERT INTO tblProduct (dtProduct,dtPrice,dtFat,dtMetricUnit,dtDescription,dtType,dtImage)
 VALUES  ('Fresh milk',2.17,'3.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png'),
         ('Fresh milk',1.97,'1.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png'),
         ('Fresh milk',0.99,'1.5%',0.5,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png'),
-        ('UHT whole milk',1.63,'3.5%',1,'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png'),
-       
-=======
+        ('UHT whole milk',1.63,'3.5%',1,'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png');
 
->>>>>>> d3fbe69752115a5b5f2f70da38b22cfa07b455f6
