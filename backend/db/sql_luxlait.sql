@@ -291,3 +291,20 @@ CREATE TABLE tblProduct(
     dtImage VARCHAR(200) NOT NULL,
     PRIMARY KEY (idProduct)
 );
+
+CREATE TABLE tblRecipe(){
+    idRecipe INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL,
+    dtDescription VARCHAR(200) NOT NULL
+}
+
+CREATE TABLE tblIngredient(){
+    idIngredient INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL
+}
+
+CREATE TABLE tblPreparation(){
+    idPreparation INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL,
+    dtPreparationTime INT NOT NULL
+}
