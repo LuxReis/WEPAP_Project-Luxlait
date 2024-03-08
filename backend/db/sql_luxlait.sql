@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tblCountry;
+
 CREATE TABLE tblCountry(
     idCountry VARCHAR(5) NOT NULL,
     dtCountry VARCHAR(50) NOT NULL,
@@ -229,8 +231,8 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('SY', 'Syria', 963, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Syria.svg/300px-Flag_of_Syria.svg.png'),
         ('TW', 'Taiwan, Province of China', 886, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/188px-Flag_of_the_Republic_of_China.svg.png'),
         ('TJ', 'Tajikistan', 992, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/188px-Flag_of_Tajikistan.svg.png'),
-        ('TZ', 'Tanzania, United Republic of', 255, ''),
-        ('TH', 'Thailand', 66, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/188px-Flag_of_Tanzania.svg.png'),
+        ('TZ', 'Tanzania, United Republic of', 255, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/125px-Flag_of_Tanzania.svg.png'),
+        ('TH', 'Thailand', 66, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/125px-Flag_of_Thailand.svg.png'),
         ('TL', 'Timor-Leste', 670, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/188px-Flag_of_East_Timor.svg.png'),
         ('TG', 'Togo', 228, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/188px-Flag_of_Togo.svg.png'),
         ('TK', 'Tokelau', 690, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flag_of_Tokelau.svg/188px-Flag_of_Tokelau.svg.png'),
@@ -268,6 +270,11 @@ CREATE TABLE tblRights(
     PRIMARY KEY (idRight)
 );
 
+INSERT INTO tblRights (idRight, dtRight)
+VALUES (1, 'Admin'),
+       (2, 'Staff'),
+       (3, 'User'); 
+
 
 CREATE TABLE tblUser(
     idUsername VARCHAR(10) UNIQUE,
@@ -284,10 +291,26 @@ CREATE TABLE tblUser(
     FOREIGN KEY (fiCountry) REFERENCES tblCountry (idCountry)
 );
 
+
+
 CREATE TABLE tblProduct(
     idProduct INT NOT NULL AUTO_INCREMENT,
     dtProduct VARCHAR(100),
     dtPrice INT NOT NULL,
+    dtFat VARCHAR(5),
+    dtMetricUnit INT NOT NULL,
+    dtDescription VARCHAR(200) NOT NULL,
+    dtType VARCHAR(20) NOT NULL,
     dtImage VARCHAR(200) NOT NULL,
     PRIMARY KEY (idProduct)
 );
+<<<<<<< HEAD
+INSERT INTO tblProduct (dtProduct,dtPrice,dtFat,dtMetricUnit,dtDescription,dtType,dtImage)
+VALUES  ('Fresh milk',2.17,'3.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png'),
+        ('Fresh milk',1.97,'1.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png'),
+        ('Fresh milk',0.99,'1.5%',0.5,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png'),
+        ('UHT whole milk',1.63,'3.5%',1,'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png'),
+       
+=======
+
+>>>>>>> d3fbe69752115a5b5f2f70da38b22cfa07b455f6
