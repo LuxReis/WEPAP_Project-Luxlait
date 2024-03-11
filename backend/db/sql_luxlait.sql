@@ -1,5 +1,10 @@
 DROP TABLE IF EXISTS tblCountry;
 DROP TABLE IF EXISTS tblRights;
+DROP TABLE IF EXISTS tblUser;
+DROP TABLE IF EXISTS tblProduct;
+DROP TABLE IF EXISTS tblType;
+DROP TABLE IF EXISTS tblCategory;
+
 
 
 CREATE TABLE tblCountry(
@@ -319,25 +324,26 @@ VALUES  ('Milk and dairy drinks'),
         ('Butters'),
         ('Creams'),
         ('Fresh cheeses'),
+        ('Cheeses'),
         ('Yaourts'),
         ('Dairy desserts'),
         ('Ice cream'),
         ('Biscuits');
 
-CREATE TABLE tblType () {
+CREATE TABLE tblType(
     idType INT NOT NULL AUTO_INCREMENT,
     dtType VARCHAR(50) NOT NULL,
-    dtDescription VARCHAR(300) NOT NULL,
+    dtDescription VARCHAR(1400) NOT NULL,
     dtImage VARCHAR(200),
     fiCategory INT NOT NULL,
     PRIMARY KEY (idType),
     FOREIGN KEY (fiCategory) REFERENCES tblCategory (idCategory)
-}
+);
 
 INSERT INTO tblType (dtType, dtDescription, dtImage, fiCategory)
 VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1-336x1024.png',1),
        ('UHT Milk','UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly. UHT milk has the longest shelf-life.','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK-526x1536.png',1),
-       ('Lactose-free milk','Discover the first 0% lactose milk with 100% luxembourgish milk. This quality product doesn’t just taste good but also has a long shelf life.','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_-540x1536.png',1),
+       ('Lactose-free milk','Discover the first 0% lactose milk with 100% luxembourgish milk. This quality product doesn""t just taste good but also has a long shelf life.','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_-540x1536.png',1),
        ('Organic Milk','Luxlait organic milk is available in two versions: fresh microfiltered milk, for optimal preservation of the taste and semi-skimmed UHT milk that you can store for several months at room temperature.','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',1),
        ('Fresh Chocolate Milk','The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face-330x1024.png',1),
        ('Shakers','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-2b43c425-e38f-4d79-b6bd-d3b837c4085e.png',1),
@@ -348,69 +354,84 @@ VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfi
        ('Lassi','Mango Lassi, born of Indian and Pakistani culinary traditions, is a testament to the love of flavours that define their heritage. Born in the Punjab Region of north India an eastern Pakistan, this exquisite drink is a harmonious marriage of the two nations’ passion for culture and taste. Whether enjoyed on busy street corners, in the tranquillity of homes or as a cherished offering on festive occasions, it reflects the essence of unity and conviviality that define the Pakistani and Indian communities. Luxlait Mango Lassi takes this traditional yoghurt recipe and creates a delicious, refreshing, smooth drink. Offering a glass of Lassi is not just a gesture of refreshment; it is a deeply rooted expression of hospitality. It symbolises the generosity and warmth that define the spirit of Indian and Pakistani communities.','https://www.luxlait.lu/wp-content/uploads/2024/01/TT-1000-Base-WEB-2.png',2),
        ('Laben Beldi','Traditionally, the milk is whisked in a “Garba” for several hours, to obtain fermented milk. The Laben Beldi is then poured into a terracotta jug. This is covered with a wet Hessian cloth in order to preserve the freshness of the Laben as long as possible. At Luxlait we reproduce this traditional recipe from the Hauts Plateaux of the Atlas Mountains as faithfully as possible.','https://www.luxlait.lu/wp-content/uploads/2021/02/55190-Laben_1L-web-e1612252447339.png',2),
        ('Raïb','Raib will go perfectly with your oriental dishes and will allow you to make light and digestible smoothies and milkshakes.','https://www.luxlait.lu/wp-content/uploads/2019/09/55140_RAIB_1L_Face-so.png',2), 
-       ('Raïbi','Raïbi is a fermented drink that has been created in Morocco in the 60s but has since then become popular in other countries, too. The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market. It’s a drink for the whole family: Kids love to freeze and make ice cream of it while adults will think back of their childhood or stay in Marocco.','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-2.png',2),
+       ('Raïbi','Raïbi is a fermented drink that has been created in Morocco in the 60s but has since then become popular in other countries, too. The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market. It""s a drink for the whole family: Kids love to freeze and make ice cream of it while adults will think back of their childhood or stay in Marocco.','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-2.png',2),
        ('Kefir','An ancestral drink from the nomads of the Caucasus mountains. Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink. Its ferments contribute to well-being due to its natural action on the intestinal flora.','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',2),
 
-       ('','','',),
-       ('','','',),
-       ('','','',),
-       ('','','',),
-       ('','','',),
-       ('','','',),
-       ('','','',),
-       ('','','',),
-       ('','','',),
+       ('Garlic Herb Butter','For your barbecues, meat dishes or however you prefer: choose the Luxlait Garlic herb butter. Made with traditional “Rose” butter from Luxembourg (PDO) and garnished with parsley and garlic.','https://www.luxlait.lu/wp-content/uploads/2022/06/Beurre-ail-et-fines-herbes_2_HD_-1024x303.png',3),
+       ('Rose Butter','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria. That""s when the unique taste of our butter develops. Finely churned in a traditional process, the cream becomes smooth to obtain its final appearance: “Beurre Rose” butter.','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png',3),
+       ('Specialities with butter','Even kept in the refrigerator, our table butters are always ready to spread! Thanks to a mixture of butter and rapeseed oil, they can be used immediately. Our “light” version has up to half the fat content of conventional butter','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637-1024x502.png',3),
+
+       ('Liquid fresh cream','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes. Their hold when whipped with a hand or electric whisk enable them to be incorporated as a garnish or as an ingredient to enhance your dishes and desserts. Liquid fresh cream is not subjected to any treatment other than pasteurisation (neither ripening nor sterilisation). With its excellent whipping properties, it is the queen of Chantilly or whipped cream (in this case, it must be 36% fat cream).','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_-334x1024.png',4),
+       ('UHT liquide cream','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit. They are suitable for cooking, but cannot be whipped (except 35% fat cream). They also provide a binding agent for culinary preparations and smoothness for all dishes.','https://www.luxlait.lu/wp-content/uploads/2020/05/Cr%C3%A8me-UHT-35-1L-384x1024.png',4),
+       ('Coffee cream','This small portion of cream lessens the natural bitterness of the coffee and adds a special sweetness that cannot be obtained from milk. In short, the essential plus for all lovers of coffee with cream','https://www.luxlait.lu/wp-content/uploads/2020/05/Coffee-Cream-Dosette_75g.png',4),
+       ('Sour cream','Thick and creamy, you won""t be able to resist the delicacy of the Luxlait fresh creams. You will appreciate their excellent cooking performance and softness. Their qualities to bind sauces, garnish dishes and provide tasty toppings will delight food lovers. Their practical formats, as well as their binding power will make your daily cooking easier.','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-epaisse-250g_Site-1024x798.png',4),
+
+       ('Organic Faisselle','Our organic faisselle is a fresh cheese made of organic, pasteurized full fat milk. Its name comes from the French word faisselle, designating the sieve in which the faisselle is put to drain. All production steps are manual, from the moulding with a ladle to the closing of the pots. You can use our faisselle both in your sweet and savoury dishes or simply enjoy it with some honey, jam or a fruit coulis.','https://www.luxlait.lu/wp-content/uploads/2022/05/FaisselleBio_Face-1-1024x680.png',5),
+       ('Cottage cheese','Thanks to its melting texture and its curds of creamy fresh cheese, Luxlait cottage cheese was awarded adistinction in the “Superior Taste” competition. Luxlait cottage cheese occupies a special place in the fresh cheese landscape. Often eaten on bread, seasoned with salt, pepper and herbs, it is ideal for your savoury or sweet recipes. It is high in protein and low in fat.','https://www.luxlait.lu/wp-content/uploads/2019/09/cottage-cheese-250g_Site-1024x807.png',5),
+       ('Soft white cheese','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream (only in cream cheese). It can be used in all kinds of savoury or sweet dishes.','https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-maigre-250g_Site-1024x793.png',5),
+       ('Brach','Luxlait Brach is made from pasteurised whole milk to which lactic ferments have been added. Historically, it was used in Luxembourg cooking in times of famine, particularly as an accompaniment to the famous “Gequellte Gromper” (baked potato). Brach is timeless and has remained an essential product in Luxembourg households.','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-caill%C3%A9-250g_Site-1024x800.png',5),
+
+       ('Organic Brie','Our Brie cheese is made of 100% organic Luxembourg milk. Discover its soft taste on a cheese platter, in a sandwich or in a savoury dish.','https://www.luxlait.lu/wp-content/uploads/2022/06/Brie_2_HD_-1024x996.png',6),
+       ('Beer Cheese','The unique character of our cheese lies in the texture, roundness and fruitiness of a mature cheese, combined with the caramelised notes of the sublimely roasted malt of Battin Brune beer.','https://www.luxlait.lu/wp-content/uploads/2019/10/Gamme-fromage-battin-e1587383900682-1024x658.png',6),
+       ('Grated Emmental','During the production and maturing of our Luxlait Emmental, our master cheesemakers select specific ferments that allow the formation of holes in the cheese when it matures in a warm cellar. This controlled process also gives Luxlait Emmental its characteristic fruity taste','https://www.luxlait.lu/wp-content/uploads/2019/10/56404_Emmental-rape-748x1024.png',6),
+       ('Cheese slices','For well-filled sandwiches or cold or hot snacks, Luxlait cheeses have their own character and will meet everyone""s needs.','https://www.luxlait.lu/wp-content/uploads/2019/09/Emmental-706x1024.png',6),
+       ('Kachkéis','Known as one of the monuments of Luxembourg gastronomy, Kachkéis is produced in a traditional way, without melting salts, colourings or preservatives. This authentic cheese comes in different forms. Indeed, it is possible to enjoy it cold, hot, cooked or even accompanied with a piece of bread with a dab of mustard.','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_250_traditionnel_Face_Site-1024x655.png',6),
+       ('Crème de Chapelain','Luxlait Crème de Chapelain offer a range of characteristic flavours for the whole family. Its creamy, smooth and homogeneous texture gives way to generous gourmet sandwiches.','https://www.luxlait.lu/wp-content/uploads/2019/09/Cremes-Chapelain-nature.png',6),
+
+       ('Summer yoghurt','With the arrival of fine weather, Luxlait is reinventing itself and launching an innovative new range of three new summer yoghurts with new flavours! The well balanced combination of fruit, spices and fruit juices provides an original sensation of freshness. The flavours on offer, such as Yuzu & Green Tea, Mango & Turmeric or Cactus & Lime are very trendy and will delight the taste buds seeking novelty and quality. Faithful to its principles, the Luxembourg Yoghurt summer range is preservative-free and made with natural flavours. Taste them and give rein to your senses…','https://www.luxlait.lu/wp-content/uploads/2020/05/ete-mangue-1024x684.png',7),
+       ('Yoghurt','The “Luxembourg yoghurt” range demonstrates Luxlait""s expertise in yoghurts. Their packaging in the form of a duo-pack and family pot are perfectly adapted to all current consumption patterns.','https://www.luxlait.lu/wp-content/uploads/2019/10/Fraise-1024x684.png',7),
+       ('Winter yoghurt','Comforting and tasty in winter.','https://www.luxlait.lu/wp-content/uploads/2019/09/Hiver-sp%C3%A9culoos-1024x684.png',7),
+       ('Funny yoghurt','Funny Yoghurt is a fruit-flavoured yoghurt for children. The fruit it contains has been blended, which makes it easier to eat.It will accompany your child as he grows and harden his bones! Rich in calcium, phosphorus and vitamins, it is a nourishing yoghurt that provides him with everything he needs.','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-banane-1024x600.png',7),
+
+       ('White cheese & fruits','Combining the sweetness of a creamy white cheese and a bed of gourmet fruit. The range of 4 flavours is suitable for everyday enjoyment','https://www.luxlait.lu/wp-content/uploads/2019/10/56115-fromage-blanc-abricot_Site-1024x526.png',8),
+       ('Dessert','This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.','https://www.luxlait.lu/wp-content/uploads/2020/05/56091-dessert-cerise_Site-1024x595.png',8),
+       ('Fit wellness snack','A creamy fresh cheese combined with the delicacy of fruit. A range of 5 tasty flavours, to be enjoyed as a dessert or as a snack.','https://www.luxlait.lu/wp-content/uploads/2019/09/56155_fit-pomme-four_Site-1024x559.png',8),
+       ('Greek-style yoghurt','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product. It is available in four flavours: plain, honey, strawberry and peach & passionfruit.','https://www.luxlait.lu/wp-content/uploads/2019/09/54250-Yaourt-%C3%A0-la-grecque_site-1024x541.png',8),
+
+       ('Cornets','According to taste, covered in a crunchy cocoa sauce with toasted hazelnuts dark chocolate flakes or strawberry puree.','https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-vanille_3_HD_-1024x805.png',9),
+       ('Ice Cream Stick','Give yourself a refreshing break with Luxlait Ice Cream Sticks Available in chocolate, hazelnut and pistachio.','https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_3_HD_-1024x770.png',9),
+       ('Ice cream tubs','Do you prefer ice cream or sorbet? For our ice cream tubs we chose only the best ingredients and lots of fruit! Let the intense taste and colorful packagings seduce you.','https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Vanille-853x1024.png',9),
+       ('Miniatures','The fine crunchy shell is a perfect taster to enjoy the smooth vanilla, pistachio, raspberry, coconut and praline ice cream.','https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Framboise-simple_Dessus-1024x644.png',9),
+
+       ('Sablés','Biscuits with Luxlait “Rose” butter.','https://www.luxlait.lu/wp-content/uploads/2019/09/Site1-2-1024x267.png',10),
+       ('Mini Sablés','Mini-biscuits with Luxlait "Rose" butter in different flavours','https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Miel-Sesame-1024x1024.png',10),
+       ('Galettes','Biscuits with Luxlait "Rose" butter.','https://www.luxlait.lu/wp-content/uploads/2019/09/Site1-1-1024x270.png',10),
+       ('Choco Splits','Cookies with Luxlait "Rose" butter and dark chocolate chips.','https://www.luxlait.lu/wp-content/uploads/2019/09/Site1-1024x373.png',10);
+
+
 
 
 CREATE TABLE tblProduct (
     idProduct INT NOT NULL AUTO_INCREMENT,
     dtProduct VARCHAR(100),
     dtMetricUnit VARCHAR(10) NOT NULL,
-    dtPrice DECIMAL(2) NOT NULL,
+    dtPrice DOUBLE NOT NULL,
     dtFat VARCHAR(5),
-    dtDescription VARCHAR(200) NOT NULL,
-    dtType VARCHAR(20) NOT NULL,
     dtImage VARCHAR(200) NOT NULL,
-    fiCategory INT NOT NULL,
+    fiType INT NOT NULL,
     PRIMARY KEY (idProduct),
-    FOREIGN KEY (fiCategory) REFERENCES tblCategory(idCategory)
+    FOREIGN KEY (fiType) REFERENCES tblType (idType)
 );
 
+INSERT INTO tblProduct (dtProduct, dtMetricUnit, dtPrice, dtFat, dtImage, fiType)
+VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png',1),
+        ('Fresh milk','0.5L',0.99,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png',1),
+        ('Fresh milk','1L',1.97,'1.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png', 1),
 
-CREATE TABLE tblRecipe(){
-    idRecipe INT NOT NULL AUTO_INCREMENT,
-    dtName VARCHAR(50) NOT NULL,
-    dtDescription VARCHAR(200) NOT NULL
-};
+        ('UHT whole milk','1L',1.63,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png', 2),
+        ('UHT semi-skimmed milk','1L',1.95,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK.png', 2),
+        ('UHT skimmed milk','1L',2.17,'0%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait_UHT_0_Sans-ombre.png', 2),
+        ('UHT whole milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png', 2),
+        ('UHT organic milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png', 2),
+        ('UHT lactose-free milk','1L',2.02,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png', 2),
+        
+        ('Lacto-free milk','1L',1.91,'0%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png', 3),
 
-CREATE TABLE tblIngredient(){
-    idIngredient INT NOT NULL AUTO_INCREMENT,
-    dtName VARCHAR(50) NOT NULL
-};
+        ('UHT milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',4),
+        ('Fresh milk','1L',2.27,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',4), 
+        ('Fresh milk','0.25L',0.69,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TR-250-BiO_Face-1.png',4),
 
-CREATE TABLE tblPreparation(){
-    idPreparation INT NOT NULL AUTO_INCREMENT,
-    dtName VARCHAR(50) NOT NULL,
-    dtPreparationTime INT NOT NULL
-};
-
-
-INSERT INTO tblProduct (dtProduct, dtMetricUnit, dtPrice, dtFat, dtDescription, dtType, dtImage, idCategory)
-VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.', 'Fresh milk', 'https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png', 1),
-        ('Fresh milk','1L', 1.97, '1.5%', 'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.', 'Fresh milk', 'https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png', 1), //Fresh Milk
-        ('Fresh milk','0.5L', 0.99, '3.5%', 'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.', 'Fresh milk', 'https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png', 1),
-
-        ('Lacto-free milk','1L', 1.91, '0%', 'Discover the first 0% lactose milk with 100% luxembourgish milk. This quality product doesn’t just taste good but also has a long shelf life.', 'Lacto-free milk', 'https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png', 1), //Lactose-free Milk
-
-        ('UHT whole milk','1L', 1.63, '3.5%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT', 'https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png', 1),
-        ('UHT semi-skimmed milk','1L', 1.95, '1.5%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK.png', 1),
-        ('UHT skimmed milk','1L', 2.17, '0%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Lait_UHT_0_Sans-ombre.png', 1),                          //UHT Milk
-        ('UHT lactose-free milk','1L', 2.02, '1.5%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT,Lacto-free milk', 'https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png', 1),
-        ('UHT organic milk','1L', 2.05, '1.5%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT,Organic milk', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png', 1),
-        ('UHT whole milk','0.25L', 1.08, '3.5%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT,Shakers', 'https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png', 1),
-
-        ('Fresh milk','1L', 2.27,'3,5%','Luxlait organic milk is available in two versions: fresh microfiltered milk, for optimal preservation of the taste and semi-skimmed UHT milk that you can store for several months at room temperature.','Organic Milk','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',1), //Organic Milk
-        ('Fresh milk','0.25L', 0.69,'3,5%','Luxlait organic milk is available in two versions: fresh microfiltered milk, for optimal preservation of the taste and semi-skimmed UHT milk that you can store for several months at room temperature.','Organic Milk','https://www.luxlait.lu/wp-content/uploads/2019/09/TR-250-BiO_Face-1.png',1),
+        /* Needs to be updated */
 
         ('Fresh Chocolate Milk','1L', 3.09, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Fresh Chocolate Milk', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face.png', 1),
         ('Fresh Chocolate Milk','0.5L', 1.74, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Fresh Chocolate Milk', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_500ML-face.png', 1),             //Chocolate Milk
@@ -509,3 +530,22 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
 
         ('','', ,'','','','',),
         ('','', ,'','','','',),
+
+CREATE TABLE tblRecipe(){
+    idRecipe INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL,
+    dtDescription VARCHAR(200) NOT NULL
+};
+
+CREATE TABLE tblIngredient(){
+    idIngredient INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL
+};
+
+CREATE TABLE tblPreparation(){
+    idPreparation INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL,
+    dtPreparationTime INT NOT NULL
+};
+
+
