@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS tblCountry;
+DROP TABLE IF EXISTS tblRights;
+
+
 CREATE TABLE tblCountry(
     idCountry VARCHAR(5) NOT NULL,
     dtCountry VARCHAR(50) NOT NULL,
@@ -229,8 +233,8 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('SY', 'Syria', 963, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Syria.svg/300px-Flag_of_Syria.svg.png'),
         ('TW', 'Taiwan, Province of China', 886, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/188px-Flag_of_the_Republic_of_China.svg.png'),
         ('TJ', 'Tajikistan', 992, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/188px-Flag_of_Tajikistan.svg.png'),
-        ('TZ', 'Tanzania, United Republic of', 255, ''),
-        ('TH', 'Thailand', 66, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/188px-Flag_of_Tanzania.svg.png'),
+        ('TZ', 'Tanzania, United Republic of', 255, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/125px-Flag_of_Tanzania.svg.png'),
+        ('TH', 'Thailand', 66, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/125px-Flag_of_Thailand.svg.png'),
         ('TL', 'Timor-Leste', 670, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/188px-Flag_of_East_Timor.svg.png'),
         ('TG', 'Togo', 228, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/188px-Flag_of_Togo.svg.png'),
         ('TK', 'Tokelau', 690, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flag_of_Tokelau.svg/188px-Flag_of_Tokelau.svg.png'),
@@ -268,43 +272,75 @@ CREATE TABLE tblRights(
     PRIMARY KEY (idRight)
 );
 
+INSERT INTO tblRights (idRight, dtRight)
+VALUES (1, 'Admin'),
+       (2, 'Staff'),
+       (3, 'User'); 
+
 
 CREATE TABLE tblUser(
     idUsername VARCHAR(10) UNIQUE,
     dtFirstName VARCHAR(40) NOT NULL,
     dtLastName VARCHAR(40) NOT NULL,
-    dtPassword VARCHAR(40) NOT NULL,
+    dtPassword VARCHAR(60) NOT NULL,
     dtEmail VARCHAR(50) NOT NULL,
     dtTelephone VARCHAR(9),
     dtPLZ VARCHAR(6) NOT NULL,
     dtHouseNR VARCHAR(3) NOT NULL,
     dtStreet VARCHAR(15) NOT NULL,
     fiCountry VARCHAR(5) NOT NULL,
+    fiRight INT NOT NULL,
     PRIMARY KEY (idUsername),
-    FOREIGN KEY (fiCountry) REFERENCES tblCountry (idCountry)
+    FOREIGN KEY (fiCountry) REFERENCES tblCountry (idCountry),
+    FOREIGN KEY (fiRight) REFERENCES tblRights (idRight)
 );
+
+INSERT INTO tblUser (idUsername, dtFirstName, dtLastName, dtPassword, dtEmail, dtTelephone, dtPLZ, dtHouseNR, dtStreet, fiCountry, fiRight)
+VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@admin.lu', '621 345 345', '1234', '3', 'Am Seif', 'LU', 1),
+        ('staff' , 'Staff', 'Staff', '1562206543da764123c21bd524674f0a8aaf49c8a89744c97352fe677f7e4006', 'staff@staff.lu', '691 567 567', '1234', '3', 'Am Seif', 'LU', 2),
+        ('user', 'User', 'User', '04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb', 'user@user.lu', '621 788 897', '1234', '3', 'Am Seif', 'LU', 3),
+        ('ribpe261', 'Pedro', 'Ribeiro Costa', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'ribpe261@school.lu', '691 522 129', '1940', '274', 'route de Longwy', 'PT', 1),
+        ('frith033', 'Thibaut', 'Friederici', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'frith033@school.lu', '691 703 747', '6724', '13', 'Rue des Foyers', 'LU', 1),
+        ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '', '', '', '', 'LU', 1),
+        ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '', '', '', '', 'LU', 1),
+        ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '', '', '', '', 'LU', 1);
+
+
 
 CREATE TABLE tblProduct(
     idProduct INT NOT NULL AUTO_INCREMENT,
     dtProduct VARCHAR(100),
     dtPrice INT NOT NULL,
+    dtFat VARCHAR(5),
+    dtMetricUnit INT NOT NULL,
+    dtDescription VARCHAR(200) NOT NULL,
+    dtType VARCHAR(20) NOT NULL,
     dtImage VARCHAR(200) NOT NULL,
     PRIMARY KEY (idProduct)
 );
+
 
 CREATE TABLE tblRecipe(){
     idRecipe INT NOT NULL AUTO_INCREMENT,
     dtName VARCHAR(50) NOT NULL,
     dtDescription VARCHAR(200) NOT NULL
-}
+};
 
 CREATE TABLE tblIngredient(){
     idIngredient INT NOT NULL AUTO_INCREMENT,
     dtName VARCHAR(50) NOT NULL
-}
+};
 
 CREATE TABLE tblPreparation(){
     idPreparation INT NOT NULL AUTO_INCREMENT,
     dtName VARCHAR(50) NOT NULL,
     dtPreparationTime INT NOT NULL
-}
+};
+
+INSERT INTO tblProduct (dtProduct,dtPrice,dtFat,dtMetricUnit,dtDescription,dtType,dtImage)
+VALUES  ('Fresh milk',2.17,'3.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png'),
+        ('Fresh milk',1.97,'1.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png'),
+        ('Fresh milk',0.99,'1.5%',0.5,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png'),
+        ('UHT whole milk',1.63,'3.5%',1,'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png');
+
+>>>>>>> a09b7c0fc96c0da322006ca74e9cd4fe2a8acaec
