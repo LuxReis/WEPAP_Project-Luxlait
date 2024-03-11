@@ -403,15 +403,24 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Pistachio','0.5L', 1.05,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Pistache-500ml_Face-Ombre-ok-site.png',2),
         ('Mango','1L', 2.08,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_face-ok-site.png',2),
         ('Mango','0.5L', 1.05,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_500ML_Face-ok-site.png',2),
-        ('','', ,'','','','',),
+        
+        ('Plain','0.5L', 1.18,'1.6%','Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink.','Kefir','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',2),
+        ('Vanilla','0.5L', 1.28,'1.6%','Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink.','Kefir','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-vanille-1.png',2),
+        ('Blueberry','0.5L', 1.37,'1.6%','Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink.','Kefir','https://www.luxlait.lu/wp-content/uploads/2019/10/Kefir-Myrtille-face-500ml-e1570538615163.png',2),
+
+
+        ('Garlic Herb Butter','125g', 3.16,NULL,'For your barbecues, meat dishes or however you prefer: choose the Luxlait Garlic herb butter.','Garlic Herb Butter','https://www.luxlait.lu/wp-content/uploads/2022/06/Beurre-ail-et-fines-herbes_2_HD_.png',3),
 
         ('Rose Butter','10g',0.18,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre10g.png',3),
         ('Rose Butter','125g',3.18,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-125g-1.png',3),
         ('Rose Butter','250g',4.39,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png',3),
         ('Rose Butter','500g',7.67,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-500g-1.png',3),
+        
         ('Spreadable','250g',4.33,'80%','Even kept in the refrigerator, our table butters are always ready to spread!', 'Specialities with butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_tartinable-face-e1570526858659.png',3),
         ('Light','250g',4.03,'40%','Even kept in the refrigerator, our table butters are always ready to spread!', 'Specialities with butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637.png',3),
         ('Semi-salted','250g',4.03,'75%','Even kept in the refrigerator, our table butters are always ready to spread!', 'Specialities with butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_demi-sel-face-e1570526892868.png',3),
+
+
         ('Plain','250g',4.30,'40%','Known as one of the monuments of Luxembourg gastronomy, Kachkéis is produced in a traditional way, without melting salts, colourings or preservatives.', 'Kachkeis', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_250_traditionnel_Face_Site.png',4),
         ('With herbs','250g',4.30,'40%','Known as one of the monuments of Luxembourg gastronomy, Kachkéis is produced in a traditional way, without melting salts, colourings or preservatives.', 'Kachkeis', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_FinesHerbes_Face_Site.png',4),
         ('Low fat','250g',3.65,'0.1%','Known as one of the monuments of Luxembourg gastronomy, Kachkéis is produced in a traditional way, without melting salts, colourings or preservatives.', 'Kachkeis', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_maigre_Face_Site.png',4),
@@ -421,6 +430,8 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Light','500g',5.10,'0.2%','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream', 'White cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-blanc-maigre-500g_Site.png',4),
         ('With cream','250g',2.25,'9.2%','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream', 'White cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-frais-250g_Site.png',4),
         ('With cream','500g',5.12,'9.2%','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream', 'White cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-500g_Site.png',4),
+
+
         ('Liquid fresh cream','0.25L',2.18,'33%','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes.', 'Liquid cream', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-250ml_face.png',5),
         ('Liquid fresh cream','0.5L',4.50,'36%','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes.', 'Liquid cream', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-0.250L_1_HD_ok_.png',5),         
         ('Liquid fresh cream','1L',7.25,'36%','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes.', 'Liquid cream', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_.png',5),  
@@ -428,12 +439,15 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Whole','0.2L',1.80,'30%','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit.', 'Liquid cream,UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-30.png',5), 
         ('Culinary Cream','1L',12.04,'18%','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit.', 'Liquid cream,UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Creme-culinaire_Face.png',5),
         ('Smooth','0.2',2.04,'12%','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit.', 'Liquid cream,UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-12.png',5),
+
+
         ('Pineapple','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Ananas.png',6),
         ('Blueberry','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/myrtille.png',6),
         ('Lemon','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/citron.png',6),
         ('Strawberry','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Fraise.png',6),
         ('Cherry','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/cerise.png',6),
         ('Peach','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/p%C3%AAche.png',6),
+
 
         ('Strawberry', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56114-Fromage-blanc-fraise_Site.png', 7),
         ('Apricot', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56115-fromage-blanc-abricot_Site.png', 7),
