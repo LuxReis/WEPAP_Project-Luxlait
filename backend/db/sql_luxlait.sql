@@ -402,6 +402,10 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Pineapple', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56093-Dessert-ananas_Site.png', 6),
         ('Cherry', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56091-dessert-cerise_Site.png', 6),
         ('Strawberry', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56090-dessert-fraise_Site.png', 6),
+        ('Strawberry', '125g', 1.36 , '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56151_fit-fraise_Site.png', 6),
+        ('Blueberry', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56150_fit-myrtille_Site.png', 6),
+        ('Caramelised baked apple', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56155_fit-pomme-four_Site.png', 6),
+        ('Vanilla', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56152_Fit-vanille_Site.png', 6)
         
 
 
