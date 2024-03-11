@@ -398,6 +398,13 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Cherry','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/cerise.png',5),
         ('Peach','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/p%C3%AAche.png',5),
 
+        ('Strawberry', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56114-Fromage-blanc-fraise_Site.png', 6),
+        ('Apricot', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56115-fromage-blanc-abricot_Site.png', 6),
+        ('Pear', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56116-fromage-blanc-poires_Site.png', 6),
+        ('Fruits of the forest', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56117-fromahe-blanc-fruits-des-bois_Site.png', 6),
+        ('Pineapple', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56093-Dessert-ananas_Site.png', 6),
+        ('Cherry', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56091-dessert-cerise_Site.png', 6),
+        ('Strawberry', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56090-dessert-fraise_Site.png', 6),
         
 
 
