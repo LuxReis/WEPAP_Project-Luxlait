@@ -309,9 +309,58 @@ VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873f
 
 CREATE TABLE tblCategory (
     idCategory INT NOT NULL AUTO_INCREMENT,
-    categoryName VARCHAR(100) NOT NULL,
+    dtName VARCHAR(100) NOT NULL,
     PRIMARY KEY (idCategory)
 );
+
+INSERT INTO tblCategory (dtName)
+VALUES  ('Milk and dairy drinks'), 
+        ('Fermented Milks'),
+        ('Butters'),
+        ('Creams'),
+        ('Fresh cheeses'),
+        ('Yaourts'),
+        ('Dairy desserts'),
+        ('Ice cream'),
+        ('Biscuits');
+
+CREATE TABLE tblType () {
+    idType INT NOT NULL AUTO_INCREMENT,
+    dtType VARCHAR(50) NOT NULL,
+    dtDescription VARCHAR(300) NOT NULL,
+    dtImage VARCHAR(200),
+    fiCategory INT NOT NULL,
+    PRIMARY KEY (idType),
+    FOREIGN KEY (fiCategory) REFERENCES tblCategory (idCategory)
+}
+
+INSERT INTO tblType (dtType, dtDescription, dtImage, fiCategory)
+VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1-336x1024.png',1),
+       ('UHT Milk','UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly. UHT milk has the longest shelf-life.','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK-526x1536.png',1),
+       ('Lactose-free milk','Discover the first 0% lactose milk with 100% luxembourgish milk. This quality product doesn’t just taste good but also has a long shelf life.','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_-540x1536.png',1),
+       ('Organic Milk','Luxlait organic milk is available in two versions: fresh microfiltered milk, for optimal preservation of the taste and semi-skimmed UHT milk that you can store for several months at room temperature.','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',1),
+       ('Fresh Chocolate Milk','The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face-330x1024.png',1),
+       ('Shakers','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-2b43c425-e38f-4d79-b6bd-d3b837c4085e.png',1),
+       ('Funny drink','Our Funny Drink is a fresh and fruity drink with 0% fat. Enriched with vitamins it has all the benefits of milk and a fresh orange juice.','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-orange-1.png',1),
+       ('Egg Nog','Our egg nog is a creamy winter speciality with vanilla and non-alcoholic rum aroma. You can enjoy it hot or cold at any moment of the day. Tip for the adults: Add some rum for a festive drink.','https://www.luxlait.lu/wp-content/uploads/2019/09/Egg-nog-frais-0.75L_5_HD_OK_-600x1536.png',1),
+       
+       ('Fremented milk','The smooth and tasty recipe of Luxlait fermented milk has received a great feedback from all consumers. For more than 30 years, this tasty and slightly acidic drink has been the number one seller in Europe.','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-Fermente%CC%81-1L_face-2-e1641394646525-768x1214.png',2),
+       ('Lassi','Mango Lassi, born of Indian and Pakistani culinary traditions, is a testament to the love of flavours that define their heritage. Born in the Punjab Region of north India an eastern Pakistan, this exquisite drink is a harmonious marriage of the two nations’ passion for culture and taste. Whether enjoyed on busy street corners, in the tranquillity of homes or as a cherished offering on festive occasions, it reflects the essence of unity and conviviality that define the Pakistani and Indian communities. Luxlait Mango Lassi takes this traditional yoghurt recipe and creates a delicious, refreshing, smooth drink. Offering a glass of Lassi is not just a gesture of refreshment; it is a deeply rooted expression of hospitality. It symbolises the generosity and warmth that define the spirit of Indian and Pakistani communities.','https://www.luxlait.lu/wp-content/uploads/2024/01/TT-1000-Base-WEB-2.png',2),
+       ('Laben Beldi','Traditionally, the milk is whisked in a “Garba” for several hours, to obtain fermented milk. The Laben Beldi is then poured into a terracotta jug. This is covered with a wet Hessian cloth in order to preserve the freshness of the Laben as long as possible. At Luxlait we reproduce this traditional recipe from the Hauts Plateaux of the Atlas Mountains as faithfully as possible.','https://www.luxlait.lu/wp-content/uploads/2021/02/55190-Laben_1L-web-e1612252447339.png',2),
+       ('Raïb','Raib will go perfectly with your oriental dishes and will allow you to make light and digestible smoothies and milkshakes.','https://www.luxlait.lu/wp-content/uploads/2019/09/55140_RAIB_1L_Face-so.png',2), 
+       ('Raïbi','Raïbi is a fermented drink that has been created in Morocco in the 60s but has since then become popular in other countries, too. The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market. It’s a drink for the whole family: Kids love to freeze and make ice cream of it while adults will think back of their childhood or stay in Marocco.','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-2.png',2),
+       ('Kefir','An ancestral drink from the nomads of the Caucasus mountains. Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink. Its ferments contribute to well-being due to its natural action on the intestinal flora.','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',2),
+
+       ('','','',),
+       ('','','',),
+       ('','','',),
+       ('','','',),
+       ('','','',),
+       ('','','',),
+       ('','','',),
+       ('','','',),
+       ('','','',),
+
 
 CREATE TABLE tblProduct (
     idProduct INT NOT NULL AUTO_INCREMENT,
@@ -345,15 +394,6 @@ CREATE TABLE tblPreparation(){
     dtPreparationTime INT NOT NULL
 };
 
-INSERT INTO tblCategory (categoryName)
-VALUES  ('Milk and Dairy Drinks'), 
-        ('Fermented Milks'),
-        ('Butters'),
-        ('Cheeses'),
-        ('Creams')
-        ('Yaourts'),
-        ('Dessert'),
-        ()
 
 INSERT INTO tblProduct (dtProduct, dtMetricUnit, dtPrice, dtFat, dtDescription, dtType, dtImage, idCategory)
 VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.', 'Fresh milk', 'https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png', 1),
