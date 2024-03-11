@@ -20,7 +20,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/LuxReis/WEPAP_Project-Luxlait">
-    <img src="https://www.luxlait.lu/wp-content/themes/luxlait/logo.png?v=1.1.1" alt="Luxlait Logo" width="200" height="100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNbROHIx3uWlCuQAwwnUfaax5Z36WtUlQJV2kslheyAA&s" alt="Luxlait Logo" width="300" height="200">
   </a>
 
 <h2 align="center">WEPAP_Project-LuxLait</h2>
@@ -40,9 +40,10 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
+        <li><a href="#xampp">Web Server / XAMPP</a></li>
+        <li><a href="#database">Database</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -52,10 +53,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Luxlait website][luxlait-website-screenshot]](<!-- NOT DONE YET -->)
-
 The project is a school project, that are created by five students from Lycée des Arts et Métiers. It is about web project for Luxlait. Here you can find a functionial website about Luxlait.
 You can buy products from Luxlait with it, show recept to make your own Luxlait products, show information about the products, giving feedback and etc...
+
+<img src="https://cdn.discordapp.com/attachments/758231362057666570/1216781704505852045/image.png?ex=6601a345&is=65ef2e45&hm=1ff213388576a4f2f3d57cc2bff6b609637e03bcd9141d5c66d69b171793b0cc&" alt="Luxlait Website example">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -78,21 +79,45 @@ You can buy products from Luxlait with it, show recept to make your own Luxlait 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get started with it you first need to download the "Code" and unzip it.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Web Server / XAMPP 
+
+You can put the website in a website server like Apache or you use XAMPP for it.
+* Follow those steps to set up Apache server
+    * For Windows: https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Install-Apache-Web-Server-24-Windows-10-ServerRoot-Error
+    * For Windows with CMD: https://httpd.apache.org/docs/2.4/platform/windows.html
+    * For Linux (Ubuntu): https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
+
+* Turn on the Apache and MySQL moduls
+<p><img src="https://cdn.discordapp.com/attachments/758231362057666570/1216790970033504326/image.png?ex=6601abe6&is=65ef36e6&hm=f2a082cd9bf938e3cdde7f51ecb9b741340ae2d7c5572f344a2c782e05a687e3&" alt="xampp"></p>
+  
+* Put the files in the folders for the website server or in xampp in the htdocs folder
+<p><img src="https://cdn.discordapp.com/attachments/758231362057666570/1216790927046344786/image.png?ex=6601abdb&is=65ef36db&hm=7f8154f34083bf53d39f3ade9882f2cf42ebdbf99c9c66d88992b90e9d1ec19c&" alt="htdocs from xampp"></p>
+
+### Database
+
+You need a database
+* Follow those steps
+    * For Windows: https://www.wikihow.com/Install-phpMyAdmin-on-Your-Windows-PC
+    * For Linux (Ubuntu): https://ubuntu.com/server/docs/how-to-install-and-configure-phpmyadmin
 
 
+This is the connection to the database. Those X has to be replace with the connection informations.
+* Change the db_credentials file
+  ```sh
+  <?php
+    define('DB_HOST', 'XXX.XXX.XXX.XXX'); // set database host (normally localhost)
+    define('DB_USER', 'XXXXXXXX'); 	// set database user
+    define('DB_PASSWORD', 'XXXXXXXXXXXX'); // set database password
+    define('DB_NAME', 'XXXXXXX'); // set database name 
+  ?>
+  ```
 
-<!-- USAGE EXAMPLES -->
-## Usage
+After that you need to upload all sql file from "backend/db" to the database
+<p><img src="https://cdn.discordapp.com/attachments/1131226423898685480/1216794815153574071/image.png?ex=6601af7a&is=65ef3a7a&hm=b5b57da443d03b56ec35f964b51aa620059359a6217414208e710df68dcc2df4&" alt="phpmyadmin"></p>
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTRIBUTING -->
@@ -104,9 +129,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feature/Luxlait`)
+3. Commit your Changes (`git commit -m 'Add some Luxlait'`)
+4. Push to the Branch (`git push origin feature/Luxlait`)
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -115,11 +140,11 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Kaidi GUO - guoka342@school.lu
-Tim Frisch - friti725@school.lu
-Thibaut Friederici - frith033@school.lu
-Pedro Ribeiro Costa - ribpe261@school.lu
-Mihails Gamass - gammi625@school.lu
+* Kaidi GUO - guoka342@school.lu
+* Tim Frisch - friti725@school.lu
+* Thibaut Friederici - frith033@school.lu
+* Pedro Ribeiro Costa - ribpe261@school.lu
+* Mihails Gamass - gammi625@school.lu
 
 Project Link: [https://github.com/LuxReis/WEPAP_Project-Luxlait](https://github.com/LuxReis/WEPAP_Project-Luxlait)
 
@@ -150,7 +175,6 @@ Project Link: [https://github.com/LuxReis/WEPAP_Project-Luxlait](https://github.
 [issues-url]: https://github.com/LuxReis/WEPAP_Project-Luxlait/issues
 [license-shield]: https://img.shields.io/github/license/LuxReis/WEPAP_Project-Luxlait.svg?style=for-the-badge
 [license-url]: https://github.com/LuxReis/WEPAP_Project-Luxlait/blob/master/LICENSE.txt
-[product-screenshot]: <!-- Not Done yet -->
 [HTML.js]: https://img.shields.io/badge/HTML-withe?style=for-the-badge&logo=html&color=orange
 [HTML-url]: https://html.com
 [CSS.js]: https://img.shields.io/badge/CSS-withe?style=for-the-badge&logo=CSS&color=blue
