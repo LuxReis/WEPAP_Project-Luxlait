@@ -327,6 +327,31 @@ CREATE TABLE tblProduct (
     FOREIGN KEY (fiCategory) REFERENCES tblCategory(idCategory)
 );
 
+<<<<<<< HEAD
+
+CREATE TABLE tblRecipe(){
+    idRecipe INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL,
+    dtDescription VARCHAR(200) NOT NULL
+};
+
+CREATE TABLE tblIngredient(){
+    idIngredient INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL
+};
+
+CREATE TABLE tblPreparation(){
+    idPreparation INT NOT NULL AUTO_INCREMENT,
+    dtName VARCHAR(50) NOT NULL,
+    dtPreparationTime INT NOT NULL
+};
+
+INSERT INTO tblProduct (dtProduct,dtPrice,dtFat,dtMetricUnit,dtDescription,dtType,dtImage)
+VALUES  ('Fresh milk',2.17,'3.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png'),
+        ('Fresh milk',1.97,'1.5%',1,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','Milk','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png'),
+        ('Fresh milk',0.99,'1.5%',0.5,'At Luxlait, we have chosen to use a process called microfiltration. Microfiltered milk stays fresh longer while retaining its taste and nutritional properties.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png'),
+        ('UHT whole milk',1.63,'3.5%',1,'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png');
+=======
 INSERT INTO tblCategory (categoryName)
 VALUES  ('Milk and Dairy Drinks'), 
         ('Butters'),
@@ -408,4 +433,6 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Vanilla', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56152_Fit-vanille_Site.png', 6)
         
 
+>>>>>>> d4a7ac31c24110984d025cd4c7017ece7cc06a32
 
+>>>>>>> a09b7c0fc96c0da322006ca74e9cd4fe2a8acaec
