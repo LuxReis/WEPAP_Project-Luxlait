@@ -445,7 +445,13 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Strawberry', '125g', 1.36 , '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56151_fit-fraise_Site.png', 7),
         ('Blueberry', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56150_fit-myrtille_Site.png', 7),
         ('Caramelised baked apple', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56155_fit-pomme-four_Site.png', 7),
-        ('Vanilla', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56152_Fit-vanille_Site.png', 7)
-        
+        ('Vanilla', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56152_Fit-vanille_Site.png', 7),
+        ('Greek Style Yogurt Plain','150g', 1.45,'12,2%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/54250-Yaourt-%C3%A0-la-grecque_site.png', 7),
+        ('Greek Style Yogurt Honey','150g', 1.45,'10%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/54251-Yaourt-%C3%A0-la-grecque-miel_Site.png',7),
+        ('Greek Style Yogurt Plain','1kg', 9.67,'10%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt_grec.png',7),
+        ('Greek Style Yogurt Strawberry','1kg', 10.13,'8%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt-%C3%A0-la-grecque-fraise_2_HD_.png',7),
+        ('Greek Style Yogurt Peach & Passionfruit','1kg', 10.13,'8%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2020/05/Yaourt-a%CC%80-la-grecque-pe%CC%80che-passion_2_HD_.png',7),
+
+
         ('','', ,'','','','',),
         ('','', ,'','','','',),
