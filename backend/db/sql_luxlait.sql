@@ -302,8 +302,8 @@ VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873f
         ('ribpe261', 'Pedro', 'Ribeiro Costa', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'ribpe261@school.lu', '691 522 129', '1940', '274', 'route de Longwy', 'PT', 1),
         ('frith033', 'Thibaut', 'Friederici', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'frith033@school.lu', '691 703 747', '6724', '13', 'Rue des Foyers', 'LU', 1),
         ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '621 816 424', '6183', '39', 'rue de ecole', 'LU', 1),
-        ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '', '', '', '', 'LU', 1),
-        ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '', '', '', '', 'LU', 1);
+        ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', 'LU', 1),
+        ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '691 879 699', '8380', '13', 'Rue de la Gare', 'LU', 1);
 
 
 
@@ -350,8 +350,8 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('UHT organic milk','1L', 2.05, '1.5%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT,Organic milk', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png', 1),
         ('UHT whole milk','0.25L', 1.08, '3.5%', 'UHT milk can be stored for several months at room temperature, given that its packaging is closed. After opening, it should be placed in the refrigerator and consumed quickly.', 'UHT,Shakers', 'https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png', 1),
 
-        ('Fresh milk','1L', 2.27,'3,5%','Luxlait organic milk is available in two versions: fresh microfiltered milk, for optimal preservation of the taste and semi-skimmed UHT milk that you can store for several months at room temperature.','Organic Milk','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',1),
-        ('Fresh milk','0.25L',,'3,5%')
+        ('Fresh milk','1L', 2.27,'3,5%','Luxlait organic milk is available in two versions: fresh microfiltered milk, for optimal preservation of the taste and semi-skimmed UHT milk that you can store for several months at room temperature.','Organic Milk','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',1), //Organic Milk
+        ('Fresh milk','0.25L', 0.69,'3,5%','Luxlait organic milk is available in two versions: fresh microfiltered milk, for optimal preservation of the taste and semi-skimmed UHT milk that you can store for several months at room temperature.','Organic Milk','https://www.luxlait.lu/wp-content/uploads/2019/09/TR-250-BiO_Face-1.png',1),
 
         ('Fresh Chocolate Milk','1L', 3.09, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Fresh Chocolate Milk', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face.png', 1),
         ('Fresh Chocolate Milk','0.5L', 1.74, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Fresh Chocolate Milk', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_500ML-face.png', 1),             //Chocolate Milk
@@ -368,6 +368,7 @@ VALUES  ('Fresh milk','1L',2.17, '3.5%', 'At Luxlait, we have chosen to use a pr
         ('Cafe Latte Espresso','0.25L',1.33,'2.5%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-970ce447-1a8d-46a8-ab8f-c03602da6ea9.png',1),
         ('Milky strawberry','0.25L',1.33,'1%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-93c66a66-0d56-4122-a7a1-93d6d3e55a9a.png',1),
         ('Milky banana','0.25L',1.33,'1%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-73bc5a36-1681-49b1-9b38-f3631faddad9.png',1),
+        
         ('Rose Butter','10g',0.18,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre10g.png',2),
         ('Rose Butter','125g',3.18,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-125g-1.png',2),
         ('Rose Butter','250g',4.39,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png',2),
