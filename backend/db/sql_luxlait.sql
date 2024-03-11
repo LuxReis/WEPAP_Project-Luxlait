@@ -41,7 +41,7 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('BQ', 'Bonaire, Sint Eustatius and Saba', 599, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_Bonaire.svg/188px-Flag_of_Bonaire.svg.png'),
         ('BA', 'Bosnia and Herzegovina', 387, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bosnia_and_Herzegovina.svg/195px-Flag_of_Bosnia_and_Herzegovina.svg.png'),
         ('BW', 'Botswana', 267, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_Botswana.svg/188px-Flag_of_Botswana.svg.png'),
-        ('BV', 'Bouvet Island', 55, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/32px-Flag_of_Norway.svg.png'),
+        ('BV', 'Bouvet Island', 55, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/188px-Flag_of_Norway.svg.png'),
         ('BR', 'Brazil', 55, 'https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/188px-Flag_of_Brazil.svg.png'),
         ('IO', 'British Indian Ocean Territory', 246, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_the_Commissioner_of_the_British_Indian_Ocean_Territory.svg/195px-Flag_of_the_Commissioner_of_the_British_Indian_Ocean_Territory.svg.png'),
         ('BN', 'Brunei Darussalam', 673, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Brunei.svg/188px-Flag_of_Brunei.svg.png'),
