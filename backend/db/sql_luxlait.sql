@@ -408,98 +408,150 @@ CREATE TABLE tblProduct (
     dtPrice DOUBLE NOT NULL,
     dtFat VARCHAR(5),
     dtImage VARCHAR(200) NOT NULL,
+    dtPackage VARCHAR(25),
     fiType INT NOT NULL,
     PRIMARY KEY (idProduct),
     FOREIGN KEY (fiType) REFERENCES tblType (idType)
 );
 
-INSERT INTO tblProduct (dtProduct, dtMetricUnit, dtPrice, dtFat, dtImage, fiType)
-VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png',1),
-        ('Fresh milk','0.5L',0.99,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png',1),
-        ('Fresh milk','1L',1.97,'1.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png', 1),
+INSERT INTO tblProduct (dtProduct, dtMetricUnit, dtPrice, dtFat, dtImage, dtPackage, fiType)
+VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png',NULL,1),
+        ('Fresh milk','0.5L',0.99,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png',NULL,1),
+        ('Fresh milk','1L',1.97,'1.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png',NULL,1),
 
-        ('UHT whole milk','1L',1.63,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png', 2),
-        ('UHT semi-skimmed milk','1L',1.95,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK.png', 2),
-        ('UHT skimmed milk','1L',2.17,'0%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait_UHT_0_Sans-ombre.png', 2),
-        ('UHT whole milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png', 2),
-        ('UHT organic milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png', 2),
-        ('UHT lactose-free milk','1L',2.02,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png', 2),
+        ('UHT whole milk','1L',1.63,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png',NULL,2),
+        ('UHT semi-skimmed milk','1L',1.95,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK.png',NULL,2),
+        ('UHT skimmed milk','1L',2.17,'0%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait_UHT_0_Sans-ombre.png',NULL,2),
+        ('UHT whole milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png',NULL,2),
+        ('UHT organic milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',NULL,2),
+        ('UHT lactose-free milk','1L',2.02,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png',NULL,2),
         
-        ('Lacto-free milk','1L',1.91,'0%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png', 3),
+        ('Lacto-free milk','1L',1.91,'0%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png',NULL,3),
 
-        ('UHT milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',4),
-        ('Fresh milk','1L',2.27,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',4), 
-        ('Fresh milk','0.25L',0.69,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TR-250-BiO_Face-1.png',4),
+        ('UHT milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',NULL,4),
+        ('Fresh milk','1L',2.27,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',NULL,4), 
+        ('Fresh milk','0.25L',0.69,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TR-250-BiO_Face-1.png',NULL,4),
 
-        /* Needs to be updated */
+        ('Fresh Chocolate Milk','0.25L', 1.30, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-Frais_250ML_face.png',NULL,5),
+        ('Fresh Chocolate Milk','0.5L', 1.74, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_500ML-face.png',NULL,5),
+        ('Fresh Chocolate Milk','1L', 3.09, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face.png',NULL,5),
+       
+        ('UHT milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png',NULL,6),
+        ('Fresh Chocolate Milk','0.25L', 1.46, '3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-2b43c425-e38f-4d79-b6bd-d3b837c4085e.png',NULL,6),
+        ('Vanilla Milk','0.25L',1.55,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-f1d1e562-501e-4582-8ee4-bdb66c8fb7f5.png',NULL,6),
+        ('Cafe Latte Cappuccino','0.25L',1.33,'2.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-8f1d2794-ffe6-40ef-b154-f88fad4e979f.png',NULL,6),
+        ('Cafe Latte Caramel','0.25L',1.33,'2.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-cbd9712f-7224-49f1-bc29-3a781e6a1735.png',NULL,6),
+        ('Cafe Latte Espresso','0.25L',1.33,'2.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-970ce447-1a8d-46a8-ab8f-c03602da6ea9.png',NULL,6),
+        ('Milky strawberry','0.25L',1.33,'1%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-93c66a66-0d56-4122-a7a1-93d6d3e55a9a.png',NULL,6),
+        ('Milky banana','0.25L',1.33,'1%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-73bc5a36-1681-49b1-9b38-f3631faddad9.png',NULL,6),
 
-        ('Fresh Chocolate Milk','1L', 3.09, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Fresh Chocolate Milk', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face.png', 1),
-        ('Fresh Chocolate Milk','0.5L', 1.74, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Fresh Chocolate Milk', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_500ML-face.png', 1),             //Chocolate Milk
-        ('Fresh Chocolate Milk','0.25L', 1.30, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Fresh Chocolate Milk,Shakers', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-Frais_250ML_face.png', 1),
+        ('Tropical','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-tropical-1.png',NULL,7),
+        ('Orange','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-orange-1.png',NULL,7),
 
-        ('Egg Nog','0.7L', 1.30, '3.5%', 'The creamy whole milk and rich taste of cocoa have made our chocolate milk a real bestseller.', 'Seasonal products', 'https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-2b43c425-e38f-4d79-b6bd-d3b837c4085e.png', 1),
+        ('Egg Nog','0.7L', 1.30, '3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Egg-nog-frais-0.75L_5_HD_OK_.png',NULL,8),
 
-        ('Tropical','0.7L', 2.55, '0.1%', 'Our Funny Drink is a fresh and fruity drink with 0% fat. Enriched with vitamins it has all the benefits of milk and a fresh orange juice.', 'Funny drink', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-tropical-1.png', 1),
-        ('Orange','0.7L', 2.55, '0.1%', 'Our Funny Drink is a fresh and fruity drink with 0% fat. Enriched with vitamins it has all the benefits of milk and a fresh orange juice.', 'Funny drink', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-orange-1.png', 1),
 
-        ('Vanilla Milk','0.25L',1.55,'1.6%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-f1d1e562-501e-4582-8ee4-bdb66c8fb7f5.png',1),
-        ('Cafe Latte Cappuccino','0.25L',1.33,'2.5%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-8f1d2794-ffe6-40ef-b154-f88fad4e979f.png',1),
-        ('Cafe Latte Caramel','0.25L',1.33,'2.5%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-cbd9712f-7224-49f1-bc29-3a781e6a1735.png',1),
-        ('Cafe Latte Espresso','0.25L',1.33,'2.5%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-970ce447-1a8d-46a8-ab8f-c03602da6ea9.png',1),
-        ('Milky strawberry','0.25L',1.33,'1%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-93c66a66-0d56-4122-a7a1-93d6d3e55a9a.png',1),
-        ('Milky banana','0.25L',1.33,'1%','Our shakers are available in 8 different flavours. The 25cl format and lid make them perfect to enjoy on the go.','Shakers','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-73bc5a36-1681-49b1-9b38-f3631faddad9.png',1),
+        ('Fermented milk','1L', 2.13,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-Fermente%CC%81-1L_face-2-e1641394646525.png',NULL,9),
+
+        ('Lassi Mango','1L', 2.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2024/01/TT-1000-Base-WEB.png',NULL,10),
+        
+        ('Laben Beldi','1L', 2.13,'1.6%','https://www.luxlait.lu/wp-content/uploads/2021/01/55190-Laben_1L-web2.png',NULL,11),
+        
+        ('Curd Milk','1L', 2.13,'2.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/55140_RAIB_1L_Face-so.png',NULL,12),
+        
+        ('Pomegranate','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-1.png',NULL,13),
+        ('Pomegranate','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-05L.png',NULL,13),
+        ('Pistachio','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Rabi-pistache-V2_1_HD_.png',NULL,13),
+        ('Pistachio','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Pistache-500ml_Face-Ombre-ok-site.png',NULL,13),
+        ('Mango','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_face-ok-site.png',NULL,13),
+        ('Mango','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_500ML_Face-ok-site.png',NULL,13),
+        
+        ('Plain','0.5L', 1.18,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',NULL,14),
+        ('Vanilla','0.5L', 1.28,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-vanille-1.png',NULL,14),
+        ('Blueberry','0.5L', 1.37,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/10/Kefir-Myrtille-face-500ml-e1570538615163.png',NULL,14),
+
+
+        ('Garlic Herb Butter','125g', 3.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2022/06/Beurre-ail-et-fines-herbes_2_HD_.png',NULL,15),
+
+        ('Rose Butter','10g',0.18,'80%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre10g.png','Plastic Tray',16),
+        ('Rose Butter','125g',3.18,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-125g-1.png','Aluminium packaging',16),
+        ('Rose Butter','250g',3.85,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png','Aluminium packaging',16),
+        ('Rose Butter','250g',4.39,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-barquette-1.png','Plastic tray',16),
+        ('Rose Butter','500g',7.67,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-500g-1.png','Aluminium packaging',16),
+
+        ('Spreadable','250g',4.33,'80%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_tartinable-face-e1570526858659.png','Plastic tray',17),
+        ('Light','250g',4.03,'40%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637.png','Plastic tray',17),
+        ('Semi-salted','250g',4.03,'75%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_demi-sel-face-e1570526892868.png','Plastic tray',17),
+
+
+        ('Liquid fresh cream','0.25L',2.18,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-250ml_face.png',NULL,18),
+        ('Liquid fresh cream','0.5L',4.50,'36%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-0.250L_1_HD_ok_.png',NULL,18),         
+        ('Liquid fresh cream','1L',7.25,'36%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_.png',NULL,18),  
+        
+        ('Whipping Cream','1L',7.25,'35%','https://www.luxlait.lu/wp-content/uploads/2020/05/Cr%C3%A8me-UHT-35-1L.png',NULL,19), 
+        ('Smooth','0.2',2.04,'12%','https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-12.png',NULL,19),
+        ('Whole','0.2L',1.80,'30%','https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-30.png',NULL,19), 
+        ('Culinary Cream','1L',12.04,'18%','https://www.luxlait.lu/wp-content/uploads/2019/09/Creme-culinaire_Face.png',NULL,19),
+
+        ('Coffee cream','10g',0.07,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Coffee-Cream-Dosette_75g.png',NULL,20),
+
+        ('Thick','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-epaisse-250g_Site.png',NULL,21),
+        ('Thick','500g',6.52,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/cr%C3%A8me-fraiche-epaisse-500g_Site.png',NULL,21),
+        ('Light','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/cr%C3%A8me-fraiche-250g_Site.png',NULL,21),
+        ('French style','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-%C3%A0-la-fr-250g_Site.png',NULL,21),
+
+
+        ('Organic faisselle','2x100g',4.69,'6%','https://www.luxlait.lu/wp-content/uploads/2022/05/FaisselleBio_Face-1.png',NULL,22),
+
+        ('Cottage cheese','450g',5.04,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/cottage-cheese-250g_Site.png',NULL,23),
+        ('Cottage cheese','225g',3.04,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/cottage-cheese-500g_Site.png',NULL,23),
+
+        ('Light','250g',2.54,'0.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-maigre-250g_Site.png',NULL,24),
+        ('Light','500g',5.10,'0.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-blanc-maigre-500g_Site.png',NULL,24),
+        ('With cream','250g',2.25,'9.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-frais-250g_Site.png',NULL,24),
+        ('With cream','500g',5.12,'9.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-500g_Site.png',NULL,24),
+
+        ('Brach','250g',2.07,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-caill%C3%A9-250g_Site.png',NULL,25),
+
+
+        ('Organic brie','150g',4.30,NULL,'https://www.luxlait.lu/wp-content/uploads/2022/06/Brie_2_HD_.png',NULL,26),
+
+        ('Beer Cheese','140g',3.78,'48%','https://www.luxlait.lu/wp-content/uploads/2020/05/fromage-battin.png',NULL,27),
+
+        ('Grated Emmental','200g',3.28,'31%','https://www.luxlait.lu/wp-content/uploads/2019/10/56404_Emmental-rape.png',NULL,28),
+
+        ('Emmental','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Emmental.png',NULL,29),
+        ('Chapelain','170g',,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Chapelain.png',NULL,29),
+        ('Gouda','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/gouda.png',NULL,29),
+        ('Gouda Light','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/gouda-light_.png',NULL,29),
+        ('Edamer','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Edamer.png',NULL,29),
+        ('Abbaye','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Abbaye.png',NULL,29),
+        ('Lactose-free emmental','170g',3.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Emmental-0-lactose.png',NULL,29),
+        ('Lactose-free gouda','170g',3.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/gouda-0-lactose.png',NULL,29),
+
+        ('Plain','250g',4.30,'40%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_250_traditionnel_Face_Site.png','Tub',30),
+        ('With herbs','250g',4.30,'40%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_FinesHerbes_Face_Site.png','Tub',30),
+        ('Low fat','250g',3.65,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_maigre_Face_Site.png','Tub',30),
+        ('Plain','100g',2.23,'40%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_100g_traditionnel_Face_Site.png','Tub',30),
+        ('Low fat slab','250g',4.50,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachke%CC%81is-saucisse-maigre-250g.png','Roll',30),
+        ('Low fat slab','500g',5.60,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachke%CC%81is-saucisse-maigre-500.png','Roll',30),
+
+        ('Plain',NULL,2.78,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cremes-Chapelain-nature.png',NULL,31),
+        ('Sweet pepper & pimento',NULL,2.89,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-chapelain-Poivron-Piment.png',NULL,31),
+        ('Italian flavour',NULL,2.98,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-chapelain-Saveur-Italienne.png',NULL,31),
+        ('With black truffle from the Périgord',NULL,3.12,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-Chapelain-O%CC%88-la-Truffe.png',NULL,31),
+
+
+        ('','',,'','',NULL,),
+        ('','',,'','',NULL,),
+
+
+        
+        
         
 
-        ('Fermented milk','1L', 2.13,'1.5%','The smooth and tasty recipe of Luxlait fermented milk has received a great feedback from all consumers.','Fermented Milk','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-Fermente%CC%81-1L_face-2-e1641394646525.png',2),
 
-        ('Lassi Mango','1L', 2.13,NULL,'Luxlait Mango Lassi takes this traditional yoghurt recipe and creates a delicious, refreshing, smooth drink.','Lassi','https://www.luxlait.lu/wp-content/uploads/2024/01/TT-1000-Base-WEB.png',2)
         
-        ('Laben Beldi','1L', 2.13,'1.6%','At Luxlait we reproduce this traditional recipe from the Hauts Plateaux of the Atlas Mountains as faithfully as possible.','Laben Beldi','https://www.luxlait.lu/wp-content/uploads/2021/01/55190-Laben_1L-web2.png',2),
-        
-        ('Curd Milk','1L', ,'2.6%','Raib will go perfectly with your oriental dishes and will allow you to make light and digestible smoothies and milkshakes.','Raïb','https://www.luxlait.lu/wp-content/uploads/2019/09/55140_RAIB_1L_Face-so.png',2),
-        
-        ('Pomegranate','1L', 2.08,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-1.png',2),
-        ('Pomegranate','0.5L', 1.05,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-05L.png',2),
-        ('Pistachio','1L', 2.08,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2020/04/Rabi-pistache-V2_1_HD_.png',2),
-        ('Pistachio','0.5L', 1.05,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Pistache-500ml_Face-Ombre-ok-site.png',2),
-        ('Mango','1L', 2.08,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_face-ok-site.png',2),
-        ('Mango','0.5L', 1.05,'1.6%','The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market.','Raïbi','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_500ML_Face-ok-site.png',2),
-        
-        ('Plain','0.5L', 1.18,'1.6%','Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink.','Kefir','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',2),
-        ('Vanilla','0.5L', 1.28,'1.6%','Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink.','Kefir','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-vanille-1.png',2),
-        ('Blueberry','0.5L', 1.37,'1.6%','Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink.','Kefir','https://www.luxlait.lu/wp-content/uploads/2019/10/Kefir-Myrtille-face-500ml-e1570538615163.png',2),
-
-
-        ('Garlic Herb Butter','125g', 3.16,NULL,'For your barbecues, meat dishes or however you prefer: choose the Luxlait Garlic herb butter.','Garlic Herb Butter','https://www.luxlait.lu/wp-content/uploads/2022/06/Beurre-ail-et-fines-herbes_2_HD_.png',3),
-
-        ('Rose Butter','10g',0.18,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre10g.png',3),
-        ('Rose Butter','125g',3.18,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-125g-1.png',3),
-        ('Rose Butter','250g',4.39,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png',3),
-        ('Rose Butter','500g',7.67,'80%','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria.', 'Butter', 'https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-500g-1.png',3),
-        
-        ('Spreadable','250g',4.33,'80%','Even kept in the refrigerator, our table butters are always ready to spread!', 'Specialities with butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_tartinable-face-e1570526858659.png',3),
-        ('Light','250g',4.03,'40%','Even kept in the refrigerator, our table butters are always ready to spread!', 'Specialities with butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637.png',3),
-        ('Semi-salted','250g',4.03,'75%','Even kept in the refrigerator, our table butters are always ready to spread!', 'Specialities with butter', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_demi-sel-face-e1570526892868.png',3),
-
-
-        ('Plain','250g',4.30,'40%','Known as one of the monuments of Luxembourg gastronomy, Kachkéis is produced in a traditional way, without melting salts, colourings or preservatives.', 'Kachkeis', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_250_traditionnel_Face_Site.png',4),
-        ('With herbs','250g',4.30,'40%','Known as one of the monuments of Luxembourg gastronomy, Kachkéis is produced in a traditional way, without melting salts, colourings or preservatives.', 'Kachkeis', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_FinesHerbes_Face_Site.png',4),
-        ('Low fat','250g',3.65,'0.1%','Known as one of the monuments of Luxembourg gastronomy, Kachkéis is produced in a traditional way, without melting salts, colourings or preservatives.', 'Kachkeis', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_maigre_Face_Site.png',4),
-        ('Cottage cheese','450g',5.04,NULL,'Thanks to its melting texture and its curds of creamy fresh cheese, Luxlait cottage cheese wasawarded adistinction in the “Superior Taste” competition.', 'Fresh cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/cottage-cheese-500g_Site.png',4),
-        ('Cottage cheese','225g',3.04,NULL,'Thanks to its melting texture and its curds of creamy fresh cheese, Luxlait cottage cheese wasawarded adistinction in the “Superior Taste” competition.', 'Fresh cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/cottage-cheese-250g_Site.png',4),
-        ('Light','250g',2.54,'0.2%','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream', 'White cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-maigre-250g_Site.png',4),
-        ('Light','500g',5.10,'0.2%','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream', 'White cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-blanc-maigre-500g_Site.png',4),
-        ('With cream','250g',2.25,'9.2%','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream', 'White cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-frais-250g_Site.png',4),
-        ('With cream','500g',5.12,'9.2%','Luxlait fresh cheeses are prepared according to the traditional recipe and from simple ingredients: milk and a touch of cream', 'White cheese', 'https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-500g_Site.png',4),
-
-
-        ('Liquid fresh cream','0.25L',2.18,'33%','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes.', 'Liquid cream', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-250ml_face.png',5),
-        ('Liquid fresh cream','0.5L',4.50,'36%','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes.', 'Liquid cream', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-0.250L_1_HD_ok_.png',5),         
-        ('Liquid fresh cream','1L',7.25,'36%','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes.', 'Liquid cream', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_.png',5),  
-        ('Whipping Cream','1L',7.25,'35%','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit.', 'Liquid cream,UHT', 'https://www.luxlait.lu/wp-content/uploads/2020/05/Cr%C3%A8me-UHT-35-1L.png',5), 
-        ('Whole','0.2L',1.80,'30%','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit.', 'Liquid cream,UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-30.png',5), 
-        ('Culinary Cream','1L',12.04,'18%','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit.', 'Liquid cream,UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/Creme-culinaire_Face.png',5),
-        ('Smooth','0.2',2.04,'12%','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit.', 'Liquid cream,UHT', 'https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-12.png',5),
 
 
         ('Pineapple','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Ananas.png',6),
@@ -528,8 +580,6 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Greek Style Yogurt Peach & Passionfruit','1kg', 10.13,'8%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2020/05/Yaourt-a%CC%80-la-grecque-pe%CC%80che-passion_2_HD_.png',7),
 
 
-        ('','', ,'','','','',),
-        ('','', ,'','','','',),
 
 CREATE TABLE tblRecipe(){
     idRecipe INT NOT NULL AUTO_INCREMENT,
