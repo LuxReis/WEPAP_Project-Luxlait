@@ -382,7 +382,10 @@ VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfi
        ('Yoghurt','The “Luxembourg yoghurt” range demonstrates Luxlait""s expertise in yoghurts. Their packaging in the form of a duo-pack and family pot are perfectly adapted to all current consumption patterns.','https://www.luxlait.lu/wp-content/uploads/2019/10/Fraise-1024x684.png',7),
        ('Winter yoghurt','Comforting and tasty in winter.','https://www.luxlait.lu/wp-content/uploads/2019/09/Hiver-sp%C3%A9culoos-1024x684.png',7),
        ('Funny yoghurt','Funny Yoghurt is a fruit-flavoured yoghurt for children. The fruit it contains has been blended, which makes it easier to eat.It will accompany your child as he grows and harden his bones! Rich in calcium, phosphorus and vitamins, it is a nourishing yoghurt that provides him with everything he needs.','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-banane-1024x600.png',7),
-
+       ('Organic Yoghurt','Made without preservatives from milk, fruit and sugar, certified by the European Union""s organic label. Organic yoghurts are preservative-free. Thanks to our new recipe, the natural organic yoghurt is now stirred. This gives it a new, creamier and smoother texture to prolong your enjoyment. Go on, taste it!','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-nature-1024x684.png',7),
+       ('0% Yoghurt','It is a fresh yoghurt with good melt-in-the-mouth fruit, without added sugar and fat.With its light texture and low acidity, it is a pleasant and refreshing product.It contains yoghurt lactic acid bacteria, which strengthen our digestive system: Straptococcus Thermophilus and Lactobacillus Bulgaricus. In addition, being rich in calcium, a pot of yoghurt meets 45% of the recommended daily intake. So, why deprive yourself?','https://www.luxlait.lu/wp-content/uploads/2019/09/0-museli_-1024x684.png',7),
+       ('Cream yoghurt','Rich and creamy, creamy yoghurt is the dessert of gourmets. At any time of the day, let yourself be tempted by this smooth cream, subtly accompanied by real pieces of fruit or fine chocolate shavings, such as with the stracciatella creamy yoghurt. This is a rich preparation with 10% fat, rich in calcium and protein, enriched with cream, which will allow you to fill up with energy.','https://www.luxlait.lu/wp-content/uploads/2019/09/Satin%C3%A9-fruits-des-bois-1024x571.png',7),
+    
        ('White cheese & fruits','Combining the sweetness of a creamy white cheese and a bed of gourmet fruit. The range of 4 flavours is suitable for everyday enjoyment','https://www.luxlait.lu/wp-content/uploads/2019/10/56115-fromage-blanc-abricot_Site-1024x526.png',8),
        ('Dessert','This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.','https://www.luxlait.lu/wp-content/uploads/2020/05/56091-dessert-cerise_Site-1024x595.png',8),
        ('Fit wellness snack','A creamy fresh cheese combined with the delicacy of fruit. A range of 5 tasty flavours, to be enjoyed as a dessert or as a snack.','https://www.luxlait.lu/wp-content/uploads/2019/09/56155_fit-pomme-four_Site-1024x559.png',8),
@@ -392,6 +395,13 @@ VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfi
        ('Ice Cream Stick','Give yourself a refreshing break with Luxlait Ice Cream Sticks Available in chocolate, hazelnut and pistachio.','https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_3_HD_-1024x770.png',9),
        ('Ice cream tubs','Do you prefer ice cream or sorbet? For our ice cream tubs we chose only the best ingredients and lots of fruit! Let the intense taste and colorful packagings seduce you.','https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Vanille-853x1024.png',9),
        ('Miniatures','The fine crunchy shell is a perfect taster to enjoy the smooth vanilla, pistachio, raspberry, coconut and praline ice cream.','https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Framboise-simple_Dessus-1024x644.png',9),
+       ('Water Sticks','You now don""t need to look elsewhere, Luxlait Ice Cream has developed a range of water-based ice sticks. The sticks are available in several flavours of orange, lemon and coca.','https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Orange_2_HD_-1024x818.png',9),
+       ('Frozen Yoghurt','To produce our Frozen Yoghurt, we use yoghurt instead of cream. Yoghurt contains less fat which makes it healthier. The 200ml pack with its integrated spoon is perfect for taking anywhere. Several flavours: strawberry, peach/passion fruit, salted butterscotch with pecan, vanilla and raspberry. Several flavours are also available in the 1 liter format.','https://www.luxlait.lu/wp-content/uploads/2019/09/Frozen-Yogurt-Caramel-1.png',9),
+       ('Minicups','Luxlait minicups are individual portions composed of a creamy ice cream in a variety of flavours. As a snack or dessert, Luxlait minicups are ideal for a little gourmet break!','https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups-Mutlipack-Fraise_3_HD_-1024x998.png',9),
+       ('Organic Ice cream','Organic milk ice cream.','https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_vanille.png',9),
+       ('Fine crème','This fine and delicate composition will make you melt, spoonful after spoonful','https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Chocolat.png',9),
+       ('Dame blanche','With Luxlait Dame Blanche, you will find an essential classic … The refinement of this dessert will awaken your sensitivity. The intensity of the chocolate sauce mixed with the purity of the vanilla ice cream will make you melt with pleasure …','https://www.luxlait.lu/wp-content/uploads/2019/08/Boite-dame-blanche_BR-1024x824.png',9),
+       ('Ice Cream Cake','The Lingot Vanille with its Bourbon vanilla intensity, the Brazilian cake made with a creamyvanilla-flavoured ice cream with such a melting praline heart, and the Christmas Log to enjoy during the Christmas season.','https://www.luxlait.lu/wp-content/uploads/2019/08/Lingot_Dessus-web-1024x509.png',9),
 
        ('Sablés','Biscuits with Luxlait “Rose” butter.','https://www.luxlait.lu/wp-content/uploads/2019/09/Site1-2-1024x267.png',10),
        ('Mini Sablés','Mini-biscuits with Luxlait "Rose" butter in different flavours','https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Miel-Sesame-1024x1024.png',10),
@@ -400,11 +410,10 @@ VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfi
 
 
 
-
 CREATE TABLE tblProduct (
     idProduct INT NOT NULL AUTO_INCREMENT,
     dtProduct VARCHAR(100),
-    dtMetricUnit VARCHAR(10) NOT NULL,
+    dtMetricUnit VARCHAR(10),
     dtPrice DOUBLE NOT NULL,
     dtFat VARCHAR(5),
     dtImage VARCHAR(200) NOT NULL,
@@ -521,7 +530,7 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Grated Emmental','200g',3.28,'31%','https://www.luxlait.lu/wp-content/uploads/2019/10/56404_Emmental-rape.png',NULL,28),
 
         ('Emmental','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Emmental.png',NULL,29),
-        ('Chapelain','170g',,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Chapelain.png',NULL,29),
+        ('Chapelain','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Chapelain.png',NULL,29),
         ('Gouda','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/gouda.png',NULL,29),
         ('Gouda Light','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/gouda-light_.png',NULL,29),
         ('Edamer','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Edamer.png',NULL,29),
@@ -542,42 +551,117 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('With black truffle from the Périgord',NULL,3.12,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-Chapelain-O%CC%88-la-Truffe.png',NULL,31),
 
 
-        ('','',,'','',NULL,),
-        ('','',,'','',NULL,),
+        ('Lime - Cactus','2x125g',2.15,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/05/ete-citron.png',NULL,32),
+        ('Mango - Turmeric','2x125g',2.15,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/05/ete-mangue.png',NULL,32),
+        ('Yuzu - Green Tea','2x125g',2.15,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/ete-yuzu.png',NULL,32),
+
+        ('Pineapple','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Ananas.png',NULL,33),
+        ('Pineapple','500g',3.24,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Ananas-500g.png','Pot',33),
+        ('Cherry','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/cerise.png',NULL,33),
+        ('Lemon','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/citron.png',NULL,33),
+        ('Strawberry','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Fraise.png',NULL,33),
+        ('Strawberry','500g',3.24,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Fraise-500g.png','Pot',33),
+        ('Raspberry','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/framboise.png',NULL,33),
+        ('Blueberry','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/myrtille.png',NULL,33),
+        ('Peach','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/p%C3%AAche.png',NULL,33),
+        ('Peach passion fruit','500g',3.24,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/p%C3%AAche-et-fruit-de-la-passion-500g.png','Pot',33),
+        ('Rhubarb','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Rhubarbbe.png',NULL,33),
+        ('Vanilla','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Vanille.png',NULL,33),
+        ('Vanilla','500g',3.24,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Vanille-500g.png','Pot',33),
+        ('Strawberry - 6 seeds','2x125g',2.04,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/10/Fraise-graine.png',NULL,33),
+        ('Plain','2x125g',2.04,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/nature.png',NULL,33),
+        ('Plain','500g',3.24,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Nature-500-g.png','Pot',33),
+        ('Hazelnut','2x125g',2.04,'3.7%','https://www.luxlait.lu/wp-content/uploads/2019/10/Noisette.png',NULL,33),
+        ('Pina Colada','2x125g',2.04,'2.7%','https://www.luxlait.lu/wp-content/uploads/2019/10/Pina-colada.png',NULL,33),
+        ('Plain stirred','8x125g',4.69,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Multipack-nature.png',NULL,33),
+        ('Fruit variety pack','8x125g',4.69,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Multipack-fruit%C3%A9.png',NULL,33),
+
+        ('Speculoos','2x125g',2.15,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Hiver-sp%C3%A9culoos.png',NULL,34),
+        ('Mandarin cheesecake','2x125g',2.15,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/hiver-fromage-blanc.png',NULL,34),
+        ('Honey - Walnut','2x125g',2.15,'2.3%','https://www.luxlait.lu/wp-content/uploads/2019/09/Hiver-Noix.png',NULL,34),
+
+        ('Apricot','2x125g',2.08,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-abricot.png',NULL,35),
+        ('Banana','2x125g',2.08,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-banane.png',NULL,35),
+        ('Strawberry','2x125g',2.08,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-fraise.png',NULL,35),
+
+        ('Plain','2x125g',2.18,'3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-nature.png',NULL,36),
+        ('Strawberry','2x125g',2.18,'2.8%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-fraise.png',NULL,36),
+        ('Peach','2x125g',2.18,'2.8%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-p%C3%AAche.png',NULL,36),
+        ('Vanilla','2x125g',2.18,'2.9%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-vanille.png',NULL,36),
+
+        ('Apricot','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-abricot.png',NULL,37),
+        ('Strawberry','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-fraise_.png',NULL,37),
+        ('Fruits of the forest','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-fruits-des-bois_.png',NULL,37),
+        ('Museli','2x125g',1.94,'0.4%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-museli_.png',NULL,37),
+        ('Plain','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-nature_.png',NULL,37),
+
+        ('Strawberry','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/satin%C3%A9-fraise.png',NULL,38),
+        ('Fruits of the forest','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Satin%C3%A9-fruits-des-bois.png',NULL,38),
+        ('Stracciatella','2x125g',2.25,'11.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/satin%C3%A9-chocolat.png',NULL,38),
+        ('Fruits of the orchard','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Satin%C3%A9-fruits-verger.png',NULL,38),
+        ('Lemon','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Satin%C3%A9-citron.png',NULL,38),
+        ('Vanilla','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/satin%C3%A9-vanille.png',NULL,38),
 
 
-        
-        
-        
+        ('White cheese & strawberry','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56114-Fromage-blanc-fraise_Site.png',NULL,39),
+        ('White cheese & apricot','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56115-fromage-blanc-abricot_Site.png',NULL,39),
+        ('White cheese & pear','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56116-fromage-blanc-poires_Site.png',NULL,39),
+        ('White cheese & fruits of the forest','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56117-fromahe-blanc-fruits-des-bois_Site.png',NULL,39),
+
+        ('Pineapple','150g',1.52,'6%','https://www.luxlait.lu/wp-content/uploads/2020/05/56093-Dessert-ananas_Site.png',NULL,40),
+        ('Cherry','150g',1.52,'6%','https://www.luxlait.lu/wp-content/uploads/2020/05/56091-dessert-cerise_Site.png',NULL,40),
+        ('Strawberry','150g',1.52,'6%','https://www.luxlait.lu/wp-content/uploads/2020/05/56090-dessert-fraise_Site.png',NULL,40),
+
+        ('Strawberry','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56151_fit-fraise_Site.png',NULL,41),
+        ('Blueberry','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56150_fit-myrtille_Site.png',NULL,41),
+        ('Caramelised baked apple','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56155_fit-pomme-four_Site.png',NULL,41),
+        ('Vanilla','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56152_Fit-vanille_Site.png',NULL,41),
+
+        ('Greek Style Yogurt Plain','150g',1.45,'12.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/54250-Yaourt-%C3%A0-la-grecque_site.png',NULL,42),
+        ('Greek Style Yogurt Honey','150g',1.45,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/54251-Yaourt-%C3%A0-la-grecque-miel_Site.png',NULL,42),
+        ('Greek Style Yogurt Plain','1kg',9.67,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt_grec.png',NULL,42),
+        ('Greek Style Yogurt Strawberry','1kg',10.13,'8%','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt-%C3%A0-la-grecque-fraise_2_HD_.png',NULL,42),
+        ('Greek Style Yogurt Peach & Passionfruit','1kg',10.13,'8%','https://www.luxlait.lu/wp-content/uploads/2020/05/Yaourt-a%CC%80-la-grecque-pe%CC%80che-passion_2_HD_.png',NULL,42),
 
 
-        
+        ('Strawberry','6×77,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-fraise_2_HD_ombre_-e1618404133243.png',NULL,43),
+        ('Vanilla & coffee','6×73,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipac-moka_2_HD_ombre_-e1618405784501.png',NULL,43),
+        ('Hazelnut','6×76,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-noisette_2_HD_ombre_-e1618405919467.png',NULL,43),
+        ('Vanilla','6×76,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-vanille_2_HD_ombre_-e1618405992152.png',NULL,43),
+        ('Chocolate','6×77,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-chocolat_2_HD_ombre_-e1618406300972.png',NULL,43),
+        ('Lime sorbet','6×75,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-citron_2_HD_ombre_-e1618406689731.png',NULL,43),
+
+        ('Hazelnut','6x80ml',7.75,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_3_HD_.png',NULL,44),
+        ('Pistachio','6x94ml',7.75,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_2_HD_.png',NULL,44),
+        ('Vanilla','6x80ml',7.75,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_1_HD_.png',NULL,44),
+
+        ('Vanilla ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Vanille.png',NULL,45),
+        ('Strawberry ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Fraise.png',NULL,45),
+        ('Pistachio ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Pistache.png',NULL,45),
+        ('Chocolate ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Chocolat.png',NULL,45),
+        ('Coffee ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Cafe.png',NULL,45),
+        ('Mango passion fruit sorbet','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Sorbet-Mangue-Passion.png',NULL,45),
+        ('Lemon sorbet','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Sorbet-Citron.png',NULL,45),
+        ('Raspberry sorbet','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Sorbet-Framboise.png',NULL,45),
+        ('Egg Nog ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2022/03/Glace-Egg-Nog-dummy.png',NULL,45),
+        ('Sorbet Crémant Rosé Brut Poll-Fabaire','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2023/11/Sorbet-Cre%CC%81mant_1_.png',NULL,45),
+
+        ('Coconut','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Coco-simple_Dessus.png',NULL,46),
+        ('Raspberry','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Framboise-simple_Dessus.png',NULL,46),
+        ('Pistachio','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Pistache-simple_Dessus.png',NULL,46),
+        ('Praline','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Pralin%C3%A9-simple_Dessus.png',NULL,46),
+        ('Vanilla','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Vanille-simple_Dessus.png',NULL,46),
+
+        ('Lemon','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Citron_2_HD_.png',NULL,47),
+        ('Cola','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Cola_2_HD_.png',NULL,47),
+        ('Orange','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Orange_2_HD_.png',NULL,47),
+
+        ('','',,'','',NULL,48),
+        ('','',,'','',NULL,48),
+        ('','',,'','',NULL,48),
 
 
-        ('Pineapple','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Ananas.png',6),
-        ('Blueberry','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/myrtille.png',6),
-        ('Lemon','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/citron.png',6),
-        ('Strawberry','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/Fraise.png',6),
-        ('Cherry','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/cerise.png',6),
-        ('Peach','125g',2.04,'1.5%','The “Luxembourg yoghurt” range demonstrates Luxlaits expertise in yoghurts.', 'Yoghurt', 'https://www.luxlait.lu/wp-content/uploads/2019/10/p%C3%AAche.png',6),
-
-
-        ('Strawberry', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56114-Fromage-blanc-fraise_Site.png', 7),
-        ('Apricot', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56115-fromage-blanc-abricot_Site.png', 7),
-        ('Pear', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'White Cheese & fruits', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56116-fromage-blanc-poires_Site.png', 7),
-        ('Fruits of the forest', '150g', 1.88, '5%', 'Combining the sweetness of a creamy white cheese and a bed of gourmet fruit.', 'https://www.luxlait.lu/wp-content/uploads/2019/10/56117-fromahe-blanc-fruits-des-bois_Site.png', 7),
-        ('Pineapple', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56093-Dessert-ananas_Site.png', 7),
-        ('Cherry', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56091-dessert-cerise_Site.png', 7),
-        ('Strawberry', '150g', 1.52, '6%', 'This authentic dessert made of white cheese with vanilla is placed on a bed of fruit and guarantees you a pleasant break.', 'Dessert', 'https://www.luxlait.lu/wp-content/uploads/2020/05/56090-dessert-fraise_Site.png', 7),
-        ('Strawberry', '125g', 1.36 , '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56151_fit-fraise_Site.png', 7),
-        ('Blueberry', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56150_fit-myrtille_Site.png', 7),
-        ('Caramelised baked apple', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56155_fit-pomme-four_Site.png', 7),
-        ('Vanilla', '125g', 1.36, '5%', 'A creamy fresh cheese combined with the delicacy of fruit.', 'Fit Wellness Snack', 'https://www.luxlait.lu/wp-content/uploads/2019/09/56152_Fit-vanille_Site.png', 7),
-        ('Greek Style Yogurt Plain','150g', 1.45,'12,2%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/54250-Yaourt-%C3%A0-la-grecque_site.png', 7),
-        ('Greek Style Yogurt Honey','150g', 1.45,'10%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/54251-Yaourt-%C3%A0-la-grecque-miel_Site.png',7),
-        ('Greek Style Yogurt Plain','1kg', 9.67,'10%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt_grec.png',7),
-        ('Greek Style Yogurt Strawberry','1kg', 10.13,'8%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt-%C3%A0-la-grecque-fraise_2_HD_.png',7),
-        ('Greek Style Yogurt Peach & Passionfruit','1kg', 10.13,'8%','Greek-style yoghurt is a traditional thick, creamy and tasty dairy product.','Greek-style Yoghurt','https://www.luxlait.lu/wp-content/uploads/2020/05/Yaourt-a%CC%80-la-grecque-pe%CC%80che-passion_2_HD_.png',7),
+      
 
 
 

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebe7ee92-07fe-4a93-86f8-9c642dca7c9f" name="Changes" comment="" />
+    <list default="true" id="ebe7ee92-07fe-4a93-86f8-9c642dca7c9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/db/sql_luxlait.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/sql_luxlait.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +51,7 @@
       <updated>1709105675453</updated>
       <workItem from="1709105676101" duration="376000" />
       <workItem from="1709760195448" duration="10000" />
+      <workItem from="1710262145343" duration="8000" />
     </task>
     <servers />
   </component>
