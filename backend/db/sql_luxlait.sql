@@ -645,11 +645,12 @@ CREATE TABLE tblRecipe(
     idRecipe INT NOT NULL AUTO_INCREMENT,
     dtName VARCHAR(50) NOT NULL,
     dtDescription VARCHAR(200) NOT NULL,
+    dtImage VARCHAR(225) NOT NULL,
     PRIMARY KEY (idRecipe)
 );
 
-INSERT INTO tblRecipe( dtName, dtDescription )
-VALUES ('Loaded Kräiderkachkéis fries','Preparation time: 30 minutes • Cooking time: 30 minutes');
+INSERT INTO tblRecipe( dtName, dtDescription, dtImage )
+VALUES ('Loaded Kräiderkachkéis fries','Preparation time: 30 minutes • Cooking time: 30 minutes','https://www.luxlait.lu/wp-content/uploads/2024/02/24-02-Loaded-fries-3-scaled.jpg');
 
 CREATE TABLE tblIngredient(
     idIngredient INT NOT NULL AUTO_INCREMENT,
