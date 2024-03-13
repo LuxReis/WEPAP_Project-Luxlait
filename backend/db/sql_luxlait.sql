@@ -427,24 +427,19 @@ INSERT INTO tblProduct (dtProduct, dtMetricUnit, dtPrice, dtFat, dtImage, dtPack
 VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png',NULL,1),
         ('Fresh milk','0.5L',0.99,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png',NULL,1),
         ('Fresh milk','1L',1.97,'1.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png',NULL,1),
-
         ('UHT whole milk','1L',1.63,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png',NULL,2),
         ('UHT semi-skimmed milk','1L',1.95,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK.png',NULL,2),
         ('UHT skimmed milk','1L',2.17,'0%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait_UHT_0_Sans-ombre.png',NULL,2),
         ('UHT whole milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png',NULL,2),
         ('UHT organic milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',NULL,2),
-        ('UHT lactose-free milk','1L',2.02,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png',NULL,2),
-        
+        ('UHT lactose-free milk','1L',2.02,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png',NULL,2),        
         ('Lacto-free milk','1L',1.91,'0%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png',NULL,3),
-
         ('UHT milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',NULL,4),
         ('Fresh milk','1L',2.27,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',NULL,4), 
         ('Fresh milk','0.25L',0.69,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TR-250-BiO_Face-1.png',NULL,4),
-
         ('Fresh Chocolate Milk','0.25L', 1.30, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-Frais_250ML_face.png',NULL,5),
         ('Fresh Chocolate Milk','0.5L', 1.74, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_500ML-face.png',NULL,5),
-        ('Fresh Chocolate Milk','1L', 3.09, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face.png',NULL,5),
-       
+        ('Fresh Chocolate Milk','1L', 3.09, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face.png',NULL,5),       
         ('UHT milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png',NULL,6),
         ('Fresh Chocolate Milk','0.25L', 1.46, '3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-2b43c425-e38f-4d79-b6bd-d3b837c4085e.png',NULL,6),
         ('Vanilla Milk','0.25L',1.55,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-f1d1e562-501e-4582-8ee4-bdb66c8fb7f5.png',NULL,6),
@@ -453,82 +448,54 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Cafe Latte Espresso','0.25L',1.33,'2.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-970ce447-1a8d-46a8-ab8f-c03602da6ea9.png',NULL,6),
         ('Milky strawberry','0.25L',1.33,'1%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-93c66a66-0d56-4122-a7a1-93d6d3e55a9a.png',NULL,6),
         ('Milky banana','0.25L',1.33,'1%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-73bc5a36-1681-49b1-9b38-f3631faddad9.png',NULL,6),
-
         ('Tropical','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-tropical-1.png',NULL,7),
         ('Orange','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-orange-1.png',NULL,7),
-
         ('Egg Nog','0.7L', 1.30, '3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Egg-nog-frais-0.75L_5_HD_OK_.png',NULL,8),
-
-
         ('Fermented milk','1L', 2.13,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-Fermente%CC%81-1L_face-2-e1641394646525.png',NULL,9),
-
-        ('Lassi Mango','1L', 2.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2024/01/TT-1000-Base-WEB.png',NULL,10),
-        
-        ('Laben Beldi','1L', 2.13,'1.6%','https://www.luxlait.lu/wp-content/uploads/2021/01/55190-Laben_1L-web2.png',NULL,11),
-        
-        ('Curd Milk','1L', 2.13,'2.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/55140_RAIB_1L_Face-so.png',NULL,12),
-        
+        ('Lassi Mango','1L', 2.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2024/01/TT-1000-Base-WEB.png',NULL,10),      
+        ('Laben Beldi','1L', 2.13,'1.6%','https://www.luxlait.lu/wp-content/uploads/2021/01/55190-Laben_1L-web2.png',NULL,11),       
+        ('Curd Milk','1L', 2.13,'2.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/55140_RAIB_1L_Face-so.png',NULL,12),       
         ('Pomegranate','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-1.png',NULL,13),
         ('Pomegranate','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-05L.png',NULL,13),
         ('Pistachio','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Rabi-pistache-V2_1_HD_.png',NULL,13),
         ('Pistachio','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Pistache-500ml_Face-Ombre-ok-site.png',NULL,13),
         ('Mango','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_face-ok-site.png',NULL,13),
-        ('Mango','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_500ML_Face-ok-site.png',NULL,13),
-        
+        ('Mango','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_500ML_Face-ok-site.png',NULL,13),      
         ('Plain','0.5L', 1.18,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',NULL,14),
         ('Vanilla','0.5L', 1.28,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-vanille-1.png',NULL,14),
         ('Blueberry','0.5L', 1.37,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/10/Kefir-Myrtille-face-500ml-e1570538615163.png',NULL,14),
-
-
         ('Garlic Herb Butter','125g', 3.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2022/06/Beurre-ail-et-fines-herbes_2_HD_.png',NULL,15),
-
         ('Rose Butter','10g',0.18,'80%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre10g.png','Plastic Tray',16),
         ('Rose Butter','125g',3.18,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-125g-1.png','Aluminium packaging',16),
         ('Rose Butter','250g',3.85,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png','Aluminium packaging',16),
         ('Rose Butter','250g',4.39,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-barquette-1.png','Plastic tray',16),
         ('Rose Butter','500g',7.67,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-500g-1.png','Aluminium packaging',16),
-
         ('Spreadable','250g',4.33,'80%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_tartinable-face-e1570526858659.png','Plastic tray',17),
         ('Light','250g',4.03,'40%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637.png','Plastic tray',17),
         ('Semi-salted','250g',4.03,'75%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_demi-sel-face-e1570526892868.png','Plastic tray',17),
-
-
         ('Liquid fresh cream','0.25L',2.18,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-250ml_face.png',NULL,18),
         ('Liquid fresh cream','0.5L',4.50,'36%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-0.250L_1_HD_ok_.png',NULL,18),         
-        ('Liquid fresh cream','1L',7.25,'36%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_.png',NULL,18),  
-        
+        ('Liquid fresh cream','1L',7.25,'36%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_.png',NULL,18),          
         ('Whipping Cream','1L',7.25,'35%','https://www.luxlait.lu/wp-content/uploads/2020/05/Cr%C3%A8me-UHT-35-1L.png',NULL,19), 
         ('Smooth','0.2',2.04,'12%','https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-12.png',NULL,19),
         ('Whole','0.2L',1.80,'30%','https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-30.png',NULL,19), 
         ('Culinary Cream','1L',12.04,'18%','https://www.luxlait.lu/wp-content/uploads/2019/09/Creme-culinaire_Face.png',NULL,19),
-
         ('Coffee cream','10g',0.07,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Coffee-Cream-Dosette_75g.png',NULL,20),
-
         ('Thick','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-epaisse-250g_Site.png',NULL,21),
         ('Thick','500g',6.52,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/cr%C3%A8me-fraiche-epaisse-500g_Site.png',NULL,21),
         ('Light','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/cr%C3%A8me-fraiche-250g_Site.png',NULL,21),
         ('French style','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-%C3%A0-la-fr-250g_Site.png',NULL,21),
-
-
         ('Organic faisselle','2x100g',4.69,'6%','https://www.luxlait.lu/wp-content/uploads/2022/05/FaisselleBio_Face-1.png',NULL,22),
-
         ('Cottage cheese','450g',5.04,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/cottage-cheese-250g_Site.png',NULL,23),
         ('Cottage cheese','225g',3.04,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/cottage-cheese-500g_Site.png',NULL,23),
-
         ('Light','250g',2.54,'0.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-maigre-250g_Site.png',NULL,24),
         ('Light','500g',5.10,'0.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-blanc-maigre-500g_Site.png',NULL,24),
         ('With cream','250g',2.25,'9.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/Fromage-frais-250g_Site.png',NULL,24),
         ('With cream','500g',5.12,'9.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/fromage-blanc-500g_Site.png',NULL,24),
-
         ('Brach','250g',2.07,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-caill%C3%A9-250g_Site.png',NULL,25),
-
-
         ('Organic brie','150g',4.30,NULL,'https://www.luxlait.lu/wp-content/uploads/2022/06/Brie_2_HD_.png',NULL,26),
-
         ('Beer Cheese','140g',3.78,'48%','https://www.luxlait.lu/wp-content/uploads/2020/05/fromage-battin.png',NULL,27),
-
         ('Grated Emmental','200g',3.28,'31%','https://www.luxlait.lu/wp-content/uploads/2019/10/56404_Emmental-rape.png',NULL,28),
-
         ('Emmental','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Emmental.png',NULL,29),
         ('Chapelain','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Chapelain.png',NULL,29),
         ('Gouda','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/gouda.png',NULL,29),
@@ -537,24 +504,19 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Abbaye','170g',4.05,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Abbaye.png',NULL,29),
         ('Lactose-free emmental','170g',3.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Emmental-0-lactose.png',NULL,29),
         ('Lactose-free gouda','170g',3.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/gouda-0-lactose.png',NULL,29),
-
         ('Plain','250g',4.30,'40%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_250_traditionnel_Face_Site.png','Tub',30),
         ('With herbs','250g',4.30,'40%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_FinesHerbes_Face_Site.png','Tub',30),
         ('Low fat','250g',3.65,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_maigre_Face_Site.png','Tub',30),
         ('Plain','100g',2.23,'40%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachkeis_100g_traditionnel_Face_Site.png','Tub',30),
         ('Low fat slab','250g',4.50,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachke%CC%81is-saucisse-maigre-250g.png','Roll',30),
         ('Low fat slab','500g',5.60,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kachke%CC%81is-saucisse-maigre-500.png','Roll',30),
-
         ('Plain',NULL,2.78,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cremes-Chapelain-nature.png',NULL,31),
         ('Sweet pepper & pimento',NULL,2.89,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-chapelain-Poivron-Piment.png',NULL,31),
         ('Italian flavour',NULL,2.98,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-chapelain-Saveur-Italienne.png',NULL,31),
         ('With black truffle from the Périgord',NULL,3.12,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-Chapelain-O%CC%88-la-Truffe.png',NULL,31),
-
-
         ('Lime - Cactus','2x125g',2.15,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/05/ete-citron.png',NULL,32),
         ('Mango - Turmeric','2x125g',2.15,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/05/ete-mangue.png',NULL,32),
         ('Yuzu - Green Tea','2x125g',2.15,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/ete-yuzu.png',NULL,32),
-
         ('Pineapple','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Ananas.png',NULL,33),
         ('Pineapple','500g',3.24,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Ananas-500g.png','Pot',33),
         ('Cherry','2x125g',2.04,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/cerise.png',NULL,33),
@@ -575,66 +537,52 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Pina Colada','2x125g',2.04,'2.7%','https://www.luxlait.lu/wp-content/uploads/2019/10/Pina-colada.png',NULL,33),
         ('Plain stirred','8x125g',4.69,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Multipack-nature.png',NULL,33),
         ('Fruit variety pack','8x125g',4.69,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/10/Multipack-fruit%C3%A9.png',NULL,33),
-
         ('Speculoos','2x125g',2.15,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Hiver-sp%C3%A9culoos.png',NULL,34),
         ('Mandarin cheesecake','2x125g',2.15,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/hiver-fromage-blanc.png',NULL,34),
         ('Honey - Walnut','2x125g',2.15,'2.3%','https://www.luxlait.lu/wp-content/uploads/2019/09/Hiver-Noix.png',NULL,34),
-
         ('Apricot','2x125g',2.08,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-abricot.png',NULL,35),
         ('Banana','2x125g',2.08,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-banane.png',NULL,35),
         ('Strawberry','2x125g',2.08,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-fraise.png',NULL,35),
-
         ('Plain','2x125g',2.18,'3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-nature.png',NULL,36),
         ('Strawberry','2x125g',2.18,'2.8%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-fraise.png',NULL,36),
         ('Peach','2x125g',2.18,'2.8%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-p%C3%AAche.png',NULL,36),
         ('Vanilla','2x125g',2.18,'2.9%','https://www.luxlait.lu/wp-content/uploads/2020/05/Bio-vanille.png',NULL,36),
-
         ('Apricot','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-abricot.png',NULL,37),
         ('Strawberry','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-fraise_.png',NULL,37),
         ('Fruits of the forest','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-fruits-des-bois_.png',NULL,37),
         ('Museli','2x125g',1.94,'0.4%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-museli_.png',NULL,37),
         ('Plain','2x125g',1.94,'0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/0-nature_.png',NULL,37),
-
         ('Strawberry','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/satin%C3%A9-fraise.png',NULL,38),
         ('Fruits of the forest','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Satin%C3%A9-fruits-des-bois.png',NULL,38),
         ('Stracciatella','2x125g',2.25,'11.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/satin%C3%A9-chocolat.png',NULL,38),
         ('Fruits of the orchard','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Satin%C3%A9-fruits-verger.png',NULL,38),
         ('Lemon','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Satin%C3%A9-citron.png',NULL,38),
         ('Vanilla','2x125g',2.25,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/satin%C3%A9-vanille.png',NULL,38),
-
-
         ('White cheese & strawberry','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56114-Fromage-blanc-fraise_Site.png',NULL,39),
         ('White cheese & apricot','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56115-fromage-blanc-abricot_Site.png',NULL,39),
         ('White cheese & pear','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56116-fromage-blanc-poires_Site.png',NULL,39),
         ('White cheese & fruits of the forest','150g',1.64,'5%','https://www.luxlait.lu/wp-content/uploads/2019/10/56117-fromahe-blanc-fruits-des-bois_Site.png',NULL,39),
-
         ('Pineapple','150g',1.52,'6%','https://www.luxlait.lu/wp-content/uploads/2020/05/56093-Dessert-ananas_Site.png',NULL,40),
         ('Cherry','150g',1.52,'6%','https://www.luxlait.lu/wp-content/uploads/2020/05/56091-dessert-cerise_Site.png',NULL,40),
         ('Strawberry','150g',1.52,'6%','https://www.luxlait.lu/wp-content/uploads/2020/05/56090-dessert-fraise_Site.png',NULL,40),
-
         ('Strawberry','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56151_fit-fraise_Site.png',NULL,41),
         ('Blueberry','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56150_fit-myrtille_Site.png',NULL,41),
         ('Caramelised baked apple','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56155_fit-pomme-four_Site.png',NULL,41),
         ('Vanilla','125g',1.52,'5%','https://www.luxlait.lu/wp-content/uploads/2019/09/56152_Fit-vanille_Site.png',NULL,41),
-
         ('Greek Style Yogurt Plain','150g',1.45,'12.2%','https://www.luxlait.lu/wp-content/uploads/2019/09/54250-Yaourt-%C3%A0-la-grecque_site.png',NULL,42),
         ('Greek Style Yogurt Honey','150g',1.45,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/54251-Yaourt-%C3%A0-la-grecque-miel_Site.png',NULL,42),
         ('Greek Style Yogurt Plain','1kg',9.67,'10%','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt_grec.png',NULL,42),
         ('Greek Style Yogurt Strawberry','1kg',10.13,'8%','https://www.luxlait.lu/wp-content/uploads/2019/09/Yaourt-%C3%A0-la-grecque-fraise_2_HD_.png',NULL,42),
         ('Greek Style Yogurt Peach & Passionfruit','1kg',10.13,'8%','https://www.luxlait.lu/wp-content/uploads/2020/05/Yaourt-a%CC%80-la-grecque-pe%CC%80che-passion_2_HD_.png',NULL,42),
-
-
         ('Strawberry','6×77,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-fraise_2_HD_ombre_-e1618404133243.png',NULL,43),
         ('Vanilla & coffee','6×73,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipac-moka_2_HD_ombre_-e1618405784501.png',NULL,43),
         ('Hazelnut','6×76,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-noisette_2_HD_ombre_-e1618405919467.png',NULL,43),
         ('Vanilla','6×76,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-vanille_2_HD_ombre_-e1618405992152.png',NULL,43),
         ('Chocolate','6×77,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-chocolat_2_HD_ombre_-e1618406300972.png',NULL,43),
         ('Lime sorbet','6×75,5g',9.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Multipack-citron_2_HD_ombre_-e1618406689731.png',NULL,43),
-
         ('Hazelnut','6x80ml',7.75,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_3_HD_.png',NULL,44),
         ('Pistachio','6x94ml',7.75,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_2_HD_.png',NULL,44),
         ('Vanilla','6x80ml',7.75,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Noisette-Choco_1_HD_.png',NULL,44),
-
         ('Vanilla ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Vanille.png',NULL,45),
         ('Strawberry ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Fraise.png',NULL,45),
         ('Pistachio ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Pistache.png',NULL,45),
@@ -645,17 +593,14 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Raspberry sorbet','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Glace-Luxlait-Sorbet-Framboise.png',NULL,45),
         ('Egg Nog ice cream','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2022/03/Glace-Egg-Nog-dummy.png',NULL,45),
         ('Sorbet Crémant Rosé Brut Poll-Fabaire','475ml',12.35,NULL,'https://www.luxlait.lu/wp-content/uploads/2023/11/Sorbet-Cre%CC%81mant_1_.png',NULL,45),
-
         ('Coconut','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Coco-simple_Dessus.png',NULL,46),
         ('Raspberry','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Framboise-simple_Dessus.png',NULL,46),
         ('Pistachio','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Pistache-simple_Dessus.png',NULL,46),
         ('Praline','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Pralin%C3%A9-simple_Dessus.png',NULL,46),
         ('Vanilla','10 iced pralines',2.50,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Miniatures-Vanille-simple_Dessus.png',NULL,46),
-
         ('Lemon','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Citron_2_HD_.png',NULL,47),
         ('Cola','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Cola_2_HD_.png',NULL,47),
         ('Orange','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Orange_2_HD_.png',NULL,47),
-
         ('Frozen caramel salted butter yogurt with pecans','200ml',3.29,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Frozen-Yogurt-Caramel.png',NULL,48),
         ('Frozen caramel salted butter yogurt with pecans','1L',15.25,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/frozen-yogurt-caramel_pecan.png',NULL,48),
         ('Strawberry','200ml',3.29,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Frozen-Yogurt-Fraise.png',NULL,48),
@@ -665,39 +610,29 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Rasberry','200ml',3.29,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/FY-Framboise.png',NULL,48),
         ('Vanilla','200ml',3.14,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/FY-Vanille.png',NULL,48),
         ('Vanilla','1L',14.25,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/frozen-yogurt-vanille.png',NULL,48),
-
         ('Strawberry','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_fraise_face.png',NULL,49),
         ('Mocha','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_caf%C3%A9_face.png',NULL,49),
         ('Vanilla','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_vanille_face.png',NULL,49),
         ('Chocolate','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_choco_face.png',NULL,49),
-
         ('Coffee','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_cafe.png',NULL,50),
         ('Chocolate','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_choco.png',NULL,50),
         ('Strawberry','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_fraise.png',NULL,50),
         ('Vanilla','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_vanille.png',NULL,50),
-
         ('Chocolate','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Chocolat.png',NULL,51),
         ('Dame blanche','1L/556G',7.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_DameBlanche.png',NULL,51),
         ('Strawberry','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Fraise.png',NULL,51),
         ('Coffee','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Moka.png',NULL,51),
         ('Pistachio','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Pistache.png',NULL,51),
         ('Vanilla','1L/556G',7.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Vanille.png',NULL,51),
-
         ('Dame blanche','4x200ml',9.28,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Boite-dame-blanche_BR.png',NULL,52),
-
         ('Lingot vanilla','1L',7.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Lingot_Dessus-web.png',NULL,53),
         ('Brésilienne','1L',7.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Bre%CC%81silienne_Dessus_web.png',NULL,53),
         ('Bûche de Noël','1L',7.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Buche_Noel_TopView.png',NULL,53),
-
-
         ('Sablés','130g – 4×4 Sablés',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Site2-2.png',NULL,54),
-
         ('Almond & Lemon','120g',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Citron-Amande.png',NULL,55),
         ('Honey & Sesame','120g',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Miel-Sesame.png',NULL,55),
         ('Orange & Chocolate','120g',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Orange-Choco.png',NULL,55),
-
         ('Galettes','125g – 4×4 Galettes',3.04,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Site2-1.png',NULL,56),
-
         ('Choco Splits','200g',3.53,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Site2.png',NULL,57);
 
 
