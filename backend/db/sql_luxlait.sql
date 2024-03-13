@@ -706,21 +706,49 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
 
 
 
-CREATE TABLE tblRecipe(){
+CREATE TABLE tblRecipe(
     idRecipe INT NOT NULL AUTO_INCREMENT,
     dtName VARCHAR(50) NOT NULL,
-    dtDescription VARCHAR(200) NOT NULL
-};
+    dtDescription VARCHAR(200) NOT NULL,
+    PRIMARY KEY (idRecipe)
+);
 
-CREATE TABLE tblIngredient(){
+INSERT INTO tblRecipe( dtName, dtDescription )
+VALUES ('Loaded Kräiderkachkéis fries','Preparation time: 30 minutes • Cooking time: 30 minutes');
+
+CREATE TABLE tblIngredient(
     idIngredient INT NOT NULL AUTO_INCREMENT,
-    dtName VARCHAR(50) NOT NULL
-};
+    dtMetricUnit VARCHAR(25) NOT NULL,
+    dtIngredient VARCHAR(50) NOT NULL,
+    fiRecipe INT NOT NULL,
+    PRIMARY KEY (idIngredient),
+    FOREIGN KEY (fiRecipe) REFERENCES tblRecipe (idRecipe)
+);
 
-CREATE TABLE tblPreparation(){
-    idPreparation INT NOT NULL AUTO_INCREMENT,
-    dtName VARCHAR(50) NOT NULL,
-    dtPreparationTime INT NOT NULL
-};
+INSERT INTO tblIngredient ( dtMetricUnit, dtIngredient, fiRecipe)
+VALUES ('1kg','firm potatoes',1),
+       ('2 tbsp','olive oil',1),
+       ('1/2 ts','salt',1),
+       ('1/2 ts','hot paprika (not smoked)',1),
+       ('1/2 ts','garlic powder',1),
+       ('1/4 ts','thin slices of bacon',1),
+       ('100g','pickles',1),
+       ('1/2','red onion',1);
+
+CREATE TABLE tblRecipeStep(
+    idRecipeStep INT NOT NULL AUTO_INCREMENT,
+    dtStep VARCHAR(125) NOT NULL,
+    fiRecipe INT NOT NULL,
+    PRIMARY KEY (idRecipeStep),
+    FOREIGN KEY (fiRecipe) REFERENCES tblRecipe (idRecipe)
+);
+
+INSERT INTO tblRecipeStep ( dtStep, fiRecipe)
+VALUES ('Preheat the oven to 200°C.',1),
+       ('Peel potatoes. Cut into 1 cm-thick slices. Then cut them into fries with a straight-edged knife or a crinkle cutter.',1),
+       ('Place the fries in a large mixing bowl with the olive oil, salt, paprika and garlic powder. Mox until evenly covered.',1),
+       ('Place the fries on 2 parchment-lined baking sheets and leave 1 to 2 cm of space between them to ensure crispness.',1),
+       ('Bake for 30 minutes (fan-assisted heat).',1),
+       ('Meanwhile, cook the bacon in a hot frying pan. Leave to cool. Cut bacon, pickles, and red onion into small cubes.',1);
 
 
