@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS tblCountry;
-DROP TABLE IF EXISTS tblRights;
 DROP TABLE IF EXISTS tblUser;
+DROP TABLE IF EXISTS tblRights;
+DROP TABLE IF EXISTS tblCountry;
 DROP TABLE IF EXISTS tblProduct;
 DROP TABLE IF EXISTS tblType;
 DROP TABLE IF EXISTS tblCategory;
@@ -11,7 +11,7 @@ CREATE TABLE tblCountry(
     idCountry VARCHAR(5) NOT NULL,
     dtCountry VARCHAR(50) NOT NULL,
     dtPhoneCode INT,
-    dtImage VARCHAR(200),
+    dtImage VARCHAR(350),
     PRIMARY KEY (idCountry)
 );
 
@@ -287,12 +287,12 @@ CREATE TABLE tblUser(
     idUsername VARCHAR(10) UNIQUE,
     dtFirstName VARCHAR(40) NOT NULL,
     dtLastName VARCHAR(40) NOT NULL,
-    dtPassword VARCHAR(60) NOT NULL,
+    dtPassword VARCHAR(80) NOT NULL,
     dtEmail VARCHAR(50) NOT NULL,
-    dtTelephone VARCHAR(9),
+    dtTelephone VARCHAR(15),
     dtPLZ VARCHAR(6) NOT NULL,
     dtHouseNR VARCHAR(3) NOT NULL,
-    dtStreet VARCHAR(15) NOT NULL,
+    dtStreet VARCHAR(35) NOT NULL,
     fiCountry VARCHAR(5) NOT NULL,
     fiRight INT NOT NULL,
     PRIMARY KEY (idUsername),
@@ -413,7 +413,7 @@ VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfi
 CREATE TABLE tblProduct (
     idProduct INT NOT NULL AUTO_INCREMENT,
     dtProduct VARCHAR(100),
-    dtMetricUnit VARCHAR(10),
+    dtMetricUnit VARCHAR(25),
     dtPrice DOUBLE NOT NULL,
     dtFat VARCHAR(5),
     dtImage VARCHAR(200) NOT NULL,
@@ -666,10 +666,40 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Vanilla','200ml',3.14,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/FY-Vanille.png',NULL,48),
         ('Vanilla','1L',14.25,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/frozen-yogurt-vanille.png',NULL,48),
 
-        
-        ('','',,'','',NULL,),
+        ('Strawberry','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_fraise_face.png',NULL,49),
+        ('Mocha','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_caf%C3%A9_face.png',NULL,49),
+        ('Vanilla','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_vanille_face.png',NULL,49),
+        ('Chocolate','100ml',2.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Minicups_choco_face.png',NULL,49),
 
-        ('','',,'','',NULL,),
+        ('Coffee','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_cafe.png',NULL,50),
+        ('Chocolate','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_choco.png',NULL,50),
+        ('Strawberry','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_fraise.png',NULL,50),
+        ('Vanilla','1L',8.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/glace_bio_vanille.png',NULL,50),
+
+        ('Chocolate','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Chocolat.png',NULL,51),
+        ('Dame blanche','1L/556G',7.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_DameBlanche.png',NULL,51),
+        ('Strawberry','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Fraise.png',NULL,51),
+        ('Coffee','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Moka.png',NULL,51),
+        ('Pistachio','1L/556G',6.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Pistache.png',NULL,51),
+        ('Vanilla','1L/556G',7.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/10/FC_Vanille.png',NULL,51),
+
+        ('Dame blanche','4x200ml',9.28,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Boite-dame-blanche_BR.png',NULL,52),
+
+        ('Lingot vanilla','1L',7.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Lingot_Dessus-web.png',NULL,53),
+        ('Brésilienne','1L',7.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Bre%CC%81silienne_Dessus_web.png',NULL,53),
+        ('Bûche de Noël','1L',7.85,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Buche_Noel_TopView.png',NULL,53),
+
+
+        ('Sablés','130g – 4×4 Sablés',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Site2-2.png',NULL,54),
+
+        ('Almond & Lemon','120g',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Citron-Amande.png',NULL,55),
+        ('Honey & Sesame','120g',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Miel-Sesame.png',NULL,55),
+        ('Orange & Chocolate','120g',2.67,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Minisables-Orange-Choco.png',NULL,55),
+
+        ('Galettes','125g – 4×4 Galettes',3.04,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Site2-1.png',NULL,56),
+
+        ('Choco Splits','200g',3.53,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Site2.png',NULL,57);
+
 
 
       
