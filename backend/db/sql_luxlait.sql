@@ -656,9 +656,20 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Cola','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Cola_2_HD_.png',NULL,47),
         ('Orange','6x80ml',7.15,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Watersticks-Mutlipack-Orange_2_HD_.png',NULL,47),
 
-        ('','',,'','',NULL,48),
-        ('','',,'','',NULL,48),
-        ('','',,'','',NULL,48),
+        ('Frozen caramel salted butter yogurt with pecans','200ml',3.29,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Frozen-Yogurt-Caramel.png',NULL,48),
+        ('Frozen caramel salted butter yogurt with pecans','1L',15.25,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/frozen-yogurt-caramel_pecan.png',NULL,48),
+        ('Strawberry','200ml',3.29,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/Frozen-Yogurt-Fraise.png',NULL,48),
+        ('Strawberry','1L',15.25,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/08/frozen-yogurt-fraise.png',NULL,48),
+        ('Peach & passion fruit','200ml',3.29,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/Frozen-Yogurt-Peche.png',NULL,48),
+        ('Peach & passion fruit','1L',15.25,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/frozen-yogurt-peche_passion.png',NULL,48),
+        ('Rasberry','200ml',3.29,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/FY-Framboise.png',NULL,48),
+        ('Vanilla','200ml',3.14,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/FY-Vanille.png',NULL,48),
+        ('Vanilla','1L',14.25,NULL,'https://www.luxlait.lu/wp-content/uploads/2019/09/frozen-yogurt-vanille.png',NULL,48),
+
+        
+        ('','',,'','',NULL,),
+
+        ('','',,'','',NULL,),
 
 
       
