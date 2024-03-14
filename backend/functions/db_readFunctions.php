@@ -1,5 +1,7 @@
 <?php
-include_once backend/functions/db_connectionFunctions.php;
+require_once 'db_connectionFunctions.php'
+$dbc = dbConnections();
+
     function login() {
         $query = "SELECT dtPassword FROM tblUser WHERE idUserName = ?";
         
@@ -40,5 +42,9 @@ include_once backend/functions/db_connectionFunctions.php;
             mysqli_stmt_close($stmt);
 
             return ($row_count == 0);
+    }
+
+    function selectProducts() {
+        
     }
 ?>

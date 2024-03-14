@@ -14,6 +14,9 @@
         case 'checkRegister':
             checkRegister($payload);
             break;
+        case 'product':
+            selectProducts();
+            break;
 
         default:
             // Error: There is no payload provided.
@@ -27,6 +30,10 @@
 
     function checkRegister($payload){
 
+    }
+
+    function returnProducts() {
+        $products = selectProducts();
     }
 
 ?>
