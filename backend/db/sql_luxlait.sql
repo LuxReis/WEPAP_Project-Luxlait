@@ -4,6 +4,9 @@ DROP TABLE IF EXISTS tblCountry;
 DROP TABLE IF EXISTS tblProduct;
 DROP TABLE IF EXISTS tblType;
 DROP TABLE IF EXISTS tblCategory;
+DROP TABLE IF EXISTS tblRecipeStep;
+DROP TABLE IF EXISTS tblIngredient;
+DROP TABLE IF EXISTS tblRecipe;
 
 
 
@@ -14,6 +17,8 @@ CREATE TABLE tblCountry(
     dtImage VARCHAR(350),
     PRIMARY KEY (idCountry)
 );
+
+
 
 INSERT INTO tblCountry (idCountry, dtCountry, dtPhoneCode, dtImage)
 VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/270px-Flag_of_the_Taliban.svg.png'),
@@ -634,8 +639,8 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
 
 CREATE TABLE tblRecipe(
     idRecipe INT NOT NULL AUTO_INCREMENT,
-    dtName VARCHAR(50) NOT NULL,
-    dtDescription VARCHAR(200) NOT NULL,
+    dtName VARCHAR(100) NOT NULL,
+    dtDescription VARCHAR(300) NOT NULL,
     dtImage VARCHAR(225) NOT NULL,
     PRIMARY KEY (idRecipe)
 );
@@ -648,7 +653,7 @@ INSERT INTO tblRecipe(dtName, dtDescription, dtImage) VALUES
     ('Gravlax with lemon and dill served with a scoop of Sorbet Crémant Rosé Poll-Fabaire', '', 'https://www.luxlait.lu/wp-content/uploads/2023/12/SorbetCrémant-29-scaled.jpg'), 
     ('Pinecone shaped little cocoa biscuits', 'Prep time: 15 minutes • Refrigerating the dough: 45 minutes • Baking time: 15 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/12/WEBSITE-PIC2-scaled.jpeg'), 
     ('A last minute idea for something small and sweet.', 'A scoop of Poll-Fabaire Crémant Rosé Brut sorbet on small pear and raspberry tarts. Prep time: 30 minutes • Resting time: 1 hour • Baking time: 35 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/12/LUX-23-12-tartelettes-1-scaled.jpg'), 
-    ('Festive Crémant Sorbet Jelly', 'Let\'s make a Festive Crémant Sorbet Jelly. What\'s better than a glass of Crémant to celebrate the festive season? A glass of Crémant with a piece of Crémant jelly and a Crémant Sorbet on top. Prep time: 15 minutes. Refrigerate: 8 hours min. or overnight', 'https://www.luxlait.lu/wp-content/uploads/2023/12/231210_01_Festive-Crémant-Sorbet-Jelly-scaled.jpeg'), 
+    ('Festive Crémant Sorbet Jelly', 'Let\""s make a Festive Crémant Sorbet Jelly. What\""s better than a glass of Crémant to celebrate the festive season? A glass of Crémant with a piece of Crémant jelly and a Crémant Sorbet on top. Prep time: 15 minutes. Refrigerate: 8 hours min. or overnight', 'https://www.luxlait.lu/wp-content/uploads/2023/12/231210_01_Festive-Crémant-Sorbet-Jelly-scaled.jpeg'), 
     ('Candy Cane Sorbet crémant rosé brut Poll-Fabaire', 'Prep time: 10min', 'https://www.luxlait.lu/wp-content/uploads/2023/11/01-1-scaled.jpeg'), 
     ('Lillet Sorbet crémant rosé brut Poll-Fabaire', 'Prep time: 5min', 'https://www.luxlait.lu/wp-content/uploads/2023/12/SorbetCrémant-16-scaled.jpg'), 
     ('Gin Crémant rosé', 'Prep-time: 5 min', 'https://www.luxlait.lu/wp-content/uploads/2023/12/SorbetCrémant-14-scaled.jpg'), 
@@ -658,7 +663,7 @@ INSERT INTO tblRecipe(dtName, dtDescription, dtImage) VALUES
     ('Eggnog Pumpkin roll', 'It’s not the autumn season without a roll cake, and this pumpkin, eggnog, cinnamon combo is the perfect proof for that. It’s so soft, moist, rich of flavor and really easy to make! Prep time: 15 minutes. Baking time: 12 minutes. Cooling: 1 hour. Total time: 1,5 hours - Refrigerate: overnight', 'https://www.luxlait.lu/wp-content/uploads/2023/11/231101_Luxlait_Eggnog-Pumpkin-Roll-Cover-picture-scaled.jpg'), 
     ('Christmas biscuits featuring our famous Egg Nog!', 'Prep time: 15 minutes • Baking time: 15 minutes • Resting time: 1 hour', 'https://www.luxlait.lu/wp-content/uploads/2023/07/LUX-23-10-eggnog-biscuits-scaled.jpg'), 
     ('Baked brie in a bowl made out of bread!', 'Serves 4 • Prep time: 5 minutes • Cooking time: 35 minutes', ''), 
-    ('Do you like mushroom toast?You\'ll love our version with Kachkéis!', 'Serves 4 • Prep time: 10 minutes • Cooking time: 30 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/10/LUX-23-09-Kachkeis-toast-1-scaled.jpg'), 
+    ('Do you like mushroom toast?You\""ll love our version with Kachkéis!', 'Serves 4 • Prep time: 10 minutes • Cooking time: 30 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/10/LUX-23-09-Kachkeis-toast-1-scaled.jpg'), 
     ('Use your pumpkin for more than just soup!', 'Serves 4 • Pep time: 25 minutes • Cooking time: 35 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/09/LUX-23-09-stuffed-pumpkin-1-scaled.jpg'), 
     ('With pear and caramelised nuts', 'Serves 2 - Prep time: 10 minutes - Cooking time: 5 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/08/230725_LUXLAIT_RECIPE_01_EDIT-scaled.jpg'), 
     ('Baked not fried!', 'Prep time: 30 min - Marinating time: 1 hour', 'https://www.luxlait.lu/wp-content/uploads/2023/08/Crispy-Cornflake-Turkey-Cover-Picture-01.jpeg'), 
@@ -668,7 +673,7 @@ INSERT INTO tblRecipe(dtName, dtDescription, dtImage) VALUES
     ('A refreshing snack that the whole family will love!', 'Prep time: 20 minutes - Freezer: 2h', 'https://www.luxlait.lu/wp-content/uploads/2023/06/230607_01_website-pic-2-scaled.jpeg'), 
     ('For all rum, cocktail and sorbet lovers!', 'Makes 1 cocktail • Freezing time: 2h • Prep time: 5 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/06/web.png'), 
     ('With quark salsa', 'Serves 2 - Prep time: 20 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/05/Saumon-Tartare.jpg'), 
-    ('A delicious surprise for Mother\'s Day', 'Prep: 2 h (+ resting time) • Oven: 14 min • Makes 4 hearts', 'https://www.luxlait.lu/wp-content/uploads/2023/05/LUX-Joelle-Mammendag-3-scaled.jpg'), 
+    ('A delicious surprise for Mother\""s Day', 'Prep: 2 h (+ resting time) • Oven: 14 min • Makes 4 hearts', 'https://www.luxlait.lu/wp-content/uploads/2023/05/LUX-Joelle-Mammendag-3-scaled.jpg'), 
     ('Make your own Paneer!', 'Serves 4 - Prep time: 5 minutes - Cooking time: 15 minutes', 'https://www.luxlait.lu/wp-content/uploads/2023/05/Socials.png'), 
     ('Let the BBQ season begin!', 'Serves 4 – Prep time: 10 min – Cooking time: 15 min', 'https://www.luxlait.lu/wp-content/uploads/2023/05/LUX-avril-faisselle-2-scaled.jpg'), 
     ('If you like our chocolate milk, you will love this pudding!', 'Prep time : 10 min. - Refrigerate : 4h', 'https://www.luxlait.lu/wp-content/uploads/2023/04/image00011.jpeg'), 
@@ -687,7 +692,7 @@ INSERT INTO tblRecipe(dtName, dtDescription, dtImage) VALUES
     ('For all the Egg Nog lovers out there', 'Makes 1 cheesecake of 23cm, for 12 people – Prep: 1h – Oven: 1h30min – Fridge: 12h', 'https://www.luxlait.lu/wp-content/uploads/2021/12/Egg-Nog-Cheesecake-Luxlait-2-scaled.jpg'), 
     ('For a spooky Halloween dinner', 'Serves 4 – Prep: 1 hour + Oven: 35 min', 'https://www.luxlait.lu/wp-content/uploads/2022/10/Halloween-Poivron-Luxlait-scaled.jpg'), 
     ('A scandinavian classic with a luxembourgish twist!', 'Serves 4 – Prep: 1h', 'https://www.luxlait.lu/wp-content/uploads/2022/09/Kötbullar-Luxlait-Wide-scaled.jpg'), 
-    ('Autumn\'s favorite vegetable', 'Quick and easy recipe', 'https://www.luxlait.lu/wp-content/uploads/2020/10/KACHEN-2020-LUXLAIT-3-scaled.jpg'), 
+    ('Autumn\""s favorite vegetable', 'Quick and easy recipe', 'https://www.luxlait.lu/wp-content/uploads/2020/10/KACHEN-2020-LUXLAIT-3-scaled.jpg'), 
     ('The fluffiest scone ever', 'Prep: 40 min • Oven: 18 min • Makes 6 scones', 'https://www.luxlait.lu/wp-content/uploads/2021/08/Blueberry-Scones-Luxlait-scaled.jpg'), 
     ('Quick and easy', 'Discover how to use our garlic herb butter for a toast!', 'https://www.luxlait.lu/wp-content/uploads/2022/08/Kraiderbotter-Social-media-scaled.jpg'), 
     ('Refreshing pleasure', 'How about trying something new with our sorbets?', 'https://www.luxlait.lu/wp-content/uploads/2022/08/LUXLAIT1-scaled.jpg'), 
@@ -713,7 +718,7 @@ INSERT INTO tblRecipe(dtName, dtDescription, dtImage) VALUES
     ('Makes the heart of every "Kachkeislover" melt', 'Serves 4 • Prep 45 minutes • Vegetarian', 'https://www.luxlait.lu/wp-content/uploads/2021/09/Kachkéis-Kniddelen-Luxlait-scaled.jpg'), 
     ('Ice lollies for the whole family', 'Makes 4 lollies • Prep: 20 minutes + overnight freezing', 'https://www.luxlait.lu/wp-content/uploads/2021/07/Frozen-Yoghurt-Lollies-Luxlait-1-scaled.jpg'), 
     ('A Mexican dish with typical flavours of Luxembourg', 'Makes 7 • Prep: 20min • Oven: 20 min', 'https://www.luxlait.lu/wp-content/uploads/2021/06/Lux-Tortillas-Luxlait-scaled.jpg'), 
-    ('It\'s rhubarb and strawberry season!', 'Serves 6 •  Prep: 30 min • Oven: 40 min', 'https://www.luxlait.lu/wp-content/uploads/2021/05/Cobbler-Luxlait-1-scaled.jpg'), 
+    ('It\""s rhubarb and strawberry season!', 'Serves 6 •  Prep: 30 min • Oven: 40 min', 'https://www.luxlait.lu/wp-content/uploads/2021/05/Cobbler-Luxlait-1-scaled.jpg'), 
     ('DIY for Pretzelsunday alias "Bretzelsonndeg"', 'Makes 2 pretzels • Prep: 45min • Resting: 1h + 2h setting of the icing • Oven: 25min', 'https://www.luxlait.lu/wp-content/uploads/2021/03/Brezel-Hearts-scaled.jpg'), 
     ('Finger Food for Afternoon Tea', 'Prep: 1h - Makes 35', 'https://www.luxlait.lu/wp-content/uploads/2021/02/Quarkbällchen-Luxlait-1-scaled.jpg'), 
     ('100% local pasta gratin', 'Prep time: 15 min – Oven: 20 min', 'https://www.luxlait.lu/wp-content/uploads/2021/02/Gratin-Kachkéis-Packaging-scaled-e1612262276910.jpg'), 
@@ -725,7 +730,7 @@ INSERT INTO tblRecipe(dtName, dtDescription, dtImage) VALUES
 CREATE TABLE tblIngredient(
     idIngredient INT NOT NULL AUTO_INCREMENT,
     dtMetricUnit VARCHAR(25) NOT NULL,
-    dtIngredient VARCHAR(50) NOT NULL,
+    dtIngredient VARCHAR(100) NOT NULL,
     fiRecipe INT NOT NULL,
     PRIMARY KEY (idIngredient),
     FOREIGN KEY (fiRecipe) REFERENCES tblRecipe (idRecipe)
@@ -1290,7 +1295,7 @@ INSERT INTO tblIngredient (dtMetricUnit, dtIngredient, fiRecipe) VALUES
 
 CREATE TABLE tblRecipeStep(
     idRecipeStep INT NOT NULL AUTO_INCREMENT,
-    dtStep VARCHAR(125) NOT NULL,
+    dtStep VARCHAR(800) NOT NULL,
     fiRecipe INT NOT NULL,
     PRIMARY KEY (idRecipeStep),
     FOREIGN KEY (fiRecipe) REFERENCES tblRecipe (idRecipe)
@@ -1519,11 +1524,11 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('Pour the flour and salt into the bowl of a food processor and mix well with a spoon. Add the yeast, dissolved in the water, to the bowl.', 32), 
     ('Run the food processor (hook attachment) on low speed for 3 minutes.  Then continue kneading for 8 minutes on medium speed. Remove the hook and form the dough into a ball. Cover the dough with a clean cloth and let it rise for 20 minutes in a warm place.', 32), 
     ('Put the dough onto a floured work surface. Knead the dough well with your hands and add more flour if it sticks too much. Shape the dough into balls of about 60 g.', 32), 
-    ('Cut a long piece of string for each ball. Place the middle of the string on top of each ball and wrap the string around the dough forming a +, then an x that crosses in the middle.  Leave a larger piece sticking out on one side, this will be the sheep\'s head.  Close the string with a loose knot. Place the rolls on a baking tray covered with parchment paper.', 32), 
+    ('Cut a long piece of string for each ball. Place the middle of the string on top of each ball and wrap the string around the dough forming a +, then an x that crosses in the middle.  Leave a larger piece sticking out on one side, this will be the sheep\""s head.  Close the string with a loose knot. Place the rolls on a baking tray covered with parchment paper.', 32), 
     ('Let the dough rise for about 30 minutes.', 32), 
     ('Place the buns in the preheated oven at 210°C and bake for 20-25 minutes.  Place a heat-resistant container of water at the bottom of the oven while baking.', 32), 
-    ('Remove the buns from the oven and carefully remove the strings while they’re still warm.', 32), 
-    ('Cut the backs of the sheep in half (but not the head). With the wiring icing, glue an eye on the sheep\'s face and draw a mouth. Place cottage cheese on the backs of the sheep. Season with salt and pepper. Wash and chop the chives and sprinkle some on the cottage cheese.', 32), 
+    ('Remove the buns from the oven and carefully remove the strings while they""re still warm.', 32), 
+    ('Cut the backs of the sheep in half (but not the head). With the wiring icing, glue an eye on the sheep\""s face and draw a mouth. Place cottage cheese on the backs of the sheep. Season with salt and pepper. Wash and chop the chives and sprinkle some on the cottage cheese.', 32), 
     ('Place flour, yeast, sugar and salt in a standing mixer and briefly mix with the dough hook to combine. Add an egg and milk, and mix on medium speed for 3 minutes. Add butter, adding a few cubes at a time, until incorporated. Continue mixing for about 10 minutes on medium speed, until the dough is completely smooth and soft.', 33), 
     ('Transfer the dough to an oiled bowl and cover tightly with plastic wrap. Place in the fridge for at least half a day or overnight to rise.', 33), 
     ('In a heat proof saucepan place chocolate, butter, fresh cream, cocoa powder, powdered sugar, and salt. Set over a pot of simmering water, ensuring that the bowl does not touch the water, and heat while stirring often, until the mixture is melted and smooth. Set aside to cool. You can place it in the fridge for a short while until it thickens and you get a spreadable consistency.', 33), 
@@ -1547,7 +1552,7 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('Repeat with remaining apple slices.', 35), 
     ('Serve warm with a little bit of powdered sugar, honey and berry fruits.', 35), 
     ('Beat the eggs in a bowl and add the sugar, 1 tbsp vanilla sugar and salt. Mix the ingredients well with a hand mixer. Gradually add the flour and milk and mix well with the mixer. Then add the melted butter and mix well until you have a smooth dough (without lumps). Leave the dough to rest in the fridge for 1 hour.', 36), 
-    ('Take the cream out of the fridge and pour it into a bowl.  Add 2 tbsp vanilla sugar. Whip the cream with a hand mixer until stiff.  Pour the whipped cream into a piping bag with a nozzle so that you can decorate the pancakes later and pipe on the clowns\' hair.  Put the piping bag in the fridge and take it out just before serving.', 36), 
+    ('Take the cream out of the fridge and pour it into a bowl.  Add 2 tbsp vanilla sugar. Whip the cream with a hand mixer until stiff.  Pour the whipped cream into a piping bag with a nozzle so that you can decorate the pancakes later and pipe on the clowns\"" hair.  Put the piping bag in the fridge and take it out just before serving.', 36), 
     ('Put some oil in a pan. Pour some batter into the pan with a ladle and spread it thinly. Bake the pancake on both sides and set aside on a plate.  Repeat the baking steps until the batter is used up.', 36), 
     ('Decorate the pancakes with whipped cream, fruit pieces and sprinkles by forming clown heads.  Let your imagination run wild.', 36), 
     ('Add the oats, milk, coffee, almond extract and maple syrup to a lidded container.', 37), 
@@ -1768,7 +1773,7 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('TIP: This dish goes well with a side of boiled potatoes and French beans, or a simple green salad.', 64), 
     ('Preheat the oven to 180°C fan. Cut the baguettes into bite sized pieces and put into a large baking tray.', 65), 
     ('In a small bowl, mix the mustards with the water and stir until smooth. Pour the mustard over the bread pieces and mix with your hands until the bread is evenly covered. Sprinkle with salt.', 65), 
-    ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\'t burn.', 65), 
+    ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\""t burn.', 65), 
     ('Put the Kackéis, Gruyère and white wine into a fondue saucepan. Peel and crush the garlic cloves and add to the saucepan with a pinch of pepper, then melt everything into a smooth cheese fondue, stirring constantly.', 65), 
     ('In a little jar dilute the cornstarch in the Kirsch, add to the cheese fondue and cook for a couple of minutes so the fondue thickens.', 65), 
     ('Serve the fondue with the mustard croutons and a green salad.', 65), 
@@ -1780,7 +1785,7 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('Meanwhile, make the croutons: Preheat the oven to 180°C fan.', 66), 
     ('Cut the bread into cubes and put into a large roasting tin.', 66), 
     ('In a small bowl, mix the two mustards with the melted butter and stir until smooth. Pour the mustard over the bread pieces and mix with your hands until the bread is evenly covered. Sprinkle with salt.', 66), 
-    ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\'t burn.', 66), 
+    ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\""t burn.', 66), 
     ('After 20 minutes when the potatoes are soft, take the soup off the heat and purée with a stick blender until smooth. Adjust the seasoning with salt and pepper.', 66), 
     ('Serve each portion of soup with a sprinkle of chives or parsley, a swirl of cream and some mustard croutons.', 66), 
     ('Heat the oven to 160°C fan.', 67), 
@@ -1800,7 +1805,7 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('Serve the fondue with the mustard croutons and a green salad.', 69), 
     ('Preheat the oven to 180°C fan. Cut the baguettes into bite sized pieces and put into a large baking tray.', 69), 
     ('In a small bowl, mix the mustards with the water and stir until smooth. Pour the mustard over the bread pieces and mix with your hands until the bread is evenly covered. Sprinkle with salt.', 69), 
-    ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\'t burn.', 69), 
+    ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\""t burn.', 69), 
     ('Put all the Kniddelen ingredients into a large bowl and mix with an electric whisk until you get a smooth batter. Season with salt and pepper.', 70), 
     ('Fill a large saucepan with boiling water and add a generous pinch of salt. Grab portions of batter with a teaspoon, and dip it into the boiling water, pushing the batter off the spoon with a second spoon, so it slides into the saucepan and sinks to the bottom. Repeat until the bottom of the saucepan is covered with dumplings.', 70), 
     ('Keep boiling until the dumplings float to the surface – then leave them to cook for another 2 minutes. Remove the dumplings from the water with a slotted spoon and put into a bowl which you cover with a lid between additions to keep the Kniddelen warm. Repeat this process until all the batter is used up.', 70), 
