@@ -293,9 +293,10 @@ VALUES (1, 'Admin'),
        (3, 'User'); 
 
 
+--User SQL from author @LuxJoghurt (Pedro Ribeiro Costa)
+
 CREATE TABLE tblUser(
-    idUsername INT NOT NULL AUTO_INCREMENT,
-    dtUsername VARCHAR(10) UNIQUE,
+    idUsername VARCHAR(10) UNIQUE NOT NULL,
     dtFirstName VARCHAR(40) NOT NULL,
     dtLastName VARCHAR(40) NOT NULL,
     dtPassword VARCHAR(80) NOT NULL,
@@ -311,7 +312,7 @@ CREATE TABLE tblUser(
     FOREIGN KEY (fiRight) REFERENCES tblRights (idRight)
 );
 
-INSERT INTO tblUser (dtUsername, dtFirstName, dtLastName, dtPassword, dtEmail, dtTelephone, dtPLZ, dtHouseNR, dtStreet, fiCountry, fiRight)
+INSERT INTO tblUser 
 VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@admin.lu', '621 345 345', '1234', '3', 'Am Seif', 'LU', 1),
         ('staff' , 'Staff', 'Staff', '1562206543da764123c21bd524674f0a8aaf49c8a89744c97352fe677f7e4006', 'staff@staff.lu', '691 567 567', '1234', '3', 'Am Seif', 'LU', 2),
         ('user', 'User', 'User', '04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb', 'user@user.lu', '621 788 897', '1234', '3', 'Am Seif', 'LU', 3),
@@ -320,7 +321,6 @@ VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873f
         ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '621 816 424', '6183', '39', 'rue de ecole', 'LU', 1),
         ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', 'LU', 1),
         ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '691 879 699', '8380', '13', 'Rue de la Gare', 'LU', 1);
-
 
 
 CREATE TABLE tblCategory (
@@ -2069,12 +2069,12 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('Once the cheese has melted, peel and crush the garlic cloves and add to the Kachkéis with the grated Gruyère and some pepper. Melt into a smooth cheese fondue, stirring constantly.', 69), 
     ('In a little jar dilute the cornstarch in the Kirsch, add to the cheese fondue and cook for a couple of minutes so the fondue thickens.', 69), 
     ('Serve the fondue with the mustard croutons and a green salad.', 69), 
-    ('Preheat the oven to 180°C fan. Cut the baguettes into bite sized pieces and put into a large baking tray.', 69), 
+    ('Preheat the oven to 180°C fan.Cut the baguettes into bite sized pieces and put into a large baking tray.', 69), 
     ('In a small bowl, mix the mustards with the water and stir until smooth. Pour the mustard over the bread pieces and mix with your hands until the bread is evenly covered. Sprinkle with salt.', 69), 
     ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\""t burn.', 69), 
     ('Put all the Kniddelen ingredients into a large bowl and mix with an electric whisk until you get a smooth batter. Season with salt and pepper.', 70), 
     ('Fill a large saucepan with boiling water and add a generous pinch of salt. Grab portions of batter with a teaspoon, and dip it into the boiling water, pushing the batter off the spoon with a second spoon, so it slides into the saucepan and sinks to the bottom. Repeat until the bottom of the saucepan is covered with dumplings.', 70), 
-    ('Keep boiling until the dumplings float to the surface – then leave them to cook for another 2 minutes. Remove the dumplings from the water with a slotted spoon and put into a bowl which you cover with a lid between additions to keep the Kniddelen warm. Repeat this process until all the batter is used up.', 70), 
+    ('Keep boiling until the dumplings float to the surface– then leave them to cook for another 2 minutes. Remove the dumplings from the water with a slotted spoon and put into a bowl which you cover with a lid between additions to keep the Kniddelen warm. Repeat this process until all the batter is used up.', 70), 
     ('Put the Kachkéis and white wine into a saucepan and bring to the boil while stirring. Leave to cook for a minute, then add the cream and the mustard and heat through.', 70), 
     ('In a little jar dilute the cornstarch with 4 tablespoons of water, add to the sauce and cook for a couple of minutes so the sauce thickens.', 70), 
     ('Divide the Kniddelen between 4 plates, top with Kachkéis sauce, sprinkle with chopped walnuts decorate with rocket.', 70), 
