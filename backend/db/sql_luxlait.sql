@@ -292,9 +292,10 @@ VALUES (1, 'Admin'),
        (3, 'User'); 
 
 
+--User SQL from author @LuxJoghurt (Pedro Ribeiro Costa)
+
 CREATE TABLE tblUser(
-    idUsername INT NOT NULL AUTO_INCREMENT,
-    dtUsername VARCHAR(10) UNIQUE,
+    idUsername VARCHAR(10) UNIQUE NOT NULL,
     dtFirstName VARCHAR(40) NOT NULL,
     dtLastName VARCHAR(40) NOT NULL,
     dtPassword VARCHAR(80) NOT NULL,
@@ -310,7 +311,7 @@ CREATE TABLE tblUser(
     FOREIGN KEY (fiRight) REFERENCES tblRights (idRight)
 );
 
-INSERT INTO tblUser (dtUsername, dtFirstName, dtLastName, dtPassword, dtEmail, dtTelephone, dtPLZ, dtHouseNR, dtStreet, fiCountry, fiRight)
+INSERT INTO tblUser 
 VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@admin.lu', '621 345 345', '1234', '3', 'Am Seif', 'LU', 1),
         ('staff' , 'Staff', 'Staff', '1562206543da764123c21bd524674f0a8aaf49c8a89744c97352fe677f7e4006', 'staff@staff.lu', '691 567 567', '1234', '3', 'Am Seif', 'LU', 2),
         ('user', 'User', 'User', '04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb', 'user@user.lu', '621 788 897', '1234', '3', 'Am Seif', 'LU', 3),
@@ -319,7 +320,6 @@ VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873f
         ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '621 816 424', '6183', '39', 'rue de ecole', 'LU', 1),
         ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', 'LU', 1),
         ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '691 879 699', '8380', '13', 'Rue de la Gare', 'LU', 1);
-
 
 
 CREATE TABLE tblCategory (
