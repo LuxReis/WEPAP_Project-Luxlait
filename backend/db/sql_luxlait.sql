@@ -2068,12 +2068,12 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('Once the cheese has melted, peel and crush the garlic cloves and add to the Kachkéis with the grated Gruyère and some pepper. Melt into a smooth cheese fondue, stirring constantly.', 69), 
     ('In a little jar dilute the cornstarch in the Kirsch, add to the cheese fondue and cook for a couple of minutes so the fondue thickens.', 69), 
     ('Serve the fondue with the mustard croutons and a green salad.', 69), 
-    ('Preheat the oven to 180°C fan. Cut the baguettes into bite sized pieces and put into a large baking tray.', 69), 
+    ('Preheat the oven to 180°C fan.Cut the baguettes into bite sized pieces and put into a large baking tray.', 69), 
     ('In a small bowl, mix the mustards with the water and stir until smooth. Pour the mustard over the bread pieces and mix with your hands until the bread is evenly covered. Sprinkle with salt.', 69), 
     ('Bake in the preheated oven for 15 minutes until crispy, turning the croutons halfway through so that they don\""t burn.', 69), 
     ('Put all the Kniddelen ingredients into a large bowl and mix with an electric whisk until you get a smooth batter. Season with salt and pepper.', 70), 
     ('Fill a large saucepan with boiling water and add a generous pinch of salt. Grab portions of batter with a teaspoon, and dip it into the boiling water, pushing the batter off the spoon with a second spoon, so it slides into the saucepan and sinks to the bottom. Repeat until the bottom of the saucepan is covered with dumplings.', 70), 
-    ('Keep boiling until the dumplings float to the surface – then leave them to cook for another 2 minutes. Remove the dumplings from the water with a slotted spoon and put into a bowl which you cover with a lid between additions to keep the Kniddelen warm. Repeat this process until all the batter is used up.', 70), 
+    ('Keep boiling until the dumplings float to the surface– then leave them to cook for another 2 minutes. Remove the dumplings from the water with a slotted spoon and put into a bowl which you cover with a lid between additions to keep the Kniddelen warm. Repeat this process until all the batter is used up.', 70), 
     ('Put the Kachkéis and white wine into a saucepan and bring to the boil while stirring. Leave to cook for a minute, then add the cream and the mustard and heat through.', 70), 
     ('In a little jar dilute the cornstarch with 4 tablespoons of water, add to the sauce and cook for a couple of minutes so the sauce thickens.', 70), 
     ('Divide the Kniddelen between 4 plates, top with Kachkéis sauce, sprinkle with chopped walnuts decorate with rocket.', 70), 
