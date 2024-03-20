@@ -11,7 +11,8 @@ DROP TABLE IF EXISTS tblCategory;
 DROP TABLE IF EXISTS tblRecipeStep;
 DROP TABLE IF EXISTS tblIngredient;
 DROP TABLE IF EXISTS tblRecipe;
-
+DROP TABLE IF EXISTS tblPayment;
+DROP TABLE IF EXISTS tblDelievery;
 
 
 CREATE TABLE tblCountry(
@@ -2157,3 +2158,29 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
     ('Cut the salmon into small pieces. Then add a few small pieces of salmon to each small groove. Keep some for dressing.', 79), 
     ('Bake in the oven for about 20 minutes.', 79), 
     ('Wait 2 minutes before unmoulding your mini cannelés. Arrange them in a serving dish and add a small piece of salmon to each bite. These mini cannelés can easily be prepared in advance and even frozen. After defrosting, simply reheat them for a few seconds in the microwavebefore eating them.', 79);
+
+    -- Payment SQL from autor @LuxReis (Kaidi GUO)
+
+    CREATE TABLE tblPayment(
+        idPayment INT NOT NULL AUTO_INCREMENT,
+        dtAmount INT NOT NULL,
+        dtDatum DATE NOT NULL,
+        dtStatus VARCHAR(10) NOT NULL,
+        fiProduct INT NOT NULL,
+        fiUsername VARCHAR(10) NOT NULL,
+        PRIMARY KEY (idPayment),
+        FOREIGN KEY (fiProduct) REFERENCES tblProduct (idProduct),
+        FOREIGN KEY (fiUsername) REFERENCES tblUser (idUsername)
+    );
+
+    -- Delievery SQL from autor @LuxReis (Kaidi GUO)
+
+    CREATE TABLE tblDelivery(
+        idDelivery INT NOT NULL AUTO_INCREMENT,
+        dtStatus VARCHAR(20) NOT NULL,
+        fiPayment INT NOT NULL,
+        PRIMARY KEY (idDelivery),
+        FOREIGN KEY (fiPayment) REFERENCES tblPayment (idPayment)
+    );
+
+
