@@ -186,3 +186,18 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Tropical','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-tropical-1.png',NULL,7),
         ('Orange','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-orange-1.png',NULL,7),
         ('Egg Nog','0.7L', 1.30, '3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Egg-nog-frais-0.75L_5_HD_OK_.png',NULL,8),
+
+        -- Fermented milks INSERT from author @LuxJoghurt (Pedro Ribeiro Costa)
+        ('Fermented milk','1L', 2.13,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-Fermente%CC%81-1L_face-2-e1641394646525.png',NULL,9),
+        ('Lassi Mango','1L', 2.13,NULL,'https://www.luxlait.lu/wp-content/uploads/2024/01/TT-1000-Base-WEB.png',NULL,10),      
+        ('Laben Beldi','1L', 2.13,'1.6%','https://www.luxlait.lu/wp-content/uploads/2021/01/55190-Laben_1L-web2.png',NULL,11),      
+        ('Curd Milk','1L', 2.13,'2.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/55140_RAIB_1L_Face-so.png',NULL,12),      
+        ('Pomegranate','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-1.png',NULL,13),
+        ('Pomegranate','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-05L.png',NULL,13),
+        ('Pistachio','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Rabi-pistache-V2_1_HD_.png',NULL,13),
+        ('Pistachio','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Pistache-500ml_Face-Ombre-ok-site.png',NULL,13),
+        ('Mango','1L', 2.08,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_face-ok-site.png',NULL,13),
+        ('Mango','0.5L', 1.05,'1.6%','https://www.luxlait.lu/wp-content/uploads/2020/04/Raibi-Mangue-Dummy_500ML_Face-ok-site.png',NULL,13),      
+        ('Plain','0.5L', 1.18,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',NULL,14),
+        ('Vanilla','0.5L', 1.28,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-vanille-1.png',NULL,14),
+        ('Blueberry','0.5L', 1.37,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/10/Kefir-Myrtille-face-500ml-e1570538615163.png',NULL,14),
