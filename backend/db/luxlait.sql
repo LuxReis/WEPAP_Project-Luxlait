@@ -201,3 +201,13 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Plain','0.5L', 1.18,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png',NULL,14),
         ('Vanilla','0.5L', 1.28,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-vanille-1.png',NULL,14),
         ('Blueberry','0.5L', 1.37,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/10/Kefir-Myrtille-face-500ml-e1570538615163.png',NULL,14),
+        -- Butters INSERT from author @LuxKeis (Gamass Mihails)
+        ('Garlic Herb Butter','125g', 3.16,NULL,'https://www.luxlait.lu/wp-content/uploads/2022/06/Beurre-ail-et-fines-herbes_2_HD_.png',NULL,15),
+        ('Rose Butter','10g',0.18,'80%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre10g.png','Plastic Tray',16),
+        ('Rose Butter','125g',3.18,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-125g-1.png','Aluminium packaging',16),
+        ('Rose Butter','250g',3.85,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png','Aluminium packaging',16),
+        ('Rose Butter','250g',4.39,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-barquette-1.png','Plastic tray',16),
+        ('Rose Butter','500g',7.67,'80%','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-500g-1.png','Aluminium packaging',16),
+        ('Spreadable','250g',4.33,'80%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_tartinable-face-e1570526858659.png','Plastic tray',17),
+        ('Light','250g',4.03,'40%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637.png','Plastic tray',17),
+        ('Semi-salted','250g',4.03,'75%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_demi-sel-face-e1570526892868.png','Plastic tray',17),
