@@ -211,3 +211,17 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Spreadable','250g',4.33,'80%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_tartinable-face-e1570526858659.png','Plastic tray',17),
         ('Light','250g',4.03,'40%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637.png','Plastic tray',17),
         ('Semi-salted','250g',4.03,'75%','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_demi-sel-face-e1570526892868.png','Plastic tray',17),
+
+        -- Creams INSERT from author @Luxbaut (Friederici Thibaut)
+        ('Liquid fresh cream','0.25L',2.18,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-250ml_face.png',NULL,18),
+        ('Liquid fresh cream','0.5L',4.50,'36%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-0.250L_1_HD_ok_.png',NULL,18),        
+        ('Liquid fresh cream','1L',7.25,'36%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_.png',NULL,18),          
+        ('Whipping Cream','1L',7.25,'35%','https://www.luxlait.lu/wp-content/uploads/2020/05/Cr%C3%A8me-UHT-35-1L.png',NULL,19),
+        ('Smooth','0.2',2.04,'12%','https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-12.png',NULL,19),
+        ('Whole','0.2L',1.80,'30%','https://www.luxlait.lu/wp-content/uploads/2019/09/cre%CC%80me-200ml-face-30.png',NULL,19),
+        ('Culinary Cream','1L',12.04,'18%','https://www.luxlait.lu/wp-content/uploads/2019/09/Creme-culinaire_Face.png',NULL,19),
+        ('Coffee cream','10g',0.07,NULL,'https://www.luxlait.lu/wp-content/uploads/2020/05/Coffee-Cream-Dosette_75g.png',NULL,20),
+        ('Thick','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-epaisse-250g_Site.png',NULL,21),
+        ('Thick','500g',6.52,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/cr%C3%A8me-fraiche-epaisse-500g_Site.png',NULL,21),
+        ('Light','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/cr%C3%A8me-fraiche-250g_Site.png',NULL,21),
+        ('French style','250g',3.40,'33%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-%C3%A0-la-fr-250g_Site.png',NULL,21),
