@@ -279,20 +279,18 @@ VALUES  ('AF', 'Afghanistan', 93, 'https://upload.wikimedia.org/wikipedia/common
         ('ZM', 'Zambia', 260, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Zambia.svg/188px-Flag_of_Zambia.svg.png'),
         ('ZW', 'Zimbabwe', 263, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/188px-Flag_of_Zimbabwe.svg.png');
 
-
-
+ 
 CREATE TABLE tblRights(
     idRight INT NOT NULL AUTO_INCREMENT,
     dtRight VARCHAR(6) NOT NULL,
     PRIMARY KEY (idRight)
 );
-
+ 
 INSERT INTO tblRights (idRight, dtRight)
 VALUES (1, 'Admin'),
        (2, 'Staff'),
-       (3, 'User'); 
-
-
+       (3, 'User');
+ 
 --User SQL from author @LuxJoghurt (Pedro Ribeiro Costa)
 
 CREATE TABLE tblUser(
@@ -305,23 +303,22 @@ CREATE TABLE tblUser(
     dtPLZ VARCHAR(6) NOT NULL,
     dtHouseNR VARCHAR(3) NOT NULL,
     dtStreet VARCHAR(35) NOT NULL,
-    fiCountry VARCHAR(5) NOT NULL,
+    dtCountry VARCHAR(5) NOT NULL,
     fiRight INT NOT NULL,
     PRIMARY KEY (idUsername),
     FOREIGN KEY (fiCountry) REFERENCES tblCountry (idCountry),
     FOREIGN KEY (fiRight) REFERENCES tblRights (idRight)
 );
-
-INSERT INTO tblUser 
-VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@admin.lu', '621 345 345', '1234', '3', 'Am Seif', 'LU', 1),
-        ('staff' , 'Staff', 'Staff', '1562206543da764123c21bd524674f0a8aaf49c8a89744c97352fe677f7e4006', 'staff@staff.lu', '691 567 567', '1234', '3', 'Am Seif', 'LU', 2),
-        ('user', 'User', 'User', '04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb', 'user@user.lu', '621 788 897', '1234', '3', 'Am Seif', 'LU', 3),
-        ('ribpe261', 'Pedro', 'Ribeiro Costa', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'ribpe261@school.lu', '691 522 129', '1940', '274', 'route de Longwy', 'PT', 1),
-        ('frith033', 'Thibaut', 'Friederici', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'frith033@school.lu', '691 703 747', '6724', '13', 'Rue des Foyers', 'LU', 1),
-        ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '621 816 424', '6183', '39', 'rue de ecole', 'LU', 1),
-        ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', 'LU', 1),
-        ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '691 879 699', '8380', '13', 'Rue de la Gare', 'LU', 1);
-
+ 
+INSERT INTO tblUser
+VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@admin.lu', '621 345 345', '1234', '3', 'Am Seif', '/', 1),
+        ('staff' , 'Staff', 'Staff', '1562206543da764123c21bd524674f0a8aaf49c8a89744c97352fe677f7e4006', 'staff@staff.lu', '691 567 567', '1234', '3', 'Am Seif', '/', 2),
+        ('user', 'User', 'User', '04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb', 'user@user.lu', '621 788 897', '1234', '3', 'Am Seif', '/', 3),
+        ('ribpe261', 'Pedro', 'Ribeiro Costa', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'ribpe261@school.lu', '691 522 129', '1940', '274', 'route de Longwy', '/', 1),
+        ('frith033', 'Thibaut', 'Friederici', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'frith033@school.lu', '691 703 747', '6724', '13', 'Rue des Foyers', '/', 1),
+        ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '621 816 424', '6183', '39', 'rue de ecole', '/', 1),
+        ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', '/', 1),
+        ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '691 879 699', '8380', '13', 'Rue de la Gare', '/', 1);
 
 CREATE TABLE tblCategory (
     idCategory INT NOT NULL AUTO_INCREMENT,
