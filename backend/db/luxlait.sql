@@ -153,3 +153,36 @@ CREATE TABLE tblProduct (
     PRIMARY KEY (idProduct),
     FOREIGN KEY (fiType) REFERENCES tblType (idType) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
+-- Product INSERT from author @all
+ 
+INSERT INTO tblProduct (dtProduct, dtMetricUnit, dtPrice, dtFat, dtImage, dtPackage, fiType)
+        -- Milk and dairy drinks INSERT from author @LuxLait (Frisch Tim)
+VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-1L_1_HD_OK_-1.png',NULL,1),
+        ('Fresh milk','0.5L',0.99,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-3.5-500ML_1_HD_OK_.png',NULL,1),
+        ('Fresh milk','1L',1.97,'1.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-frais-1.5-1L_1_HD_OK_.png',NULL,1),
+        ('UHT whole milk','1L',1.63,'3.5%','https://www.luxlait.lu/wp-content/uploads/2021/10/Lait-Uht-3.5-1L_1_HD_OK.png',NULL,2),
+        ('UHT semi-skimmed milk','1L',1.95,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-1.5-1L_1_HD_OK.png',NULL,2),
+        ('UHT skimmed milk','1L',2.17,'0%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait_UHT_0_Sans-ombre.png',NULL,2),
+        ('UHT whole milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png',NULL,2),
+        ('UHT organic milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',NULL,2),
+        ('UHT lactose-free milk','1L',2.02,'1.5%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png',NULL,2),        
+        ('Lacto-free milk','1L',1.91,'0%','https://www.luxlait.lu/wp-content/uploads/2020/10/Lait_UHT_O-lactose_.png',NULL,3),
+        ('UHT milk','1L',2.05,'1.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-UHT-Bio-3.png',NULL,4),
+        ('Fresh milk','1L',2.27,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Lait-frais-Bio-3.png',NULL,4),
+        ('Fresh milk','0.25L',0.69,'3,5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TR-250-BiO_Face-1.png',NULL,4),
+        ('Fresh Chocolate Milk','0.25L', 1.30, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-Frais_250ML_face.png',NULL,5),
+        ('Fresh Chocolate Milk','0.5L', 1.74, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_500ML-face.png',NULL,5),
+        ('Fresh Chocolate Milk','1L', 3.09, '3.5%','https://www.luxlait.lu/wp-content/uploads/2020/05/Lait-choco-frais_1L_face.png',NULL,5),      
+        ('UHT milk','0.25L',1.08,'3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-e3319160-1730-4a68-88e9-fb658ab1af6c.png',NULL,6),
+        ('Fresh Chocolate Milk','0.25L', 1.46, '3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-2b43c425-e38f-4d79-b6bd-d3b837c4085e.png',NULL,6),
+        ('Vanilla Milk','0.25L',1.55,'1.6%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-f1d1e562-501e-4582-8ee4-bdb66c8fb7f5.png',NULL,6),
+        ('Cafe Latte Cappuccino','0.25L',1.33,'2.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-8f1d2794-ffe6-40ef-b154-f88fad4e979f.png',NULL,6),
+        ('Cafe Latte Caramel','0.25L',1.33,'2.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-cbd9712f-7224-49f1-bc29-3a781e6a1735.png',NULL,6),
+        ('Cafe Latte Espresso','0.25L',1.33,'2.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-970ce447-1a8d-46a8-ab8f-c03602da6ea9.png',NULL,6),
+        ('Milky strawberry','0.25L',1.33,'1%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-93c66a66-0d56-4122-a7a1-93d6d3e55a9a.png',NULL,6),
+        ('Milky banana','0.25L',1.33,'1%','https://www.luxlait.lu/wp-content/uploads/2019/09/TPA-250-E-DreamCap26-White-73bc5a36-1681-49b1-9b38-f3631faddad9.png',NULL,6),
+        ('Tropical','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-tropical-1.png',NULL,7),
+        ('Orange','0.7L', 2.55, '0.1%','https://www.luxlait.lu/wp-content/uploads/2019/09/Funny-drink-orange-1.png',NULL,7),
+        ('Egg Nog','0.7L', 1.30, '3.5%','https://www.luxlait.lu/wp-content/uploads/2019/09/Egg-nog-frais-0.75L_5_HD_OK_.png',NULL,8),
