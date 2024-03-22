@@ -44,9 +44,9 @@
                 // Durch die empfangenen Daten iterieren
                 $.each(data, function(index, staff) {
                     // Auf die einzelnen Attribute zugreifen und ausgeben
+                    $("#info").append('<img src="../images/' + staff.profile + '" alt="Profilbild von ' + staff.name + '">');
                     $("#info").append(staff.name);
                     $("#info").append(staff.email);
-                    $("#info").append('<img src="../images/' + staff.profile + '" alt="Profilbild von ' + staff.name + '">');
                     $("#info").append(staff.role);
                 });
             });
