@@ -1,0 +1,59 @@
+<script src="JQuery%20Basic/lib.js"></script>
+<section class="thirdMain bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>About us</h2>
+                <h6 class="mb-4">At Luxlait, we share a common ambition that motivates each of our employees at all levels of production: to be the benchmark in the dairy products sector in Europe.</h6>
+            </div>
+            <div class="col-md-6">
+                <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/vache_dans_un_pre.jpg" class="img-fluid" alt="Luxembourg farmers">
+            </div>
+            <div class="col-md-6 mt-5">
+                <h6> Luxembourg farmers</h6>
+                <h3>OUR AGRICULTURAL COOPERATIVE</h3>
+                <hr>
+                <p>Luxlait is wholly owned by the Luxembourg member farmers who are at the same time owners, customers and suppliers of the company. Check out our Cooperative</p>
+            </div>
+            <div class="col-md-6 mt-5">
+                <h6>Since 1894</h6>
+                <h3>OUR HISTORY</h3>
+                <hr>
+                <p>The origins of Luxlait go back to 1894, which is marked by the foundation of the “Central-Molkerei” in Luxembourg City. This dairy quickly became a public limited company and changed its name to “Zentralmolkerei”. The structure of Luxlait today has gradually developed and was particularly marked during the Second World War.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://www.luxlait.lu/wp-content/uploads/2019/10/Production-Lait-Laiterie-de-Luxembourg-1.jpg" class="img-fluid" alt="Production">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main bg-warning">
+<div class="container">
+<div class="row">
+  <div class="col-md-12 text-center">
+    <p>Contact Us</p>
+    <h1>Staff Members</h1>
+  </div>
+</div>
+<div class="row justify-content-center">
+<div id="info"></div>
+    <script>
+        $(document).ready(function() {
+            // AJAX-Anfrage an aboutus.php senden
+            $.getJSON("aboutus.php", function(data) {
+                // Durch die empfangenen Daten iterieren
+                $.each(data, function(index, staff) {
+                    // Auf die einzelnen Attribute zugreifen und ausgeben
+                    $("#info").append(staff.name);
+                    $("#info").append(staff.email);
+                    $("#info").append(staff.profile);
+                    $("#info").append(staff.role);
+                });
+            });
+        });
+    </script>
+
+
+</div>
+</div>
+</section>
