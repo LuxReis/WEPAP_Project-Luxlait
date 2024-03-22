@@ -40,7 +40,7 @@
     <script>
         $(document).ready(function() {
             // AJAX-Anfrage an aboutus.php senden
-            $.getJSON("aboutus.php", function(data) {
+            $.getJSON("backend/include/aboutus.php", function(data) {
                 // Durch die empfangenen Daten iterieren
                 $.each(data, function(index, staff) {
                     // Auf die einzelnen Attribute zugreifen und ausgeben
