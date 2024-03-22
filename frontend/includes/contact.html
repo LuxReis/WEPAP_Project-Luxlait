@@ -46,7 +46,7 @@
                     // Auf die einzelnen Attribute zugreifen und ausgeben
                     $("#info").append(staff.name);
                     $("#info").append(staff.email);
-                    $("#info").append(staff.profile);
+                    $("#info").append('<img src="' + staff.profile + '" alt="Profilbild von ' + staff.name + '">');
                     $("#info").append(staff.role);
                 });
             });
