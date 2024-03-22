@@ -1905,3 +1905,28 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
         FOREIGN KEY (fiProduct) REFERENCES tblProduct (idProduct) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (fiUsername) REFERENCES tblUser (idUsername) ON DELETE CASCADE ON UPDATE CASCADE
     );
+
+-- Payment SQL from autor @LuxReis (GUO Kaidi)
+ 
+CREATE TABLE tblPayment(
+    idPayment INT NOT NULL AUTO_INCREMENT,
+    dtDatum DATE NOT NULL,
+    dtCartNumber INT,
+    dtCartName VARCHAR(50),
+    dtValidDate VARCHAR(20),
+    dtSecCode INT,
+    dtStatus VARCHAR(10) NOT NULL,
+    fiCart INT NOT NULL,
+    PRIMARY KEY (idPayment),
+    FOREIGN KEY (fiCart) REFERENCES tblShoppingCart (idCart) ON DELETE CASCADE ON UPDATE CASCADE
+);
+ 
+-- Delievery SQL from autor @LuxReis (GUO Kaidi)
+ 
+CREATE TABLE tblDelivery(
+    idDelivery INT NOT NULL AUTO_INCREMENT,
+    dtStatus VARCHAR(20) NOT NULL,
+    fiPayment INT NOT NULL,
+    PRIMARY KEY (idDelivery),
+    FOREIGN KEY (fiPayment) REFERENCES tblPayment (idPayment) ON DELETE CASCADE ON UPDATE CASCADE
+);
