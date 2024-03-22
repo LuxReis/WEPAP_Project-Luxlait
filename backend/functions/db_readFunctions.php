@@ -44,6 +44,4 @@ $dbc = dbConnections();
             return ($row_count == 0);
     }
 
-    
-    ?>
 ?>
