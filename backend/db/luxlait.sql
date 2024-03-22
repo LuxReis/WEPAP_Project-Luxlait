@@ -257,3 +257,15 @@ VALUES  ('Fresh milk','1L',2.17,'3.5%','https://www.luxlait.lu/wp-content/upload
         ('Sweet pepper & pimento',NULL,2.89,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-chapelain-Poivron-Piment.png',NULL,31),
         ('Italian flavour',NULL,2.98,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-chapelain-Saveur-Italienne.png',NULL,31),
         ('With black truffle from the Périgord',NULL,3.12,'34%','https://www.luxlait.lu/wp-content/uploads/2019/09/Cra%CC%88me-de-Chapelain-O%CC%88-la-Truffe.png',NULL,31),
+
+-- Shoppingcart SQL from autor @Forlu102 (Formica Luca)
+ 
+    CREATE TABLE tblShoppingCart(
+        idCart INT NOT NULL AUTO_INCREMENT,
+        dtAmount INT NOT NULL,
+        fiProduct INT NOT NULL,
+        fiUsername VARCHAR(10) NOT NULL,
+        PRIMARY KEY (idCart),
+        FOREIGN KEY (fiProduct) REFERENCES tblProduct (idProduct) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (fiUsername) REFERENCES tblUser (idUsername) ON DELETE CASCADE ON UPDATE CASCADE
+    );
