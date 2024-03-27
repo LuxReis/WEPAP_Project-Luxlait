@@ -1,7 +1,6 @@
 
 
 
-
 .bg-primary {
     background-color:  #3976b8 !important; 
 }
@@ -62,7 +61,7 @@
 
 
 .text-primary {
-    color: #4181c4 !important;
+    color: rgb(69, 125, 160) !important;
 }
 
 .text-secondary {
