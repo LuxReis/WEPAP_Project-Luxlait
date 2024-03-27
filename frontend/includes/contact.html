@@ -1,138 +1,116 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<section class="thirdMain bg-dark text-white py-5">
+ <!-- Bootstrap CSS -->
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Bootstrap JS -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Include Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+        overflow-x: hidden; /* Disable horizontal scrollbar */
+    }
+</style>
+ <section class="thirdMain bg-dark text-white py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h2>About us</h2>
-                <h6 class="mb-4">At Luxlait, we share a common ambition that motivates each of our employees at all levels of production: to be the benchmark in the dairy products sector in Europe.</h6>
+                <h6 class="mb-4">At Luxlait, we share a common ambition that motivates each of our employees at all
+                    levels of production: to be the benchmark in the dairy products sector in Europe.</h6>
             </div>
             <div class="col-md-6">
-                <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/vache_dans_un_pre.jpg" class="img-fluid" alt="Luxembourg farmers">
+                <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/vache_dans_un_pre.jpg"
+                    style="width: 100%; height: auto;" alt="Luxembourg farmers">
             </div>
             <div class="col-md-6 mt-5">
                 <h6> Luxembourg farmers</h6>
                 <h3>OUR AGRICULTURAL COOPERATIVE</h3>
                 <hr>
-                <p>Luxlait is wholly owned by the Luxembourg member farmers who are at the same time owners, customers and suppliers of the company. Check out our Cooperative</p>
+                <p>Luxlait is wholly owned by the Luxembourg member farmers who are at the same time owners,
+                    customers and suppliers of the company. Check out our Cooperative</p>
             </div>
             <div class="col-md-6 mt-5">
                 <h6>Since 1894</h6>
                 <h3>OUR HISTORY</h3>
                 <hr>
-                <p>The origins of Luxlait go back to 1894, which is marked by the foundation of the “Central-Molkerei” in Luxembourg City. This dairy quickly became a public limited company and changed its name to “Zentralmolkerei”. The structure of Luxlait today has gradually developed and was particularly marked during the Second World War.</p>
+                <p>The origins of Luxlait go back to 1894, which is marked by the foundation of the
+                    “Central-Molkerei” in Luxembourg City. This dairy quickly became a public limited company and
+                    changed its name to “Zentralmolkerei”. The structure of Luxlait today has gradually developed
+                    and was particularly marked during the Second World War.</p>
             </div>
             <div class="col-md-6">
-                <img src="https://www.luxlait.lu/wp-content/uploads/2019/10/Production-Lait-Laiterie-de-Luxembourg-1.jpg" class="img-fluid" alt="Production">
+                <img src="https://www.luxlait.lu/wp-content/uploads/2019/10/Production-Lait-Laiterie-de-Luxembourg-1.jpg"
+                    style="width: 100%; height: auto;" alt="Production">
             </div>
         </div>
     </div>
 </section>
 <section class="main bg-warning">
-<div class="container">
-<div class="row">
-  <div class="col-md-12 text-center">
-    <p>Contact Us</p>
-    <h1>Staff Members</h1>
-  </div>
-</div>
-<div class="row justify-content-center">
-<div id="info"></div>
-    <script>
-        $(document).ready(function() {
-            // AJAX-Anfrage an contact.php senden
-            $.getJSON("../../backend/include/contact.php", function(data) {
-                // Durch die empfangenen Daten iterieren
-                $.each(data, function(index, staff) {
-                    // Auf die einzelnen Attribute zugreifen und ausgeben
-                    $("#info").append('<img src="../images/' + staff.profile + '" alt="Profilbild von ' + staff.name + '">');
-                    $("#info").append(staff.name);
-                    $("#info").append(staff.email);
-                    $("#info").append(staff.role);
-                });
-            });
-        });
-    </script>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Contact Us</h1>
+                <h3>Staff Members</h3>
+                <div id="info" class="row"></div>
+                <script>
+                    $(document).ready(function () {
+                        // AJAX-Anfrage an contact.php senden
+                        $.getJSON("../../backend/include/contact.php", function (data) {
+                            // Durch die empfangenen Daten iterieren
+                            $.each(data, function (index, staff) {
+                                // Auf die einzelnen Attribute zugreifen und ausgeben
+                                $("#info").append('<div class="col-md-4 mb-4">' +
+                                    '<img src="../images/' + staff.profile + '" style="width: 50%; height: auto;" class="rounded" alt="Profilbild von ' + staff.name + '">' +
+                                    '<p>Name: ' + staff.name + '</p>' +
+                                    '<p>Email: ' + staff.email + '</p>' +
+                                    '<p>Rolle: ' + staff.role + '</p>' +
+                                    '</div>');
+                            });
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
 </section>
 <section>
-    <div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;">
-        <div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; will-change: transform; transform: translate(0px, 0px);">
-            <div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
-                <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-                    <div style="position: absolute; z-index: 984; transform: matrix(1, 0, 0, 1, -241, -212);">
-                        <div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px;">
-                            <div style="width: 256px; height: 256px;">
-                            </div>
+    <div class="bg-color-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <i class="fas fa-industry fa-3x"></i>
                         </div>
-                        <div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px;">
-                            <div style="width: 256px; height: 256px;">
-                            </div>
+                        <div class="col-md-9">
+                            <h6>Sitz</h6>
+                            <p>Luxlait / Vitarium<br>
+                                3, Am Seif<br>
+                                7759 Roost / Bissen</p>
                         </div>
-                        <div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;">
-                            <div style="width: 256px; height: 256px;">
-                            </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <i class="material-icons md-48">email</i>
                         </div>
-                        <div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;">
-                            <div style="width: 256px; height: 256px;">
-                            </div>
+                        <div class="col-md-9">
+                            <h6>Postanschrift</h6>
+                            <p>Luxlait / Vitarium<br>
+                                B.P. 87<br>
+                                7501 Mersch</p>
                         </div>
-                        <div style="position: absolute; left: 512px; top: 0px; width: 256px; height: 256px;">
-                            <div style="width: 256px; height: 256px;">
-                            </div>
-                        </div>
-                        <div style="position: absolute; left: 512px; top: 256px; width: 256px; height: 256px;">
-                            <div style="width: 256px; height: 256px;">
-                            </div>
-                        </div>
-                        <div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px;">
-                            <div style="width: 256px; height: 256px;">
-                            </div>
-                        </div>
-    <div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;">
-        <div style="width: 256px; height: 256px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map mt-5">
+            <div class="map-container">
+                <iframe width="200px" height="200px" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFBbyjsNeJyJgXcOOA6JBQ0j6eieJCEmA&amp;q=LUXLAIT+Association+Agricole"></iframe>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;">
-    </div>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;">
-    </div>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;">
-    </div>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-        <div style="position: absolute; z-index: 984; transform: matrix(1, 0, 0, 1, -241, -212);">
-        <div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;">
-        <img draggable="false" alt="" role="presentation" src="/maps/vt?pb=!1m5!1m4!1i16!2i33874!3i22289!4i256!2m3!1e0!2sm!3i686431145!2m3!1e2!2sspotlit!5i1!3m12!2sde-DE!3sUS!5e289!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0!5m1!5f2!27m15!299174093m14!14m13!1m8!1m2!1y5158121810929270109!2y5417633768321304911!2s%2Fg%2F12mkw9rqz!4m2!1x497783320!2x60806171!15sgcid%3Aagricultural_association!2b0!3b0!6b0!8b0&amp;client=google-maps-embed&amp;token=104068" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;">
-    </div>
-    <div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;">
-        <img draggable="false" alt="" role="presentation" src="/maps/vt?pb=!1m5!1m4!1i16!2i33875!3i22288!4i256!2m3!1e0!2sm!3i686431121!2m3!1e2!2sspotlit!5i1!3m12!2sde-DE!3sUS!5e289!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0!5m1!5f2!27m15!299174093m14!14m13!1m8!1m2!1y5158121810929270109!2y5417633768321304911!2s%2Fg%2F12mkw9rqz!4m2!1x497783320!2x60806171!15sgcid%3Aagricultural_association!2b0!3b0!6b0!8b0&amp;client=google-maps-embed&amp;token=112098" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;">
-    </div>
-    <div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;">
-        <img draggable="false" alt="" role="presentation" src="/maps/vt?pb=!1m5!1m4!1i16!2i33875!3i22289!4i256!2m3!1e0!2sm!3i686431145!2m3!1e2!2sspotlit!5i1!3m12!2sde-DE!3sUS!5e289!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0!5m1!5f2!27m15!299174093m14!14m13!1m8!1m2!1y5158121810929270109!2y5417633768321304911!2s%2Fg%2F12mkw9rqz!4m2!1x497783320!2x60806171!15sgcid%3Aagricultural_association!2b0!3b0!6b0!8b0&amp;client=google-maps-embed&amp;token=46952" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;">
-    </div>
-    <div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;">
-        <img draggable="false" alt="" role="presentation" src="/maps/vt?pb=!1m5!1m4!1i16!2i33874!3i22288!4i256!2m3!1e0!2sm!3i686430665!2m3!1e2!2sspotlit!5i1!3m12!2sde-DE!3sUS!5e289!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0!5m1!5f2!27m15!299174093m14!14m13!1m8!1m2!1y5158121810929270109!2y5417633768321304911!2s%2Fg%2F12mkw9rqz!4m2!1x497783320!2x60806171!15sgcid%3Aagricultural_association!2b0!3b0!6b0!8b0&amp;client=google-maps-embed&amp;token=760" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;">
-    </div>
-</div>
-</div>
-</div>
-    <div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;">
-        <div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; will-change: transform; transform: translate(0px, 0px);">
-        <div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;">
-    </div>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;">
-        <span id="BFCA00B0-E042-4EBB-831E-E3D429052882" style="display: none;">Zum Verschieben drückst du die Pfeiltasten entsprechend.</span>
-    </div>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;">
-    </div>
-</div>
-</div>
-    <div class="gm-style-moc" style="z-index: 4; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0; transition-duration: 0.8s;">
-        <p class="gm-style-mot">Verwende Strg+Scrollen zum Zoomen der Karte</p>
-    </div>
-</div>
 </section>
