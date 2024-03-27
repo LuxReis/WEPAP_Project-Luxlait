@@ -1,0 +1,68 @@
+<script>
+    $(document).ready(function(){
+        // JSON-Daten abrufen
+        $.ajax({
+            url: 'backend/api/navigation.php',
+            dataType: 'json',
+            success: function(data) {
+                // Dropdown-Liste füllen
+
+                $.each(data, function(index, item) {
+                    $('.dropdown-menu').append('<li><a class="dropdown-item" href="#">' + item + '</a></li>');
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error("Fehler beim Abrufen der Daten: " + error);
+            }
+        });
+
+        // Dropdown-Menü anzeigen/verstecken
+        $('.nav-item.dropdown').hover(function(){
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+        }, function(){
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+        });
+    });
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand ms-5" href="index.html?page=home"><img src="https://www.luxlait.lu/wp-content/themes/luxlait/logo.png?v=1.1.1" style="max-height: 40px;" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="index.php?page=product" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hover" href="index.html?page=blog">Blog</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="index.html?page=product" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        About us
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html?page=register">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html?page=login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
