@@ -6,7 +6,7 @@ $(document).ready(function(){
         success: function(data) {
             
             $.each(data, function(index, item) {
-                $('.navbar-nav > .dropdown:first-child .dropdown-menu').append('<li><a class="dropdown-item" href="#">' + item + '</a></li>');
+                $('.navbar-nav > .dropdown:first-child .dropdown-menu').append('<li><a class="dropdown-item" href="index.html?page=product">' + item + '</a></li>');
             });
         },
         error: function(xhr, status, error) {
@@ -32,7 +32,7 @@ $(document).ready(function(){
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="index.php?page=product" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link" href="index.php?page=productTyps" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Products
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,7 +47,7 @@ $(document).ready(function(){
                 <li class="nav-item dropdown">
 
                     <a class="nav-link " href="index.php?page=contact" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        About u
+                        About us
                     </a>
                     <ul class="dropdown-menu">
                         <a class="dropdown-item" href="index.php?page=history">History</a>
