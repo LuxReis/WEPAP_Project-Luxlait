@@ -1,0 +1,57 @@
+<!--  @author GUO Kaidi -->
+  <div class="container mt-5 mb-5">
+    <h2 class="display-6 text-center">Support</h2>
+    <br><hr>
+    <p class="lead text-center">Do you have a question about a product, a suggestion, or would you like to sell our products in your store?
+      <br>If so, do not hesitate to contact us. The whole Luxlait team is at your disposal to answer your questions.</p>
+    <hr class="mb-5">
+    <div class="row">
+      <!--  Email self sending -->
+      <div class="col-md-6 d-flex justify-content-center align-items-center text-center">
+        <a href="mailto:webap.luxlait@gmail.com">
+          <div class="mr-3">
+              <i class="material-icons md-48" style="font-size: 48px;">email</i>
+          </div>
+          <div>
+              <h6>Postanschrift</h6>
+              <p>Luxlait / Vitarium<br>
+                  B.P. 87<br>
+                  7501 Mersch</p>
+          </div>
+        </a>
+      </div>
+      <!--  Email website sending per formspree -->
+      <div class="col-md-6">
+        <form action="https://formspree.io/f/xayrpqnk" method="POST">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col">
+                  <label for="name">Full Name</label>
+                  <input class="form-control" type="text" name="name" id="name" required>
+              </div>
+              <div class="col">
+                <label for="email">Email Address</label>
+                <input class="form-control" type="email" name="email" id="email" required>
+              </div>
+              <div class="col">
+                <label for="problem">What is the problem?</label>
+                <select class="form-control" name="problem" id="problem" required>What is the problem
+                  <option value="website Issue">Website Issue</option>
+                  <option value="bug Report">Bug Report</option>
+                  <option value="feature Request">Feature Request</option>
+                  <option value="order problem">Order Problem</option>
+                  <option value="product problem">Product Problem</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Your message</label><br>
+            <textarea class="form-control" id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+        </form><br>
+      </div>
+      </div>
+  </div>
