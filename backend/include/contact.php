@@ -10,7 +10,7 @@
             'name' => 'Ribeiro Costa Pedro',
             'email' => 'ribpe261@school.lu',
             'profile' => 'profil.png',
-            'role' => 'IT Administrator'
+            'role' => 'Project Manager'
           ],
           [
             'name' => 'Frisch Tim',
@@ -22,13 +22,13 @@
             'name' => 'Friederici Thibaut',
             'email' => 'frith033@school.lu',
             'profile' => 'profil.png',
-            'role' => 'Project Manager'
+            'role' => 'Database Administrator'
           ],
           [
             'name' => 'Gamass Mihails',
             'email' => 'gammi625@school.lu',
             'profile' => 'profil.png',
-            'role' => 'IT Administrator'
+            'role' => 'Scrum Master'
           ],
           [
             'name' => 'Formica Luca',
