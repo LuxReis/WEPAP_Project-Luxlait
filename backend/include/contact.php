@@ -16,13 +16,13 @@
             'name' => 'Frisch Tim',
             'email' => 'friti725@school.lu',
             'profile' => 'profil.png',
-            'role' => 'IT Administrator'
+            'role' => 'Web Designer'
           ],
           [
             'name' => 'Friederici Thibaut',
             'email' => 'frith033@school.lu',
             'profile' => 'profil.png',
-            'role' => 'IT Administrator'
+            'role' => 'Project Manager'
           ],
           [
             'name' => 'Gamass Mihails',
