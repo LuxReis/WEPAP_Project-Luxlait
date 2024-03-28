@@ -1,0 +1,160 @@
+
+
+
+<section class="bg-white mt-5">
+    <div class="container">
+        <h1 >OUR RECIPES</h1>
+        <h4>Recipe Idea</h4>
+        <p class="h5">Top quality products are the basis of every recipe. Be inspired by our recipes and spoil your loved ones with delicious dishes.</p>
+        <div class="row mt-5">
+            <div class="background col-md-4 mb-5">
+                <div class="imgRezeptHome p-2"> <!-- bg-light -->
+                    <img class="w-100 rounded-3" src="https://www.luxlait.lu/wp-content/uploads/2024/02/24-02-Loaded-fries-3-scaled.jpg">
+                    <div class="overlay"></div>
+                    <div id="rezeptInfo">
+                        <h4>LOADED KRÄIDERKACHKÉIS FRIES</h4>
+                            <p >A crispy, melting delight.</p>
+                            <p>Preparation time: 30 minutes <br>
+                            Cooking time: 30 minutes</p>
+                        <button class="btn btn-outline-light">Go to</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="background col-md-4 mb-5">
+                <div class="imgRezeptHome p-2"> <!-- bg-light -->
+                    <img class="w-100 rounded-3" src="https://www.luxlait.lu/wp-content/uploads/2024/02/24-02-Loaded-fries-3-scaled.jpg">
+                    <div class="overlay"></div>
+                    <div id="rezeptInfo">
+                        <h5>LOADED KRÄIDERKACHKÉIS FRIES</h5>
+                        <p>A crispy, melting delight.</p>
+                        <p>Preparation time: 30 minutes <br>
+                            Cooking time: 30 minutes</p>
+
+
+
+                        <button class="btn btn-outline-light">Go to</button>
+                    </div>
+                </div>
+            </div>
+            <div class="background col-md-4 mb-5">
+                <div class="imgRezeptHome p-2"> <!-- bg-light -->
+                    <img class="w-100 rounded-3" src="https://www.luxlait.lu/wp-content/uploads/2024/02/24-02-Loaded-fries-3-scaled.jpg">
+                    <div class="overlay"></div>
+                    <div id="rezeptInfo">
+                        <h5>LOADED KRÄIDERKACHKÉIS FRIES</h5>
+                        <p>A crispy, melting delight.</p>
+                        <p>Preparation time: 30 minutes <br>
+                            Cooking time: 30 minutes</p>
+
+
+
+                        <button class="btn btn-outline-light">Go to</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outline-dark mt-2 mb-5 w-25">See All Recipes</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="thirdMain bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>About us</h2>
+                    <h6 class="mb-4">At Luxlait, we share a common ambition that motivates each of our employees at all levels of production: to be the benchmark in the dairy products sector in Europe.</h6>
+                </div>
+                <div class="col-md-6">
+                    <img class=" w-100 rounded-3" src="https://www.luxlait.lu/wp-content/uploads/2019/09/vache_dans_un_pre.jpg" class="img-fluid" alt="Luxembourg farmers">
+                </div>
+                <div class="col-md-6 mt-5">
+                    <h6> Luxembourg farmers</h6>
+                    <h3>OUR AGRICULTURAL COOPERATIVE</h3>
+                    <hr>
+                    <p>Luxlait is wholly owned by the Luxembourg member farmers who are at the same time owners, customers and suppliers of the company. Check out our Cooperative</p>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <h6>Since 1894</h6>
+                    <h3>OUR HISTORY</h3>
+                    <hr>
+                    <p>The origins of Luxlait go back to 1894, which is marked by the foundation of the “Central-Molkerei” in Luxembourg City. This dairy quickly became a public limited company and changed its name to “Zentralmolkerei”. The structure of Luxlait today has gradually developed and was particularly marked during the Second World War.</p>
+                </div>
+                <div class="col-md-6">
+                    <img class=" w-100 rounded-3" src="https://www.luxlait.lu/wp-content/uploads/2019/10/Production-Lait-Laiterie-de-Luxembourg-1.jpg" class="img-fluid" alt="Production">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    <script>
+
+
+
+        
+    $(document).ready(function() {
+        $('.imgRezeptHome').hover(
+            function() {
+                $(this).find('#rezeptInfo').fadeIn();
+            },
+            function() {
+                $(this).find('#rezeptInfo').fadeOut();
+            }
+        );
+    });
+
+
+
+    
+    $(document).ready(function () {
+        let slideIndex = 0;
+        let slides = $('.slides');
+        let dots = $('.dot');
+
+        function showSlide(i) {
+            slides.hide();
+            dots.removeClass('active');
+
+            if (i >= slides.length) {
+                slideIndex = 0;
+            } else if (i < 0) {
+                slideIndex = slides.length - 1;
+            } else {
+                slideIndex = i;
+            }
+
+            slides.eq(slideIndex).show();
+            dots.eq(slideIndex).addClass('active');
+        }
+
+        const setCurrentSlide = (i) => {
+            showSlide(i - 1);
+        };
+
+        const startAutoSlide = () => {
+            setInterval(() => {
+                showSlide(slideIndex + 1);
+            }, 5000);
+            showSlide(slideIndex); 
+        };
+
+        startAutoSlide();
+    });
+</script>

@@ -1,0 +1,195 @@
+
+
+
+.bg-primary {
+    background-color:  #3976b8 !important; 
+}
+.bg-secondary {
+    background-color:  #8aba29 !important ; 
+}
+.bg-success{
+    background-color:  #d3c5aa !important; 
+}
+.bg-danger{
+    background-color:  #ab3333 !important; 
+}
+.bg-warning{
+    background-color:  #e1773f !important; 
+}
+.bg-info{
+    background-color:  #455667 !important; 
+}
+.bg-light{
+    background-color:  #ebebeb !important; 
+}
+.bg-dark{
+    background-color:  #203546 !important; 
+}
+.bg-white{
+    background-color:  #fdfdfd !important; 
+}
+
+
+
+.btn-primary {
+    background-color: #3976b8 !important;
+}
+.btn-secondary{
+    background-color: #8aba29 !important;
+}
+.btn-success{
+    background-color: #d3c5aa !important;
+}
+.btn-danger{
+    background-color: #ab3333 !important;
+}
+.btn-warning{
+    background-color: #e1773f !important;
+}
+.btn-info{
+    background-color: #364859 !important;
+}
+.btn-light{
+    background-color: #ebebeb !important;
+}
+.btn-dark{
+    background-color: #203546 !important;
+}
+.btn-link{
+    background-color: #dfdfdf !important; 
+}
+
+
+.text-primary {
+    color: rgb(69, 125, 160) !important;
+}
+
+.text-secondary {
+    color: #8aba29 !important;
+}
+
+.text-success {
+    color: #d3c5aa !important;
+}
+
+.text-danger {
+    color: #ab3333 !important;
+}
+
+.text-warning {
+    color: #e1773f !important;
+}
+
+.text-info {
+    color: #364859 !important;
+}
+
+.text-light {
+    color: #ebebeb !important;
+}
+
+.text-dark {
+    color: #203546 !important;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+#imgGradient {
+    background-image: linear-gradient(to top, rgba(157, 157, 157, 1) 0%, rgb(225, 225, 225) 50%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+.imgRezeptHome {
+    position: relative;
+    overflow: hidden;
+}
+#rezeptInfo {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(74, 74, 74, 0.8);
+    border-radius: 10px;
+    padding-top: 50%;
+}
+
+
+
+
+#rezeptInfo button {
+    margin-top: 50%;
+}
+
+
+
+
+ul{
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+.containerSlideShow {
+    position: relative;
+    overflow: hidden;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.slides {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slides.active {
+    opacity: 1;
+}
+
+.slide1{
+    background-color: var(--header-color-dark);
+}
+.slide2{
+    background-color: var(--header-color-light);
+}
+.slide3{
+    background-color:var(--text-color-light);
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #717171;
+}
+
+
+
+
+
