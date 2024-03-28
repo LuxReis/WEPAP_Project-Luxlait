@@ -54,7 +54,7 @@
                 <div id="info" class="row"></div>
                 <script>
                     $(document).ready(function () {
-                        // AJAX-Anfrage an contact.php senden
+                        // AJAX-Anfrage an contact.php senden, um Mitarbeiterdaten abzurufen
                         $.getJSON("backend/include/contact.php", function (data) {
                             // Durch die empfangenen Daten iterieren
                             $.each(data, function (index, staff) {
