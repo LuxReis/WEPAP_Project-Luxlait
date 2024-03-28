@@ -12,7 +12,26 @@
         overflow-x: hidden; /* Disable horizontal scrollbar */
     }
 </style>
- <section class="thirdMain bg-dark text-white py-5">
+<section>
+    <div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/panoramique-luxlait@05x.jpg"
+                style="width: 100%; height: auto;" alt="Production">
+        </div>
+    </div>
+    </div>
+    <div class="container mb-5 mt-5">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3>CONTACT US</h3>
+            <hr>
+            <p>If you have any questions about our products, suggestions, or if you are interested in selling Luxlait products in your store, feel free to contact us. Our dedicated Luxlait team is here to assist you and answer any inquiries you may have.</p>
+        </div>
+    </div>
+    </div>
+</section>
+<section class="thirdMain bg-dark text-white py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -31,28 +50,15 @@
                 <p>Luxlait is wholly owned by the Luxembourg member farmers who are at the same time owners,
                     customers and suppliers of the company. Check out our Cooperative</p>
             </div>
-            <div class="col-md-6 mt-5">
-                <h6>Since 1894</h6>
-                <h3>OUR HISTORY</h3>
-                <hr>
-                <p>The origins of Luxlait go back to 1894, which is marked by the foundation of the
-                    “Central-Molkerei” in Luxembourg City. This dairy quickly became a public limited company and
-                    changed its name to “Zentralmolkerei”. The structure of Luxlait today has gradually developed
-                    and was particularly marked during the Second World War.</p>
-            </div>
-            <div class="col-md-6">
-                <img src="https://www.luxlait.lu/wp-content/uploads/2019/10/Production-Lait-Laiterie-de-Luxembourg-1.jpg"
-                    style="width: 100%; height: auto;" alt="Production">
-            </div>
         </div>
     </div>
 </section>
-<section class="main bg-warning">
+<section class="main bg-info">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Contact Us</h1>
-                <h3>Staff Members</h3>
+                <h4 class="mb-3 mt-3">Contact</h4>
+                <h6>Staff Members</h6>
                 <div id="info" class="row"></div>
                 <script>
                     $(document).ready(function () {
@@ -62,7 +68,9 @@
                             $.each(data, function (index, staff) {
                                 // Auf die einzelnen Attribute zugreifen und ausgeben
                                 $("#info").append('<div class="col-md-4 mb-4">' +
-                                    '<img src="../images/' + staff.profile + '" style="width: 50%; height: auto;" class="rounded" alt="Profilbild von ' + staff.name + '">' +
+                                    '<div class="text-center">' +
+                                    '<i class="material-icons md-96">account_circle</i>' +
+                                    '</div>' +
                                     '<p>Name: ' + staff.name + '</p>' +
                                     '<p>Email: ' + staff.email + '</p>' +
                                     '<p>Rolle: ' + staff.role + '</p>' +
@@ -78,38 +86,35 @@
 <section>
     <div class="bg-color-white py-5">
         <div class="container">
+            <h3 class="text-center mb-4">Where to find us</h3>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <i class="fas fa-industry fa-3x"></i>
-                        </div>
-                        <div class="col-md-9">
-                            <h6>Sitz</h6>
-                            <p>Luxlait / Vitarium<br>
-                                3, Am Seif<br>
-                                7759 Roost / Bissen</p>
-                        </div>
+                <div class="col-md-4 d-flex align-items-center">
+                    <div class="mr-3">
+                        <i class="fas fa-industry fa-3x" style="font-size: 48px;"></i> <!-- Höhe angepasst -->
+                    </div>
+                    <div>
+                        <h6>Sitz</h6>
+                        <p>Luxlait / Vitarium<br>
+                            3, Am Seif<br>
+                            7759 Roost / Bissen</p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <i class="material-icons md-48">email</i>
-                        </div>
-                        <div class="col-md-9">
-                            <h6>Postanschrift</h6>
-                            <p>Luxlait / Vitarium<br>
-                                B.P. 87<br>
-                                7501 Mersch</p>
-                        </div>
+                <div class="col-md-4 d-flex align-items-center">
+                    <div class="mr-3">
+                        <i class="material-icons md-48" style="font-size: 48px;">email</i> <!-- Höhe angepasst -->
+                    </div>
+                    <div>
+                        <h6>Postanschrift</h6>
+                        <p>Luxlait / Vitarium<br>
+                            B.P. 87<br>
+                            7501 Mersch</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="map mt-5">
-            <div class="map-container">
-                <iframe width="200px" height="200px" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFBbyjsNeJyJgXcOOA6JBQ0j6eieJCEmA&amp;q=LUXLAIT+Association+Agricole"></iframe>
+                <div class="col-md-4">
+                    <div class="map-container">
+                        <iframe width="400px" height="200px" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFBbyjsNeJyJgXcOOA6JBQ0j6eieJCEmA&amp;q=LUXLAIT+Association+Agricole"></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
