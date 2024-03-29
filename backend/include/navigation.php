@@ -1,6 +1,6 @@
 <?php
 // Verbindung zur Datenbank herstellen
-include_once "backend\db\db_credentials.php";
+include_once "backend/db/db_credentials.php";
 $dbc = mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
 
 // Überprüfen der Verbindung
@@ -10,11 +10,11 @@ if (mysqli_connect_errno()) {
 
 // SQL-Abfrage ausführen
 $query = "SELECT dtName FROM tblCategory";
-$result = mysqli_query($connection, $query);
+$result = mysqli_query($dbc, $query);
 
 // Überprüfen, ob die Abfrage erfolgreich war
 if (!$result) {
-    die("Abfrage fehlgeschlagen: " . mysqli_error($connection));
+    die("Abfrage fehlgeschlagen: " . mysqli_error($dbc));
 }
 
 // Daten in ein Array speichern
@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_free_result($result);
 
 // Verbindung schließen
-mysqli_close($connection);
+mysqli_close($dbc);
 
 // Daten als JSON zurückgeben
 header('Content-Type: application/json');
