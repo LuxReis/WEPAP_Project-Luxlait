@@ -52,7 +52,7 @@ VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873f
         ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '621 816 424', '6183', '39', 'rue de ecole', '/', 'Web Designer', 1),
         ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', '/', 'Head Chef', 1),
         ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '691 879 699', '8380', '13', 'Rue de la Gare', '/', 'Scrum Master', 1),
-        ('forlu102', 'Luca', 'Formica', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'forlu102@school.lu', '691 691 691', '8888', '15', 'Rue de la Gare', '/', 'IT Administrator', 1);
+        ('forlu102', 'Luca', 'Formica', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'forlu102@school.lu', '661 258 604', '5690', '30', 'Route d’Erpeldange', '/', 'IT Administrator', 1);
 
 -- Category, Typ and Product SQL from author @Luxbaut (Friederici Thibaut)
  
