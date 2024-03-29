@@ -1,6 +1,6 @@
 <?php
 
-require_once "backend/functions/db_connectionFunctions";
+require_once "backend/functions/db_connectionFunctions.php";
 $dbc = dbConnections();
 
 // Check if the product ID is provided in the GET parameter

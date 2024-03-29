@@ -1,6 +1,6 @@
 <?php
 // Verbindung zur Datenbank herstellen
-require_once "backend/functions/db_connectionFunctions";
+require_once "backend/functions/db_connectionFunctions.php";
 $dbc = dbConnections();
 
 // SQL-Abfrage ausführen

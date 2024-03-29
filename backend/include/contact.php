@@ -1,6 +1,6 @@
 <?php
 
-require_once "backend/functions/db_connectionFunctions";
+require_once "backend/functions/db_connectionFunctions.php";
 $dbc = dbConnections();
 
 $sql = "SELECT dtFirstName AS first_name, dtLastName AS last_name, dtEmail AS email, dtRole AS role FROM tblUser WHERE dtRole NOT IN ('Admin', 'Staff', 'Client')";
