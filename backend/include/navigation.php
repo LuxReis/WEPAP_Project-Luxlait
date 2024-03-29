@@ -1,4 +1,5 @@
 <?php
+
 // Verbindung zur Datenbank herstellen
 include_once "backend/db/db_credentials.php";
 $dbc = mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
