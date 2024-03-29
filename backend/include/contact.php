@@ -6,7 +6,7 @@ if (!$conn) {
     die("Verbindung zur Datenbank fehlgeschlagen: " . mysqli_connect_error());
 }
 
-$sql = "SELECT dtFirstName AS first_name, dtLastName AS last_name, dtEmail AS email, dtRole AS role FROM tblUser WHERE dtRole NOT IN ('Admin', 'Staff', 'User')";
+$sql = "SELECT dtFirstName AS first_name, dtLastName AS last_name, dtEmail AS email, dtRole AS role FROM tblUser WHERE dtRole NOT IN ('Admin', 'Staff', 'Client')";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
