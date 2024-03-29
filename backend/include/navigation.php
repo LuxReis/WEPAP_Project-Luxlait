@@ -1,12 +1,7 @@
 <?php
 // Verbindung zur Datenbank herstellen
-include_once "backend/db/db_credentials.php";
-$dbc = mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
-
-// Überprüfen der Verbindung
-if (mysqli_connect_errno()) {
-    die("Verbindung fehlgeschlagen: " . mysqli_connect_error());
-}
+require_once "backend/functions/db_connectionFunctions";
+$dbc = dbConnections();
 
 // SQL-Abfrage ausführen
 $query = "SELECT dtName FROM tblCategory";
