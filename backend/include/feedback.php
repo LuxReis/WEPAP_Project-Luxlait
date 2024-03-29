@@ -1,9 +1,7 @@
 <?php
 // Set your MySQL credentials
-$servername = "89.58.47.144";
-$username = "luxLaitUser";
-$password = "luxLaitPass";
-$database = "dbLuxLait";
+include_once "backend\db\db_credentials.php";
+$dbc = mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
 
 // Create connection
 $dbc = mysqli_connect($servername, $username, $password, $database);

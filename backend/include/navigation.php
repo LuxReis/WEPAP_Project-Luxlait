@@ -1,6 +1,7 @@
 <?php
 // Verbindung zur Datenbank herstellen
-$connection = mysqli_connect("89.58.47.144", "luxLaitUser", "luxLaitPass", "dbLuxLait");
+include_once "backend\db\db_credentials.php";
+$dbc = mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
 
 // Überprüfen der Verbindung
 if (mysqli_connect_errno()) {
