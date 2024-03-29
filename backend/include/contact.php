@@ -1,12 +1,7 @@
 <?php
 
-include_once "backend/db/db_credentials.php";
-$dbc = mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
-
-// Verbindung überprüfen
-if (!$dbc) {
-    die("Verbindung zur Datenbank fehlgeschlagen: " . mysqli_connect_error());
-}
+require_once "backend/functions/db_connectionFunctions";
+$dbc = dbConnections();
 
 $sql = "SELECT dtFirstName AS first_name, dtLastName AS last_name, dtEmail AS email, dtRole AS role FROM tblUser WHERE dtRole NOT IN ('Admin', 'Staff', 'Client')";
 $result = mysqli_query($dbc, $sql);

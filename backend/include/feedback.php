@@ -1,15 +1,7 @@
 <?php
-// Set your MySQL credentials
-include_once "backend\db\db_credentials.php";
-$dbc = mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
 
-// Create connection
-$dbc = mysqli_connect($servername, $username, $password, $database);
-
-// Check connection
-if (!$dbc) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require_once "backend/functions/db_connectionFunctions";
+$dbc = dbConnections();
 
 // Check if the product ID is provided in the GET parameter
 if(isset($_GET['product_id'])) {
