@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Cart</title>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $("#user-button").click(function () {
+                let username = $("#username").val();
+                $.getJSON({
+                    url: '../../backend/include/cart.php',
+                    method: 'GET',
+                    data: { usercart: username },
+                    success: function (cart) {
+                        console.log(cart);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <input type='text' placeholder="Enter Username:" id="username"><button id="user-button">Send</button>
+</body>
+
+</html>

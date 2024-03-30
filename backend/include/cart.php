@@ -1,19 +1,22 @@
 <?php
 
+/*
 require_once "backend/functions/db_connectionFunctions.php";
+*/
+require_once "../functions/db_connectionFunctions.php";
 $dbc = dbConnections();
 
 if (isset($_GET['username-cart'])) {
-    $username = $_GET['username-cart'];
+    $username = $_GET['usercart'];
     $cart = [];
     $product = [];
 
-    $querySelect = "SELECT dtAmount, dtProduct
+    $querySelect = "SELECT dtAmount, dtProduct, dtMetricUnit, dtPrice, dtFat, p.dtImage, dtPackage, dtType, dtName
                     FROM tblShoppingCart
-                    INNER JOIN tblProduct ON idProduct = fiProduct
+                    INNER JOIN tblProduct AS p ON idProduct = fiProduct
                     INNER JOIN tblType ON idType = fiType
                     INNER JOIN tblCategory ON idCategory = fiCategory
-                    WHERE fiUsername = ?";
+                    WHERE fiUsername = ?;";
 
     $stmt = mysqli_prepare($dbc, $querySelect);
     mysqli_stmt_bind_param($stmt, "s", $username);
@@ -21,13 +24,27 @@ if (isset($_GET['username-cart'])) {
     mysqli_stmt_bind_result(
         $stmt,
         $dtAmount,
-        $dtProduct
+        $dtProduct,
+        $dtMetricUnit,
+        $dtPrice,
+        $dtFat,
+        $dtImage,
+        $dtPackage,
+        $dtType,
+        $dtName
     );
 
     while (mysqli_stmt_fetch($stmt)) {
         $cart[] = array(
             'amount' => $dtAmount,
-            'product' => $dtProduct
+            'product' => $dtProduct,
+            'metricUnit' => $dtMetricUnit,
+            'price' => $dtPrice,
+            'fat' => $dtFat,
+            'image' => $dtImage,
+            'package' => $dtPackage,
+            'type' => $dtType,
+            'category' => $dtName
         );
     }
 
