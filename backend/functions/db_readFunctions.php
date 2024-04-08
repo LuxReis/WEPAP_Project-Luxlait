@@ -1,5 +1,5 @@
 <?php
-require_once 'db_connectionFunctions.php'
+require_once 'db_connectionFunctions.php';
 $dbc = dbConnections();
 
     function login() {
