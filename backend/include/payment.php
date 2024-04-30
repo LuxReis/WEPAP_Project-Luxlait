@@ -187,6 +187,18 @@ try {
                     return array("msg" => "Error updating account information: " . $stmtAccInfo->error);
                 }
 
+                // Insert a new Delivery
+                $insertDelivery = "INSERT INTO tblDelivery(dtStatus, fiPayment) VALUES (?,?)";
+                $stmtDelivery = $connection->prepare($insertDelivery);
+                if (!$stmtDelivery) {
+                    return array("msg" => "Error preparing SQL statement: " . $connection->error);
+                }
+                $delviery = "Deliverying";
+                $stmtDelivery->bind_param("si", $delviery, $id);
+                if (!$stmtDelivery->execute()) {
+                    return array("msg" => "Error updating account information: " . $stmtAccInfo->error);
+                }
+
                 // Update payment status to 'Paid'
                 $updatePay = "UPDATE tblPayment 
                                    SET dtStatus = 'Paid' 
