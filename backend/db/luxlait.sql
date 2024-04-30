@@ -1,4 +1,5 @@
 USE hr1ir6arywrr0ost;
+DROP TABLE IF EXISTS tblHave;
 DROP TABLE IF EXISTS tblDelivery;
 DROP TABLE IF EXISTS tblPayment;
 DROP TABLE IF EXISTS tblProductRating;
@@ -22,9 +23,9 @@ CREATE TABLE tblRights(
 );
 
 INSERT INTO tblRights (idRight, dtRight)
-VALUES (1, 'Admin'),
-       (2, 'Staff'),
-       (3, 'User');
+    VALUES (1, 'Admin'),
+        (2, 'Staff'),
+        (3, 'User');
 
 
 CREATE TABLE tblUser(
@@ -40,10 +41,10 @@ CREATE TABLE tblUser(
     dtCity VARCHAR(35) NOT NULL,
     dtCountry VARCHAR(5) NOT NULL,
     dtRole VARCHAR(30) NOT NULL,
-    dtCartNumber INT,
-    dtCartName VARCHAR(50),
-    dtValidDate VARCHAR(20),
-    dtSecCode INT,
+    dtCardNumber VARCHAR(16),
+    dtCardHolder VARCHAR(50),
+    dtValidDate VARCHAR(5),
+    dtCVV VARCHAR(3),
     fiRight INT NOT NULL,
     PRIMARY KEY (idUsername),
     FOREIGN KEY (fiRight) REFERENCES tblRights (idRight) ON DELETE CASCADE ON UPDATE CASCADE
@@ -56,7 +57,7 @@ VALUES  ('admin', 'Admin', 'Admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873f
         ('ribpe261', 'Pedro', 'Ribeiro Costa', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'ribpe261@school.lu', '691 522 129', '1940', '274', 'route de Longwy', 'Luxembourg', '/', 'Project Manager', NULL, NULL, NULL, NULL, 1),
         ('frith033', 'Thibaut', 'Friederici', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'frith033@school.lu', '691 703 747', '6724', '13', 'Rue des Foyers', 'Grevenmacher', '/', 'Database Administrator', NULL, NULL, NULL, NULL, 1),
         ('friti725', 'Tim', 'Frisch', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'friti725@school.lu', '621 816 424', '6183', '39', 'rue de ecole', 'Gonderange', '/', 'Web Designer', NULL, NULL, NULL, NULL, 1),
-        ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', 'Dudelange', '/', 'Head Chef', 426984562451, 'GUO KAIDI', '11/28', 420, 1),
+        ('guoka342', 'Guo', 'Kaidi', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'guoka342@school.lu', '661520300', '3429', '12', 'route de Burange', 'Dudelange', '/', 'Head Chef', '4269845624516715', 'GUO KAIDI', '11/28', '420', 1),
         ('gammi625', 'Mihails', 'Gamass', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'gammi625@school.lu', '691 879 699', '8380', '13', 'Rue de la Gare', 'Steinfort', '/', 'Scrum Master', NULL, NULL, NULL, NULL, 1),
         ('forlu102', 'Luca', 'Formica', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'forlu102@school.lu', '661 258 604', '5690', '30', 'Route d’Erpeldange', 'Ellange', '/', 'IT Administrator', NULL, NULL, NULL, NULL, 1);
 
@@ -71,28 +72,28 @@ CREATE TABLE tblCategory (
 );
 
 INSERT INTO tblCategory
-VALUES  ('MILK','Milk and dairy drinks','Milk drinks are becoming increasingly popular, especially among young people. Strawberry, vanilla or chocolate drinks prepared with Luxembourg milk give you a wide range of drinks to enjoy and something to satisfy those hunger pangs. Calcium, found in large quantities in milk, is an essential element for good bone health. Milk proteins are highly digestible, satisfy hunger and are crucial for the formation of muscles and cells.','https://www.luxlait.lu/wp-content/uploads/2019/09/AdobeStock_189823239.jpeg'),
-('FMILK','Fermented Milks','For several years, we have been developing a whole range of fermented milks. First of all, there is the classic fermented milk “Buttermilk”, which is very much appreciated by our customers from the Maghreb and the Middle East. “Kefir”, a fermented milk of Caucasian origin, is currently experiencing a major boom in Europe. We also produce less well-known milk drinks such as “Raïbi”, with the delicious taste of Moroccan pomegranate, which children particularly enjoy.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_233376322-1-scaled.jpeg'),
-('BUTT','Butters','Thanks to its subtle taste and excellent texture, Luxembourg butter is the essential ingredient to make a success of and enhance your main courses and desserts. The expertise of Luxembourg butter is particularly found in Luxlait rose butter, a PDO recipe unchanged since 1932. Indeed, butter production dates back to the origins of civilisation. Traces of butters have been found in graves dating back 2,000 years.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_158114052-scaled.jpeg'),
-('CREA','Creams','Our different creams are reminiscent of the taste of the pastures of the Grand Duchy, like all the artisan products resulting from the love of work well done. The milk on which our creams are based comes exclusively from farms on Luxembourg territory. It is subject to ongoing controls and remains a certified product. Try our creams for desserts and main courses: their quality will convince you!','https://www.luxlait.lu/wp-content/uploads/2019/09/AdobeStock_126465109.jpeg'),
-('FRECH','Fresh cheeses','Fresh cheese, also called “Wäisse Kéis” or “Stoffi” in Luxembourgish, can be eaten in several ways, as a spread on bread, with fresh fruit or jam. Savour the delicate smoothness of our fromage blanc, you will be delighted by its lightness and freshness. For people who are particularly weight conscious, our “Wellness Snack Fit” is ideal to enjoy with no regrets.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_247192812-scaled.jpeg'),
-('CHEES','Cheeses','Cheese has become an indispensable part of our diet. Almost no other food is so varied in taste. This is not surprising, because almost everywhere in the world where there is milk production, there is bound to be cheese. All cheesemakers use their own personal recipe for the production and maturing of the cheese. Luxlait does the same and the quality of its cheeses has been appreciated beyond the borders of Luxembourg for decades.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_280881003-scaled.jpeg'),
-('YAOU','Yaourts','Yoghurt is an ancient food, still very much appreciated for its healthy and nutritious aspect. The bacteria found in yoghurt are beneficial for the intestinal flora. Its good dose of protein, combined with a low glycaemic index, makes it a recommended food being nutritious for children, athletes and the elderly thanks to its high calcium content.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_57845437-scaled.jpeg'),
-('DDESS','Dairy desserts','Like all products from milk processing, dairy desserts begin their manufacturing cycle with the collection and processing of milk. Custards, rice pudding and many dairy desserts are found in our Luxembourg culinary tradition. To be included in this classification of dairy desserts, they must be made with at least 50% milk. Dairy desserts','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_199835775-scaled.jpeg'),
-('ICECR','Ice cream','In the 1960s, Luxlait started producing ice cream under the brand name Eskimo Pie. Today, our Luxlait ice creams are made exclusively with fresh cream and 100% Luxembourg milk, natural flavours and high quality fruit preparations. We also produce delicious sorbets, enhanced with Marc de Riesling and a French orange liqueur. Not to mention our organic ice cream.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_219096967-1-scaled.jpeg'),
-('BISC','Biscuits','We only prepare our biscuits with our high quality rose butter. It gives our biscuits their very special taste. They are biscuits with chocolate chips and various shortbread biscuits, including honey/sesame, orange/chocolate or almond/lemon. Also try our madeleines, made with our LUXLAIT cream cheese!','https://www.luxlait.lu/wp-content/uploads/2019/09/produits-biscuits-luxlait.jpg');
+    VALUES  ('MILK','Milk and dairy drinks','Milk drinks are becoming increasingly popular, especially among young people. Strawberry, vanilla or chocolate drinks prepared with Luxembourg milk give you a wide range of drinks to enjoy and something to satisfy those hunger pangs. Calcium, found in large quantities in milk, is an essential element for good bone health. Milk proteins are highly digestible, satisfy hunger and are crucial for the formation of muscles and cells.','https://www.luxlait.lu/wp-content/uploads/2019/09/AdobeStock_189823239.jpeg'),
+    ('FMILK','Fermented Milks','For several years, we have been developing a whole range of fermented milks. First of all, there is the classic fermented milk “Buttermilk”, which is very much appreciated by our customers from the Maghreb and the Middle East. “Kefir”, a fermented milk of Caucasian origin, is currently experiencing a major boom in Europe. We also produce less well-known milk drinks such as “Raïbi”, with the delicious taste of Moroccan pomegranate, which children particularly enjoy.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_233376322-1-scaled.jpeg'),
+    ('BUTT','Butters','Thanks to its subtle taste and excellent texture, Luxembourg butter is the essential ingredient to make a success of and enhance your main courses and desserts. The expertise of Luxembourg butter is particularly found in Luxlait rose butter, a PDO recipe unchanged since 1932. Indeed, butter production dates back to the origins of civilisation. Traces of butters have been found in graves dating back 2,000 years.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_158114052-scaled.jpeg'),
+    ('CREA','Creams','Our different creams are reminiscent of the taste of the pastures of the Grand Duchy, like all the artisan products resulting from the love of work well done. The milk on which our creams are based comes exclusively from farms on Luxembourg territory. It is subject to ongoing controls and remains a certified product. Try our creams for desserts and main courses: their quality will convince you!','https://www.luxlait.lu/wp-content/uploads/2019/09/AdobeStock_126465109.jpeg'),
+    ('FRECH','Fresh cheeses','Fresh cheese, also called “Wäisse Kéis” or “Stoffi” in Luxembourgish, can be eaten in several ways, as a spread on bread, with fresh fruit or jam. Savour the delicate smoothness of our fromage blanc, you will be delighted by its lightness and freshness. For people who are particularly weight conscious, our “Wellness Snack Fit” is ideal to enjoy with no regrets.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_247192812-scaled.jpeg'),
+    ('CHEES','Cheeses','Cheese has become an indispensable part of our diet. Almost no other food is so varied in taste. This is not surprising, because almost everywhere in the world where there is milk production, there is bound to be cheese. All cheesemakers use their own personal recipe for the production and maturing of the cheese. Luxlait does the same and the quality of its cheeses has been appreciated beyond the borders of Luxembourg for decades.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_280881003-scaled.jpeg'),
+    ('YAOU','Yaourts','Yoghurt is an ancient food, still very much appreciated for its healthy and nutritious aspect. The bacteria found in yoghurt are beneficial for the intestinal flora. Its good dose of protein, combined with a low glycaemic index, makes it a recommended food being nutritious for children, athletes and the elderly thanks to its high calcium content.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_57845437-scaled.jpeg'),
+    ('DDESS','Dairy desserts','Like all products from milk processing, dairy desserts begin their manufacturing cycle with the collection and processing of milk. Custards, rice pudding and many dairy desserts are found in our Luxembourg culinary tradition. To be included in this classification of dairy desserts, they must be made with at least 50% milk. Dairy desserts','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_199835775-scaled.jpeg'),
+    ('ICECR','Ice cream','In the 1960s, Luxlait started producing ice cream under the brand name Eskimo Pie. Today, our Luxlait ice creams are made exclusively with fresh cream and 100% Luxembourg milk, natural flavours and high quality fruit preparations. We also produce delicious sorbets, enhanced with Marc de Riesling and a French orange liqueur. Not to mention our organic ice cream.','https://www.luxlait.lu/wp-content/uploads/2020/05/AdobeStock_219096967-1-scaled.jpeg'),
+    ('BISC','Biscuits','We only prepare our biscuits with our high quality rose butter. It gives our biscuits their very special taste. They are biscuits with chocolate chips and various shortbread biscuits, including honey/sesame, orange/chocolate or almond/lemon. Also try our madeleines, made with our LUXLAIT cream cheese!','https://www.luxlait.lu/wp-content/uploads/2019/09/produits-biscuits-luxlait.jpg');
 
 CREATE TABLE tblType(
-idType INT NOT NULL AUTO_INCREMENT,
-dtType VARCHAR(50) NOT NULL,
-dtDescription VARCHAR(1400) NOT NULL,
-dtImage VARCHAR(200) NOT NULL,
-dtBackgroundImage VARCHAR(200) NOT NULL,
-dtIcons VARCHAR(200) NOT NULL,
-dtIconsDescription VARCHAR(100) NOT NULL,
-fiCategory VARCHAR(5) NOT NULL,
-PRIMARY KEY (idType),
-FOREIGN KEY (fiCategory) REFERENCES tblCategory (idCategory) ON DELETE CASCADE ON UPDATE CASCADE
+    idType INT NOT NULL AUTO_INCREMENT,
+    dtType VARCHAR(50) NOT NULL,
+    dtDescription VARCHAR(1400) NOT NULL,
+    dtImage VARCHAR(200) NOT NULL,
+    dtBackgroundImage VARCHAR(200) NOT NULL,
+    dtIcons VARCHAR(200) NOT NULL,
+    dtIconsDescription VARCHAR(100) NOT NULL,
+    fiCategory VARCHAR(5) NOT NULL,
+    PRIMARY KEY (idType),
+    FOREIGN KEY (fiCategory) REFERENCES tblCategory (idCategory) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO tblType (dtType, dtDescription, dtImage, dtBackgroundImage,dtIcons,dtIconsDescription, fiCategory)
@@ -111,7 +112,7 @@ VALUES ('Fresh Milk','At Luxlait, we have chosen to use a process called microfi
 ('Raïbi','Raïbi is a fermented drink that has been created in Morocco in the 60s but has since then become popular in other countries, too. The Luxlait Raïbi is particularly creamy and to be considered as the healthiest option on the market. It""s a drink for the whole family: Kids love to freeze and make ice cream of it while adults will think back of their childhood or stay in Marocco.','https://www.luxlait.lu/wp-content/uploads/2019/09/Raibi-1L-2.png','https://www.luxlait.lu/wp-content/uploads/2020/04/AdobeStock_209709391-1-scaled.jpeg','https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-19.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-16.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-18.svg','Flavoured;Halal;Creamy texture','FMILK'),
 ('Kefir','An ancestral drink from the nomads of the Caucasus mountains. Thanks to its specific fermentation, fresh milk is transformed into a slightly acidic, fresh and creamy drink. Its ferments contribute to well-being due to its natural action on the intestinal flora.','https://www.luxlait.lu/wp-content/uploads/2019/09/Kefir-face-1.png','https://www.luxlait.lu/wp-content/uploads/2019/09/produits-kefir-luxlait.jpg','https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-31.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-16.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-30.svg','Pleasure break;Halal;Traditional recipe','FMILK'),
 ('Garlic Herb Butter','For your barbecues, meat dishes or however you prefer: choose the Luxlait Garlic herb butter. Made with traditional “Rose” butter from Luxembourg (PDO) and garnished with parsley and garlic.','https://www.luxlait.lu/wp-content/uploads/2022/06/Beurre-ail-et-fines-herbes_2_HD_-1024x303.png','https://www.luxlait.lu/wp-content/uploads/2022/06/AdobeStock_177336010-scaled.jpeg','https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-23.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-13.svg','With “Rose” butter from Luxembourg;Practical format','BUTT'),
-('Rose Butter','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria. That""s when the unique taste of our butter develops. Finely churned in a traditional process, the cream becomes smooth to obtain its final appearance: “Beurre Rose” butter.','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png','https://www.luxlait.lu/wp-content/uploads/2019/09/AdobeStock_250254939.jpeg','https://www.luxlait.lu/wp-content/uploads/2019/09/fr_AOP_4c-150x150.png;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-32.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-23.svg','Protected designation of origin;Preservative-free;National brand','BUTT'),
+('Rose Butter','Unlike industrial butter, the cream is left maturing after being pasteurised by adding carefully selected lactic acid bacteria. That""s when the unique taste of our butter develops. Finely churned in a traditional process, the cream becomes smooth to obtain its final appearance: “Beurre Rose” butter.','https://www.luxlait.lu/wp-content/uploads/2019/09/beurre-rose-250g-1.png','https://www.luxlait.lu/wp-content/uploads/2019/09/AdobeStock_250254939.jpeg','https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-32.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-23.svg','Protected designation of origin;Preservative-free;National brand','BUTT'),
 ('Specialities with butter','Even kept in the refrigerator, our table butters are always ready to spread! Thanks to a mixture of butter and rapeseed oil, they can be used immediately. Our “light” version has up to half the fat content of conventional butter','https://www.luxlait.lu/wp-content/uploads/2019/10/Beurre_light-face-e1570526818637-1024x502.png','https://www.luxlait.lu/wp-content/uploads/2019/09/produits-beurre-de-table-luxlait.jpg','https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-01.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-04.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-08.svg','100% Luxembourg milk;Spreadable;Palm oil-free','BUTT'),
 ('Liquid fresh cream','Luxlait liquid creams are ideal for preparing sauces, accompanying fruit or making cakes. Their hold when whipped with a hand or electric whisk enable them to be incorporated as a garnish or as an ingredient to enhance your dishes and desserts. Liquid fresh cream is not subjected to any treatment other than pasteurisation (neither ripening nor sterilisation). With its excellent whipping properties, it is the queen of Chantilly or whipped cream (in this case, it must be 36% fat cream).','https://www.luxlait.lu/wp-content/uploads/2019/09/Cr%C3%A8me-fraiche-36-1L_2_HD_ok_-334x1024.png','https://www.luxlait.lu/wp-content/uploads/2019/09/AdobeStock_157142956-scaled.jpeg','https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-01.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-32.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-13.svg','100% Luxembourg milk;Preservative-free;Practical format','CREA'),
 ('UHT liquide cream','UHT liquid creams are ideal for making sauces, soups and desserts or simply plain to accompany fruit. They are suitable for cooking, but cannot be whipped (except 35% fat cream). They also provide a binding agent for culinary preparations and smoothness for all dishes.','https://www.luxlait.lu/wp-content/uploads/2020/05/Cr%C3%A8me-UHT-35-1L-384x1024.png','https://www.luxlait.lu/wp-content/uploads/2019/09/produits-creme-liquide-uht-luxlait.jpg','https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-11.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-01.svg;https://www.luxlait.lu/wp-content/uploads/2019/09/Icon-13.svg','Long-life;100% Luxembourg milk;Practical format','CREA'),
@@ -1920,23 +1921,71 @@ INSERT INTO tblRecipeStep (dtStep, fiRecipe) VALUES
         FOREIGN KEY (fiUsername) REFERENCES tblUser (idUsername) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
+    INSERT INTO tblShoppingCart (dtAmount, fiProduct, fiUsername) VALUES
+    (5, 74, 'frith033'),
+    (5, 133, 'frith033'),
+    (2, 183, 'frith033'),
+    (1, 102, 'frith033'),
+    (1, 128, 'frith033'),
+    (2, 112, 'frith033'),
+    (5, 16, 'frith033'),
+    (5, 158, 'frith033'),
+    (1, 161, 'frith033'),
+    (3, 52, 'frith033'),
+    (5, 144, 'frith033'),
+    (4, 208, 'frith033'),
+    (2, 195, 'frith033'),
+    (5, 86, 'frith033'),
+    (5, 194, 'frith033'),
+    (1, 45, 'frith033'),
+    (4, 18, 'frith033'),
+    (5, 63, 'frith033'),
+    (1, 46, 'frith033'),
+    (1, 155, 'frith033'),
+    (5, 93, 'frith033'),
+    (4, 142, 'frith033'),
+    (1, 113, 'frith033'),
+    (4, 87, 'frith033'),
+    (2, 164, 'frith033'),
+    (1, 3, 'guoka342'),
+    (2, 17, 'guoka342'),
+    (1, 5, 'guoka342');
+
 -- Payment SQL from autor @LuxReis (GUO Kaidi)
  
-CREATE TABLE tblPayment(
-    idPayment INT NOT NULL AUTO_INCREMENT,
-    dtDatum DATE NOT NULL,
-    dtStatus VARCHAR(10) NOT NULL,
-    fiCart INT NOT NULL,
-    PRIMARY KEY (idPayment),
-    FOREIGN KEY (fiCart) REFERENCES tblShoppingCart (idCart) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE tblPayment(
+        idPayment INT NOT NULL AUTO_INCREMENT,
+        dtDate DATE NOT NULL,
+        dtTotalPrice DOUBLE NOT NULL,
+        dtStatus VARCHAR(10) NOT NULL,
+        PRIMARY KEY (idPayment)
+    );
+
+    INSERT INTO tblPayment (dtDate, dtTotalPrice, dtStatus) VALUES
+    ('2024-04-30', 12.12, 'Unpaid');
+
+
+-- Many to Many with tblShoppingCart and tblPayment SQL from autor @LuxReis (GUO Kaidi)
+
+    CREATE TABLE tblHave(
+        fiCart INT NOT NULL,
+        fiPayment INT NOT NULL,
+        PRIMARY KEY (fiCart,fiPayment),
+        FOREIGN KEY (fiCart) REFERENCES tblShoppingCart (idCart) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (fiPayment) REFERENCES tblPayment (idPayment) ON DELETE CASCADE ON UPDATE CASCADE
+    );
+    INSERT INTO tblHave VALUES
+    (26,1),
+    (27,1),
+    (28,1);
+
  
 -- Delievery SQL from autor @LuxReis (GUO Kaidi)
  
-CREATE TABLE tblDelivery(
-    idDelivery INT NOT NULL AUTO_INCREMENT,
-    dtStatus VARCHAR(20) NOT NULL,
-    fiPayment INT NOT NULL,
-    PRIMARY KEY (idDelivery),
-    FOREIGN KEY (fiPayment) REFERENCES tblPayment (idPayment) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE tblDelivery(
+        idDelivery INT NOT NULL AUTO_INCREMENT,
+        dtStatus VARCHAR(20) NOT NULL,
+        fiPayment INT NOT NULL,
+        PRIMARY KEY (idDelivery),
+        FOREIGN KEY (fiPayment) REFERENCES tblPayment (idPayment) ON DELETE CASCADE ON UPDATE CASCADE
+    );
