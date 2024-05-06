@@ -59,7 +59,7 @@ The project will be hosted by Heroku and use the database JawsDB MySQL.
 Here you can find a functionial website about Luxlait.
 You can buy products from Luxlait with it, show recept to make your own Luxlait products, show information about the products, giving feedback and etc...
 
-<img src="https://i.imgur.com/osf21dc.png" alt="Luxlait Website example">
+<img src="https://i.imgur.com/jbAGnkN.jpeg" alt="Luxlait Website example">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
