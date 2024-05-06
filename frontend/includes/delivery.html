@@ -1,0 +1,321 @@
+<!-- @author GUO Kaidi HTML for delivery page -->
+<div class="container mt-5 mb-5">
+    <div class="deliveries"></div>
+</div>
+<!-- @author GUO Kaidi Jquery for delivery page -->
+<script>
+    $(document).ready(function () {
+
+        let destinationAddress; // Global variable for destination (Google Maps API)
+
+        // Function to style error messages
+        function errorMsgCSS(){
+            // Apply CSS styles for error messages
+            $("#content").css("color", "red"); // Set text color to red
+            $("#content").css("font-size", "20px"); // Set font size to 20px
+            $("#content").css("text-align", "center"); // Align text to center
+            $("#content").css("margin-top", "200px"); // Set top margin to 200px
+            $("#content").css("margin-bottom", "200px"); // Set bottom margin to 200px
+        }
+
+        // Function to display all delivery information
+        function showDelivery(deliveries){
+            // Check if deliveries array is not empty
+            if (Array.isArray(deliveries) && deliveries.length > 0) {
+                // Append header for deliveries section
+                $(".deliveries").append('<h2 class="display-6 text-center mb-5">Your deliveries</h2>');
+                $.each(deliveries, function(index, delivery) {
+                    // Format delivery date
+                    let date = new Date(delivery.date).toLocaleDateString();
+                    // Generate HTML output for each delivery
+                    let output = `
+                        <div class="delivery mb-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="display-6 text-center">Delivery ID: ${delivery.delivery}</h4>
+                                    <i class="bi bi-truck t${delivery.status}" style="font-size: 50px;"></i>
+                                    <hr>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="s${delivery.status}">Status: ${delivery.status}</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>Date: ${date}</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p>Price: ${delivery.price}€</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <i class="bi bi-chevron-down btn showMap" id="${delivery.delivery}"></i>                
+                                </div>                    
+                            </div>
+                            <div class="delivery-map${delivery.delivery}" value="${delivery.status}"><hr>
+                                <h4 class="display-6 text-center">Map</h4>
+                                <div class="map${delivery.delivery} w-100" style="height: 400px;"></div>
+                                <hr>
+                                <div class="delivery-details${delivery.delivery}">
+                                    <div class="col-md-12">
+                                        <h4 class="display-6 text-center">
+                                            Order details 
+                                            <i class="bi bi-chevron-down btn showDetails" id="${delivery.delivery}"></i>
+                                        </h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="orderDetails${delivery.delivery}" style="max-height: 400px; overflow-y: auto;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                    $(".deliveries").append(output);
+                    // Apply color and alignment based on delivery status
+                    if (delivery.status === "Delivered"){
+                        $(".sDelivered").css("color", "#006400");
+                        $(".tDelivered").addClass("d-flex justify-content-end");
+                    } else if (delivery.status === "Shipping"){
+                        $(".sShipping").css("color", "#008000");
+                        $(".tShipping").addClass("d-flex justify-content-center");
+                    } else {
+                        $(".sPending").css("color", "#00FF00");
+                    }
+                    // Hide delivery map and details initially
+                    $(".delivery-map"+delivery.delivery).hide();
+                    $(".orderDetails"+delivery.delivery).hide();
+                }); 
+            } else {
+                // If no orders found, display error message and redirect after 5 seconds
+                errorMsgCSS();
+                $("#content").html("You do not have any delivery.");
+                setTimeout(function() {
+                    window.location.href = "index.html?page=home"; 
+                }, 5000);
+            }
+        }
+
+        // Function to initialize Google Maps
+        function initMap(id, mStatus, destinationAddress) {
+            // Depending on delivery status, initialize the map accordingly
+            if(mStatus == "Delivered"){
+                // Geocode destination address and display marker on map
+                let geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'address': destinationAddress }, function(results, status) {
+                    if (status === 'OK') {
+                        let map = new google.maps.Map($(".map" + id)[0], {
+                            zoom: 18,
+                            center: results[0].geometry.location
+                        });
+                        let marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            title: 'Here is your delivery'
+                        });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            } else if(mStatus == "Shipping"){
+                // Define the starting point
+                let startPoint = { lat: 49.778410, lng: 6.080300 };
+
+                // Geocode the destination address
+                let geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'address': destinationAddress }, function(results, status) {
+                    if (status === 'OK') {
+                        // If geocoding is successful, initialize the map
+                        let map = new google.maps.Map($(".map" + id)[0], {
+                            zoom: 18,
+                            center: startPoint  // Set the starting point as the center of the map
+                        });
+
+                        // Add a marker for the starting point
+                        let startMarker = new google.maps.Marker({
+                            map: map,
+                            position: startPoint,
+                            title: 'Start Point'
+                        });
+
+                        // Add a marker for the destination
+                        let destinationMarker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            title: 'Destination'
+                        });
+
+                        // Center the map on the destination
+                        map.setCenter(results[0].geometry.location);
+
+                        // Create a DirectionsService instance
+                        let directionsService = new google.maps.DirectionsService();
+
+                        // Define the request for route calculation
+                        let request = {
+                            origin: startPoint,
+                            destination: results[0].geometry.location,
+                            travelMode: google.maps.TravelMode.DRIVING // Choose the travel mode (Driving)
+                        };
+
+                        // Perform route calculation
+                        directionsService.route(request, function(response, status) {
+                            if (status === 'OK') {
+                                // Create a DirectionsRenderer instance to display directions on the map
+                                let directionsRenderer = new google.maps.DirectionsRenderer({
+                                    map: map,
+                                    directions: response
+                                });
+                            } else {
+                                // If route calculation fails, display an error message
+                                alert('Directions request failed due to ' + status);
+                            }
+                        });
+                    } else {
+                        // If geocoding fails, display an error message
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            } else {
+                // If delivery status is neither 'Delivered' nor 'Shipping', show a default map
+                let myLatLng = { lat: 49.778410, lng: 6.080300 };
+                let map = new google.maps.Map($(".map" + id)[0], {
+                    zoom: 18,
+                    center: myLatLng
+                });
+                let marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Here is your delivery'
+                });
+            }
+        }
+
+        // AJAX request to check if the user is logged in
+        $.ajax({
+        url: 'backend/include/checkLogin.php',
+        method: 'GET',
+        success: function(response) {
+            if (response.username === false) {
+            // If user is not logged in, display error message
+            errorMsgCSS();
+            $("#content").html("You have to be logged in to order.");
+                    
+            // Redirect to login page after 5 seconds
+            setTimeout(function() {
+                window.location.href = "index.html?page=login"; 
+            }, 5000); 
+            }
+        },
+        error: function(xhr, status, error) {
+            // If AJAX request fails, display error message
+            errorMsgCSS();
+            $("#content").html("Error: Ajax check login doesn't work.");
+            setTimeout(function() {
+                window.location.href = "index.html?page=home"; 
+            }, 5000);
+        }
+        });
+
+        // AJAX request to fetch delivery information
+        $.ajax({
+        url: 'backend/include/delivery.php',
+        method: 'GET',
+        success: function(response){
+            showDelivery(response.delivery);
+            destinationAddress = response.destination;
+        },
+        error: function(xhr, status, error) {
+            // If AJAX request fails, display error message
+            errorMsgCSS();
+            $("#content").html("Error: Ajax getting delivery doesn't work.");
+            setTimeout(function() {
+            window.location.href = "index.html?page=home"; 
+            }, 5000);
+        }
+        });
+
+        // Function to handle click event for showing/hiding delivery map
+        $(document).on("click", ".showMap", function(){
+            // Get the id of the clicked element
+            let id = $(this).attr("id");
+            let deliveryMap = $(this).closest('.delivery').find('.delivery-map'+id);
+            
+            // If delivery map is already visible, hide it; otherwise, show it
+            if (deliveryMap.is(":visible")) {
+                deliveryMap.hide();
+                $(this).removeClass("bi-chevron-up").addClass("bi-chevron-down");
+            } else {
+                $(this).removeClass("bi-chevron-down").addClass("bi-chevron-up");
+                // Show the map
+                deliveryMap.show();
+                let mStatus = deliveryMap.attr('value');
+                initMap(id, mStatus, destinationAddress);
+            }
+        });
+
+        // Function to handle click event for showing/hiding delivery details
+        $(document).on("click", ".showDetails", function(){
+            // Get the id of the clicked element
+            let id = $(this).attr("id");
+            let deliveryInfo = $(this).closest('.delivery').find('.orderDetails'+id);
+
+            // If delivery map is already visible, hide it; otherwise, show it
+            if (deliveryInfo.is(":visible")) {
+                deliveryInfo.hide();
+                $(this).removeClass("bi-chevron-up").addClass("bi-chevron-down");
+            } else {
+                $(this).removeClass("bi-chevron-down").addClass("bi-chevron-up");
+                
+                $.ajax({
+                    method: 'GET',
+                    url: 'backend/include/delivery.php', 
+                    data: { deliveryID: id },
+                    success: function(response) {
+                        $(".orderDetails"+id).html(`<table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Product</th>
+                                                                <th scope="col">Quantity</th>
+                                                                <th scope="col">Price</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="detailsTable">
+                                                        </tbody>
+                                                    </table>`);
+
+                        let detailsTable = $(".orderDetails" + id).find("#detailsTable");
+                        detailsTable.empty();
+
+                        // Iterate through the info array and add each row to the table
+                        $.each(response.info, function(index, item) {
+                            let price = item.price * item.amount;
+                            detailsTable.append(`
+                                <tr>
+                                    <td><img src="${item.image}" alt="${item.image}" style="height: 100px"></td>
+                                    <td>${item.product}</td>
+                                    <td>${item.amount}</td>
+                                    <td>${price}</td>
+                                </tr>
+                            `);
+                        });
+
+                        // Show information
+                        deliveryInfo.show();
+                    },
+                    error: function(xhr, status, error) {
+                        // If AJAX request fails, display error message
+                        errorMsgCSS();
+                        $("#content").html("Error: Ajax getting Information for Delivery: " + id + " does not work.");
+                        setTimeout(function() {
+                            window.location.href = "index.html?page=home"; 
+                    }, 5000);
+                    }
+                });
+                
+            }
+            
+        });
+
+    });
+</script>
+<!-- @author GUO Kaidi API key (google maps) for delivery page -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrQ9_7IG1KaoiZ729uuAG7xtZnUJ5q6GA&callback=initMap">
+</script>
