@@ -13,7 +13,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 
 
 <!-- PROJECT LOGO -->
@@ -40,8 +39,9 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#xampp">Web Server / XAMPP</a></li>
+        <li><a href="#xampp">Heroku</a></li>
         <li><a href="#database">Database</a></li>
+        <li><a href="#overview">Overview database</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
@@ -53,10 +53,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The project is a school project, that are created by five students from Lycée des Arts et Métiers. It is about web project for Luxlait. Here you can find a functionial website about Luxlait.
+The project is a school project, that are created by six students from Lycée des Arts et Métiers. 
+It is about web project for Luxlait. 
+The project will be hosted by Heroku and use the database JawsDB MySQL. 
+Here you can find a functionial website about Luxlait.
 You can buy products from Luxlait with it, show recept to make your own Luxlait products, show information about the products, giving feedback and etc...
 
-<img src="https://cdn.discordapp.com/attachments/758231362057666570/1216781704505852045/image.png?ex=6601a345&is=65ef2e45&hm=1ff213388576a4f2f3d57cc2bff6b609637e03bcd9141d5c66d69b171793b0cc&" alt="Luxlait Website example">
+<img src="https://i.imgur.com/osf21dc.png" alt="Luxlait Website example">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -81,41 +84,40 @@ You can buy products from Luxlait with it, show recept to make your own Luxlait 
 
 To get started with it you first need to download the "Code" and unzip it.
 
-### Web Server / XAMPP 
+### Heroku (Web server/hosting)
 
-You can put the website in a website server like Apache or you use XAMPP for it.
-* Follow those steps to set up Apache server
-    * For Windows: https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Install-Apache-Web-Server-24-Windows-10-ServerRoot-Error
-    * For Windows with CMD: https://httpd.apache.org/docs/2.4/platform/windows.html
-    * For Linux (Ubuntu): https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
+You need a Heroku account and set it up
+* Follow those steps to set up Heroku
+    * Links: https://devcenter.heroku.com/start
 
-* Turn on the Apache and MySQL moduls
-<p><img src="https://cdn.discordapp.com/attachments/758231362057666570/1216790970033504326/image.png?ex=6601abe6&is=65ef36e6&hm=f2a082cd9bf938e3cdde7f51ecb9b741340ae2d7c5572f344a2c782e05a687e3&" alt="xampp"></p>
-  
-* Put the files in the folders for the website server or in xampp in the htdocs folder
-<p><img src="https://cdn.discordapp.com/attachments/758231362057666570/1216790927046344786/image.png?ex=6601abdb&is=65ef36db&hm=7f8154f34083bf53d39f3ade9882f2cf42ebdbf99c9c66d88992b90e9d1ec19c&" alt="htdocs from xampp"></p>
+You also need the php Buildpack. It should be added automaticly but if not follow this link: https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-php
 
 ### Database
 
-You need a database
+You need to use JawsDB MySQl
 * Follow those steps
-    * For Windows: https://www.wikihow.com/Install-phpMyAdmin-on-Your-Windows-PC
-    * For Linux (Ubuntu): https://ubuntu.com/server/docs/how-to-install-and-configure-phpmyadmin
+    * Links: https://devcenter.heroku.com/articles/jawsdb
 
-
-This is the connection to the database. Those X has to be replace with the connection informations.
-* Change the db_credentials file
+This is the connection to the database. You normaly dont have to change anything with the connection code because it is connected with heroku
+and it should managing everything automatic but if it doesnt connect to your database you need to change that:
+<img src="https://i.imgur.com/dUaeQKH.png" alt="Luxlait JawsDB">
   ```sh
   <?php
-    define('DB_HOST', 'XXX.XXX.XXX.XXX'); // set database host (normally localhost)
-    define('DB_USER', 'XXXXXXXX'); 	// set database user
-    define('DB_PASSWORD', 'XXXXXXXXXXXX'); // set database password
-    define('DB_NAME', 'XXXXXXX'); // set database name 
+    // Get JAWSDB_URL from environment variables
+    $url = getenv('JAWSDB_URL'); //here you need the change if it doesnt apply automaticly (copy the name from attached as ... and paste it before the _URL)
+    $dbparts = parse_url($url);
+
+    // Extract connection details
+    $hostname = $dbparts['host'];
+    $username = $dbparts['user'];
+    $password = $dbparts['pass'];
+    $database = ltrim($dbparts['path'], '/');
   ?>
   ```
 
-After that you need to upload all sql file from "backend/db" to the database
-<p><img src="https://cdn.discordapp.com/attachments/1131226423898685480/1216794815153574071/image.png?ex=6601af7a&is=65ef3a7a&hm=b5b57da443d03b56ec35f964b51aa620059359a6217414208e710df68dcc2df4&" alt="phpmyadmin"></p>
+### Overview database
+To have a overview from database you need MYSQL Workbench or similair programs.
+  * MySQL Link: https://dev.mysql.com/doc/workbench/en/wb-installing.html
 
    <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,6 +147,7 @@ Don't forget to give the project a star! Thanks again!
 * Thibaut Friederici - frith033@school.lu
 * Pedro Ribeiro Costa - ribpe261@school.lu
 * Mihails Gamass - gammi625@school.lu
+* Formica Luca - forlu102@school.lu
 
 Project Link: [https://github.com/LuxReis/WEPAP_Project-Luxlait](https://github.com/LuxReis/WEPAP_Project-Luxlait)
 
@@ -159,6 +162,7 @@ Project Link: [https://github.com/LuxReis/WEPAP_Project-Luxlait](https://github.
 * [w3school](https://www.w3schools.com)
 * [LAM](https://www.artsetmetiers.lu)
 * [Luxlait orginal](https://www.luxlait.lu/en/homepage/)
+* [Heroku](https://dashboard.heroku.com/apps)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,8 +178,6 @@ Project Link: [https://github.com/LuxReis/WEPAP_Project-Luxlait](https://github.
 [stars-url]: https://github.com/LuxReis/WEPAP_Project-Luxlait/stargazers
 [issues-shield]: https://img.shields.io/github/issues/LuxReis/WEPAP_Project-Luxlait.svg?style=for-the-badge
 [issues-url]: https://github.com/LuxReis/WEPAP_Project-Luxlait/issues
-[license-shield]: https://img.shields.io/github/license/LuxReis/WEPAP_Project-Luxlait.svg?style=for-the-badge
-[license-url]: https://github.com/LuxReis/WEPAP_Project-Luxlait/blob/master/LICENSE.txt
 [HTML.js]: https://img.shields.io/badge/HTML-withe?style=for-the-badge&logo=html&color=orange
 [HTML-url]: https://html.com
 [CSS.js]: https://img.shields.io/badge/CSS-withe?style=for-the-badge&logo=CSS&color=blue
