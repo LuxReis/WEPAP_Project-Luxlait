@@ -1,5 +1,4 @@
-<!-- index.html from author @LuxLait (Tim frisch)  -->
-
+<!-- index.html from author @LuxLait (Tim frisch) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,55 +22,63 @@
 <body>
 
 <div id="navigation"></div>
-<div class="watcher"></div>
 <div id="content"></div>
 <div id="footer"></div>
 
 <script>
     $(document).ready(function() {
-        // Lade die Navigationsleiste
         $("#navigation").load("frontend/includes/navigation.html");
 
-        // Definiere eine Funktion zum Laden der Seite basierend auf dem Parameter
         function loadPage(page) {
+            // Check which page is requested
             switch(page) {
-                case "":
+                case "": // If no page specified, load home.html
                     $("#content").load("frontend/includes/home.html");
                     break;
-                default:
+                default: // Otherwise, load the specified page
                     $("#content").load("frontend/includes/" + page + ".html");
                     break;
             }
         }
 
-        // Überprüfe, ob eine Seite übergeben wurde
+        
+        // Get the value of the 'page' parameter from the URL
         let page = getParameterByName('page');
-        if (page === null || page === "") { // Wenn die Seite leer ist oder nicht definiert wurde
-            loadPage(""); // Lade die Home-Seite
+
+        // Check if the 'page' parameter is empty or not defined
+        if (page === null || page === "") { 
+            loadPage(""); // Load the default page if 'page' is empty or not defined
         } else {
-            // Überprüfe, ob die Seite existiert
+            // Perform an AJAX request to check if the requested page exists
             $.ajax({
                 url: "frontend/includes/" + page + ".html",
                 type: 'HEAD',
                 error: function() {
-                    loadPage(""); // Lade die Home-Seite, wenn die Seite nicht existiert
+                    loadPage(""); // Load the default page if the requested page doesn't exist
                 },
                 success: function() {
-                    loadPage(page); // Andernfalls lade die angegebene Seite
+                    loadPage(page); // Load the requested page if it exists
                 }
             });
         }
 
-        // Lade den Footer
+       
         $("#footer").load("frontend/includes/footer.html");
 
-        // Funktion zum Extrahieren von Parametern aus der URL
+        
+        // Function to get the value of a parameter from the URL
         function getParameterByName(name, url = window.location.href) {
+            // Escape special characters in the parameter name
             name = name.replace(/[\[\]]/g, '\\$&');
-            let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                results = regex.exec(url);
+            // Create a regular expression to match the parameter in the URL
+            let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            // Execute the regular expression on the URL to find matches
+            let results = regex.exec(url);
+            // If no matches are found, return null
             if (!results) return null;
+            // If the parameter has no value, return an empty string
             if (!results[2]) return '';
+            // Decode the parameter value and replace '+' with spaces
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
     });
