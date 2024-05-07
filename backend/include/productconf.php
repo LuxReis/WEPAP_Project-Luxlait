@@ -132,3 +132,5 @@ if (isset($_GET['productAmount'])) {
 }
 
 $connection = null;
+
+?>
