@@ -1,0 +1,22 @@
+/* feedback.css from author @Luxbaut (Friederici Thibaut)*/
+.icon-container {
+    display: inline-block; /* Make the icon containers inline */
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%; /* Set the overlay width to 50% */
+    cursor: pointer;
+    z-index: 2;
+}
+
+.left-overlay {
+    left: 0;
+}
+
+.right-overlay {
+    right: 0;
+}

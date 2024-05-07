@@ -183,17 +183,4 @@
     border: 2px solid #364758 !important;
  }
 
- .icon-container {
-    position: relative;
-    margin: 5px;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0);
-    z-index: 2;
-}
+ 
