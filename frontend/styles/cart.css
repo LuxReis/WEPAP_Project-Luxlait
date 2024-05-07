@@ -1,0 +1,140 @@
+/* cart.css from author @Luxbaut (Friederici Thibaut)*/
+/* Custom CSS for table and cart styling */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+
+.table-container {
+    border: 1px solid #0077c0;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 325px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Table header styling */
+.table-container thead th {
+    background-color: #0077c0;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.table-container tbody td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 2px solid #0077c0;
+}
+
+/* Adjust default input size */
+input[type="number"] {
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-control button {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-control button:hover {
+    background-color: #0056b3;
+}
+
+/* Cart Summary styling */
+.cart-summary {
+    border: 1px solid #0077c0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cart-summary .total-row {
+    font-weight: bold;
+}
+
+/* Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: #0077c0;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.5); 
+}
+
+/* Adjust scrollbar position */
+.table-container {
+    /* Example: Push scrollbar more towards the right */
+    margin-left: auto;
+    margin-right: 10px;
+    /* Adjust this value to your preference */
+}
+
+/* Adjust product image size */
+.product-image {
+    max-width: 80px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* Empty Cart Message Styling */
+.empty-cart-message {
+    border-radius: 5px;
+    padding: 20px;
+    top: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.empty-cart-message h4 {
+    color: #0077c0;
+    margin-bottom: 10px;
+}
+
+.empty-cart-message p {
+    color: #666;
+}

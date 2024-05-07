@@ -1,0 +1,92 @@
+/* history.css from author @ForLu102 (Formica Luca)*/
+ul{
+    list-style: none;
+}
+
+
+.title {
+    color: rgb(89, 89, 89);
+}
+
+
+.textSlide {
+    color: rgb(0, 0, 0); 
+}
+
+.slider {
+    height: 100%;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+
+}
+.slide-track {
+    display: flex;
+    width: calc(25% * 12);
+    animation: scroll 25s linear infinite;
+}
+
+.slide-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0%{
+        transform:translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 10));
+    }
+    
+}
+
+.slide {
+    height: 50%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    object-fit: cover;
+    min-height: 50%;
+}
+
+.image img:hover {
+    transform: translateZ(20px) scale(1.1);
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, rgba(255,255,255,1)0%, 
+    rgba(255,255,255,0) 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+
+}
+
+.slider::before{
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+.slider::after{
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+    height: 100%;
+}
