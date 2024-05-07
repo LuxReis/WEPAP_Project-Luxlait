@@ -1,0 +1,99 @@
+/* home.css from author @LuxJoghurt (Pedro Ribeiro Costa)*/
+
+.containerHome {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(9, 10, 15, 0.579); /* Transparente Hintergrundfarbe */
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: .5s ease;
+}
+
+#recipes-container .background:hover .overlay {
+    transform: scale(1);
+}
+
+.textHome {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+  
+
+#imgGradient {
+    background-image: linear-gradient(to top, rgba(157, 157, 157, 1) 0%, rgb(225, 225, 225) 50%, rgba(255, 255, 255, 1) 100%);
+}
+
+.imgRezeptHome:hover .image {
+    opacity: 0.3;
+  }
+  
+  .imgRezeptHome:hover .middle {
+    opacity: 1;
+  }
+
+
+
+.containerRezepter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20%;
+
+}
+
+.containerRezepter div {
+    width: calc(33.33% - 20px);
+    padding: 10px;
+    background-color: var(--background-color-dark);
+
+
+}
+
+.imgRezeptHome {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    object-fit:scale-down;
+    z-index: 2;
+
+}
+
+.imgRezept {
+    object-fit: cover;
+}
+
+
+.rezeptInfo button {
+    margin-top: 50%;
+}
+
+.btn {
+    color: rgb(255, 255, 255);
+    background-color: #203546;
+} 
