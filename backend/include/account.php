@@ -257,3 +257,4 @@
 
     // Close database connection
     $connection->close();
+?>
