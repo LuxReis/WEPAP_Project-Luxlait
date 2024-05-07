@@ -1,36 +1,36 @@
-<!-- Frisch Tim for Product -->
+<!-- productCatalog.html from author @LuxLait (Tim frisch)  -->
+
+
+<header class="productCatalogHeader bg-white border-3 border-secondary">
+    <img alt="Luxlait Milk Cows" class="headerImage" src="https://www.luxlait.lu/wp-content/uploads/2019/09/produits-luxlait.jpg">
+    <div class="container mt-5 mb-5">
+        <h2 class="mt-5 mb-5 display-4">OUR PRODUCTS</h2>
+        <p class="ms-5 me-5 mt-5 mb-5 lead ">Luxlait’s teams come up with new products every day. They scan the market to discover the latest consumer trends and refine the quality criteria. Luxlait’s sole aim has always been respect for natural resources and animal life, excellence in milk processing and the well-being of Luxembourg’s agriculture and consumers. Consuming Luxlait products means you have confidence in one of the best dairy companies in Europe.</p>
+    </div>
+</header>
+
+<section class="bg-light text-white py-5 backgroundCategory">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <ul class="categorys">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="container categoryContainer">
+
+    </div>
+</section>
+
 <script>
     $(document).ready(function(){
-        // JSON-Daten abrufen
-        $.ajax({
-            url: 'backend/include/productCategorie.php',
-            dataType: 'json',
-            success: function(data) {
-                let navItems = ''; // Variable zur Speicherung der neuen Navigationsitems
-    
-                $.each(data, function(index, item) {
-                    // Eindeutige ID für jede Kategorie erstellen, z.B. durch Hinzufügen des Index
-                    let categoryId = item.dtName + '_' + index;
-    
-                    // Navigationslink hinzufügen
-                    navItems += '<li><a class="nav-link text-info" id="' + categoryId + '" href="#' + categoryId + '"> ' + item.dtName + '</a></li>';
-    
-                    // Abschnitt für jeden Produkttyp auf der Produktkatalogseite erstellen
-                    let productSection = '<div id="' + categoryId + '" class="product-category-section">';
-                    productSection += '<h2>' + item.dtName + '</h2>';
-                    productSection += '</div>';
-                    $('.product-catalog').append(productSection);
-                });
-    
-                // Navigationslinks hinzufügen
-                $('.categorys').append(navItems);
-            },
-            error: function(xhr, status, error) {
-                console.error("Fehler beim Abrufen der Daten: " + error);
-            }
-        });
-    
-       
+        //Shows the Categories
         $.ajax({
             url: 'backend/include/productCategorie.php',
             dataType: 'json',
@@ -81,8 +81,8 @@
         });
     });
     
+    //Shows the Product Typ from a Categorie
     function showProductTyps(productType, category) {
-    
     $.ajax({
         type: 'GET',
         url: 'backend/include/productType.php',
@@ -152,29 +152,3 @@
 
 
 
-<header class="productCatalogHeader bg-white border-3 border-secondary">
-    <img alt="Luxlait Milk Cows" class="headerImage" src="https://www.luxlait.lu/wp-content/uploads/2019/09/produits-luxlait.jpg">
-    <div class="container mt-5 mb-5">
-        <h2 class="mt-5 mb-5 display-4">OUR PRODUCTS</h2>
-        <p class="ms-5 me-5 mt-5 mb-5 lead ">Luxlait’s teams come up with new products every day. They scan the market to discover the latest consumer trends and refine the quality criteria. Luxlait’s sole aim has always been respect for natural resources and animal life, excellence in milk processing and the well-being of Luxembourg’s agriculture and consumers. Consuming Luxlait products means you have confidence in one of the best dairy companies in Europe.</p>
-    </div>
-</header>
-
-<section class="bg-light text-white py-5 backgroundCategory">
-    <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-auto">
-                        <ul class="categorys">
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <div class="container categoryContainer">
-
-    </div>
-</section>
