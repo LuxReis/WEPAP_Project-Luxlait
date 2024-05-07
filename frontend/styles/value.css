@@ -1,0 +1,30 @@
+/* value.css from author @LuxJoghurt (Pedro Ribeiro Costa)*/
+h5 {
+    color: #8bbb29;
+    font-size: 16px;
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.img-small {
+    max-width: 90px;
+    position: absolute;
+    top: -20px; /* zum Verschieben nach oben */
+    left: -20px; /* zum Verschieben nach links */
+    z-index: 1;
+}
+
+.img-small-top-right {
+    max-width: 90px;
+    position: absolute;
+    top: -20px;
+    right: -20px; /* Positioniert das Bild oben rechts */
+    z-index: 1;
+}
+h1 {
+    position: relative;
+    left: 20px; /* Anpassen, um den gewünschten Abstand zu erhalten */
+}
+
