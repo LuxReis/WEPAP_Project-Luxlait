@@ -1,0 +1,375 @@
+<!-- Author: FRIEDERICI Thibaut HTML for cart page -->
+
+<!-- Link to product configuration stylesheet -->
+<link rel="stylesheet" href="frontend/styles/productconf.css">
+
+<!-- Navbar buttons -->
+<div class="my-navbar">
+    <!-- Button for Product content -->
+    <button id="productBtn" class="nav-btn active" data-target="productContent">Product</button>
+    <!-- Button for Add Product content -->
+    <button id="addProductBtn" class="nav-btn" data-target="addProductContent">Add Product</button>
+</div>
+
+<!-- Product Content -->
+<div id="productContent" class="product-content">
+    <div class="container custom-container">
+        <div class="row">
+            <!-- Product Details -->
+            <div class="col-lg-6">
+                <div class="product-details">
+                    <h2 class="custom-heading">
+                        <!-- Category Name -->
+                        <div id="category-name">Category</div>
+                    </h2>
+                    <hr>
+                    <div class="category">
+                        <!-- Category Image -->
+                        <img id='category-image' src="" alt="Category Image">
+                    </div>
+                    <h2 class="custom-heading">
+                        <!-- Type Name -->
+                        <div id="type-name">Type</div>
+                    </h2>
+                    <hr>
+                    <div class="type">
+                        <!-- Type Image -->
+                        <img id='type-image' src="" alt="Type Image">
+                        <div class="type-background">
+                            <p class="custom-text"><strong>Background Image:</strong></p>
+                            <!-- Background Image of Type -->
+                            <img id='type-background' src="" alt="Type Background">
+                        </div>
+                        <div class="icon">
+                            <p class="custom-text"><strong>Icons:</strong></p>
+                            <div id="icon-images"></div>
+                        </div>
+                        <p class="custom-text" id="icon-description"><strong>Icon Descriptions:</strong></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Features -->
+            <div class="col-lg-6">
+                <div class="product-id">
+                    <div class="product-features">
+                        <!-- Product Image -->
+                        <img id='product-image' src="" alt="Product Image" class="product-image mx-auto d-block">
+                        <h2 class="custom-heading">
+                            <!-- Product Name -->
+                            <div id="type-name">Product</div>
+                        </h2>
+                        <hr>
+                        <div id="proudct-features"></div>
+                        <div class="rating" id="product-stars"></div>
+                        <!-- Product Rating -->
+                        <p class="rating-label">Rating <span class="rating-number" id="product-rating"></span>/5</p>
+                        <!-- Dropdown button -->
+                        <button class="toggle-button" data-bs-toggle="dropdown" aria-expanded="false">&#x25BC;</button>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu">
+                            <li><button type="button" class="dropdown-item" value="Product">Product</button></li>
+                            <li><button type="button" class="dropdown-item" value="Category">Category</button></li>
+                            <li><button type="button" class="dropdown-item" value="Type">Type</button></li>
+                        </ul>
+                        <!-- Edit label -->
+                        <p class="edit-label">Edit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button structure for page navigation -->
+    <div class="button-structure"></div>
+    <!-- Dynamic content -->
+    <div id="dynamic-content"></div>
+</div>
+
+<!-- Container for adding new products -->
+<div id="addProductContent" class="add-product-content container custom-container" style="display: none;">
+    <!-- Content for adding new products -->
+</div>
+
+</div>
+
+<!-- JavaScript code for navigation and product manipulation -->
+<script>
+    $(document).ready(function () {
+        // Navigation button click event
+        $('.nav-btn').click(function () {
+            $('.nav-btn').removeClass('active');
+            $(this).addClass('active');
+            $('.content').hide();
+            var target = $(this).data('target');
+            $('#' + target).show();
+        });
+
+        // Dropdown item click event
+        $(document).on('click', '.dropdown-item', function () {
+            let selectedValue = $(this).val();
+            $('#dynamic-content').empty();
+
+            // Load content based on selected value
+            if (selectedValue === 'Product') {
+                createProductContainer();
+            } else if (selectedValue === 'Category') {
+                createCategoryContainer();
+            } else if (selectedValue === 'Type') {
+                createTypeContainer();
+            }
+        });
+
+        // Function to retrieve product amount from backend
+        function getProductAmount(callback) {
+            $.ajax({
+                url: 'backend/include/productconf.php',
+                method: 'GET',
+                data: {
+                    productAmount: true
+                },
+                dataType: 'json',
+                success: function (productAmount) {
+                    callback(productAmount[0].product_max_amount);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching product amount:", error);
+                }
+            });
+        }
+
+
+        // Function to create product container
+        function createProductContainer() {
+            // Retrieve data from DOM elements
+            let categoryId = $('.category').attr('id');
+            let typeId = $('.type').attr('id');
+            let productId = $('.product-id').attr('id');
+            let productName = $('#product-name').text().trim();
+            let productImageURL = $('#product-image').attr('src');
+            let productCode = $('#product-code').text().trim();
+            let productMetric = $('#product-metric').text().trim();
+            let productPrice = $('#product-price').text().trim();
+            let productFat = $('#product-fat').text().trim();
+
+            // AJAX request to retrieve product configurations
+            $.ajax({
+                url: 'backend/include/productconf.php',
+                method: 'GET',
+                data: {
+                    editProduct: true
+                },
+                dataType: 'json',
+                success: function (boxes) {
+                    // Create container for product data
+                    let container = $('<div class="data-container"></div>');
+                    container.css('background-color', '#f8f8ff');
+
+                    // Add inputs and labels for product fields
+                    container.append('<h2>Product</h2>');
+                    container.append('<label>ID:</label><input type="text" value="1" readonly class="readonly-input"><br>');
+                    container.append('<label>Name:</label><input type="text"><br>');
+                    container.append('<label>Image:</label><input type="text"><br>');
+                    container.append('<label>Code:</label><select><option>Option 1</option><option>Option 2</option></select><br>');
+                    container.append('<label>Metric Unit:</label><input type="text"><br>');
+                    container.append('<label>Price:</label><input type="text"><br>');
+                    container.append('<label>Fat:</label><input type="text"><br>');
+                    container.append('<label>Package:</label><input type="text"><br>');
+
+                    // Add buttons
+                    container.append('<button class="confirm-button">Confirm</button>');
+                    container.append('<button class="cancel-button">Cancel</button>');
+
+                    // Add event listeners for buttons
+                    container.find('.confirm-button').click(function () {
+                        // Handle confirm button click
+                    });
+
+                    container.find('.cancel-button').click(function () {
+                        event.preventDefault();
+                        window.location.href = 'index.html?page=productconf';
+                    });
+
+                    // Add trash can icon
+                    container.prepend('<span class="delete-icon bi bi-trash"></span>');
+
+                    $('#dynamic-content').append(container);
+                    console.log(boxes);
+                }
+            });
+        }
+
+        // Function to create category container (similar to createProductContainer() for categories and types)
+        function createCategoryContainer() {
+            // Code to create category container
+        }
+
+        // Function to create type container (similar to createProductContainer() for categories and types)
+        function createTypeContainer() {
+            // Code to create type container
+        }
+
+        // Function to load product data
+        function loadProduct(currentPage) {
+            $.ajax({
+                url: 'backend/include/productconf.php',
+                method: 'GET',
+                data: {
+                    productList: currentPage
+                },
+                dataType: 'json',
+                success: function (productList) {
+                    // Retrieve product data
+                    let p = productList[0];
+
+                    // Generate stars based on product rating
+                    let stars = generateStars(p.product_rating);
+                    let iconArray = p.type_icon.split(";");
+                    let iconDescriptionArray = p.type_icon_description.split(";");
+
+                    // Update DOM elements with product data
+                    $('.category').attr('id', p.category_id);
+                    $('.type').attr('id', p.type_id);
+                    $('.product-id').attr('id', p.product_id);
+
+                    $("#category-name").html("Category: " + p.category_name);
+                    $("#category-image").attr("src", p.category_image);
+                    $("#type-name").html("Type: " + p.type_name);
+                    $("#type-image").attr("src", p.type_image);
+                    $("#type-background").attr("src", p.type_background_image);
+
+                    $("#icon-images").empty();
+                    for (let i = 0; i < iconArray.length; i++) {
+                        let imageSrc = iconArray[i];
+                        let imgElement = $("<img>").attr("src", imageSrc).attr("alt", "Icon");
+                        $("#icon-images").append(imgElement);
+                    }
+
+                    $("#icon-description").empty();
+                    for (let i = 0; i < iconDescriptionArray.length; i++) {
+                        let description = iconDescriptionArray[i];
+                        let pElement = $("<p>").text(description.trim());
+                        $("#icon-description").append(pElement);
+                    }
+
+                    $("#product-image").attr("src", p.product_image);
+                    $("#product-name").text(p.product_name);
+
+                    $("#proudct-features").empty();
+                    if (p.product_code != null) {
+                        $("#proudct-features").append('<p class="custom-text"><strong>Product Code:</strong> ' + p.product_code + '</p>');
+                    }
+                    if (p.product_metric != null) {
+                        $("#proudct-features").append('<p class="custom-text"><strong>Metric Unit:</strong> ' + p.product_metric + '</p>');
+                    }
+                    if (p.product_price != null) {
+                        $("#proudct-features").append('<p class="custom-text"><strong>Price:</strong> ' + p.product_price + "€</p>");
+                    }
+                    if (p.product_fat != null) {
+                        $("#proudct-features").append('<p class="custom-text"><strong>Fat:</strong> ' + p.product_fat + '</p>');
+                    }
+                    if (p.product_package != null) {
+                        $("#proudct-features").append('<p class="custom-text"><strong>Package:</strong> ' + p.product_package + '</p>');
+                    }
+
+                    $("#product-stars").html(stars);
+                    $("#product-rating").text(p.product_rating);
+                }
+            });
+        }
+
+        // Function to generate star icons based on rating
+        function generateStars(rating) {
+            let stars = "";
+            for (let i = 1; i <= 5; i++) {
+                if (rating >= 1) {
+                    rating--;
+                    stars += '<span class="gold-star bi bi-star-fill">';
+                } else if (rating >= 0.5) {
+                    rating = -0.5;
+                    stars += '<span class="gold-star bi bi-star-half">';
+                } else {
+                    stars += '<span class="bi bi-star">';
+                }
+            }
+            return stars;
+        }
+
+        // Function to debounce a function call
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Function to load page selector
+        function loadPageSelector(page) {
+            getProductAmount(function (maxProductNumber) {
+                let buttons = $(".button-structure").empty(); // Clear the button structure
+                let dynamicContent = $('#dynamic-content');
+                dynamicContent.empty();
+
+                // Calculate page numbers for previous and next pages
+                let prevPage = Math.max(page - 1, 1);
+                let nextPage = Math.min(page + 1, maxProductNumber);
+
+                // Append buttons for previous page
+                if (page !== 1 && page != 2) {
+                    buttons.append('<button type="button" class="btn btn-info btn-sm pageButton" data-value="1" data-page="revertToLowest"><i class="bi bi-chevron-double-left"></i> 1</button>');
+                    buttons.append('<button type="button" class="btn btn-info pageButton" data-value="' + prevPage + '" data-page="revertOne"><i class="bi bi-chevron-left"></i> ' + prevPage + '</button>');
+                } else if (page == 2) {
+                    buttons.append('<button type="button" class="btn btn-info pageButton" data-value="' + prevPage + '" data-page="revertOne"><i class="bi bi-chevron-left"></i> ' + prevPage + '</button>');
+                }
+
+                // Append input field for current page
+                buttons.append('<input type="number" class="product-page pageInput" value="' + page + '" maxlength="3">');
+
+                // Append buttons for next page
+                if (page !== maxProductNumber && page != (maxProductNumber - 1)) {
+                    buttons.append('<button type="button" class="btn btn-info pageButton" data-value="' + nextPage + '" data-page="advanceOne">' + nextPage + ' <i class="bi bi-chevron-right"></i></button>');
+                    buttons.append('<button type="button" class="btn btn-info btn-sm pageButton" data-value="' + maxProductNumber + '" data-page="advanceToHighest">' + maxProductNumber + ' <i class="bi bi-chevron-double-right"></i></button>');
+                } else if (page == (maxProductNumber - 1)) {
+                    buttons.append('<button type="button" class="btn btn-info pageButton" data-value="' + nextPage + '" data-page="advanceOne">' + nextPage + ' <i class="bi bi-chevron-right"></i></button>');
+                }
+
+                buttons.off('blur', '.pageInput');
+                buttons.off('click', '.pageButton');
+
+                buttons.on('blur', '.pageInput', function () {
+                    let inputField = $(this); // Store reference to the input field
+                    debounce(function () {
+                        let newPage = parseInt(inputField.val());
+                        let newValue = newPage; // Default value is the entered value
+                        if (isNaN(newPage) || newPage < 1) {
+                            newValue = 1; // If input is NaN or less than 1, set value to 1
+                        } else if (newPage > maxProductNumber) {
+                            newValue = maxProductNumber; // If input is greater than max, set value to maxProductNumber
+                        }
+                        inputField.val(newValue); // Update input value
+                        loadPageSelector(newValue); // Reload page selector with the new page
+                        loadProduct(newValue); // Load product for the new page
+                    }, 300)();
+                });
+
+                // Event listener for page buttons
+                buttons.on('click', '.pageButton', function () {
+                    let newPage = parseInt($(this).data('value'));
+                    loadPageSelector(newPage);
+                    loadProduct(newPage);
+                });
+            });
+        }
+
+        // Initial loading of page selector and product
+        loadPageSelector(1);
+        loadProduct(1);
+
+        // Hide productContent when Add Product button is clicked
+        $('#addProductBtn').click(function () {
+            $('#productContent').hide();
+        });
+</script>
