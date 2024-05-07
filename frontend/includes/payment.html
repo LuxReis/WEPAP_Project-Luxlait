@@ -123,7 +123,6 @@
 
     // Function to style error messages
     function errorMsgCSS(){
-      $(".conatiner").css("display", "none"); // Hide container
       $("#content").css("color", "red"); // Set text color to red
       $("#content").css("font-size", "20px"); // Set font size to 20px
       $("#content").css("text-align", "center"); // Align text to center
@@ -247,7 +246,7 @@
           errorMsgCSS();
           $("#content").html(response.insert.msg);
           setTimeout(function() {
-            window.location.href = "index.html?page=home"; 
+            window.location.href = "index.html?page=payment"; 
           }, 5000);
         },
         error: function(xhr, status, error) {
