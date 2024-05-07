@@ -1,0 +1,84 @@
+<!-- footer.html from author @LuxLait (Tim frisch) -->
+<footer>
+    <div class="container-fluid bg-info py-2">
+        <div class="row justify-content-center text-center align-items-center">
+            <div class="col-md-4">
+                <img class="p-4"
+                    src="https://www.luxlait.lu/wp-content/uploads/2019/11/Logo-FOURNISSEUR-DE-LA-COUR-NBLANC.png"
+                    width="80px" alt="Logo">
+            </div>
+            <div class="col-md-4">
+                <img class="p-4" src="https://www.luxlait.lu/wp-content/uploads/2019/11/Made-in-Luxembourg-blanc.png"
+                    width="80px" alt="Made in Luxembourg">
+            </div>
+            <div class="col-md-4">
+                <img class="p-4" src="https://www.luxlait.lu/wp-content/uploads/2021/03/IFS_Food7_fr.png" width="80px"
+                    alt="IFS Food">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white py-5">
+        <div class="row">
+            <div class="col-md-5">
+                <h4 class="mb-4 text-center">Luxlait</h4>
+                <hr>
+                <p class="text-center ms-5 me-5"> At Luxlait, we share a common ambition that motivates each of our
+                    employees at all levels of production: to be the benchmark in the dairy products sector in
+                    Europe.<br><br>At Luxlait, our priority for more than 125 years has been to develop high quality
+                    products while respecting the environment, animal welfare and the people who provide us with this
+                    exceptional raw material.</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="mb-4 text-center">Products</h4>
+                <hr>
+                <ul class="list-unstyled text-center categoryFooter">
+
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4 class="mb-4 text-center">About Us</h4>
+                <hr>
+                <ul class="list-unstyled text-center">
+                    <li><a class="text-white text-decoration-none" href="index.html?page=history">History</a></li>
+                    <li><a class="text-white text-decoration-none" href="index.html?page=contact">Contact Us</a></li>
+                    <li><a class="text-white text-decoration-none" href="index.html?page=value">Our Value</a></li>
+                    <li><a class="text-white text-decoration-none" href="index.html?page=support">Support</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4 class="mb-4 text-center">Contact</h4>
+                <hr>
+                <ul class="list-unstyled text-center">
+                    <li><i class="bi bi-house-fill"></i> 3, Am Seif<br>7759 Roost / Bisse</li><br>
+                    <li><i class="bi bi-envelope-fill"></i>
+                        <email> webap.luxlait@gmail.com</email>
+                    </li><br>
+                    <li><i class="bi bi-telephone-fill"></i> 352 250 280 222</li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center mt-5 mb-5">Copyright All rights reserved by:<span class="text-primary"><a class="luxLink"
+                    href="https://www.luxlait.lu/en/homepage/"> LuxLait</a></span></p>
+    </div>
+</footer>
+
+<script>
+    // Show the ProductCategorie
+    $(document).ready(function () {
+        
+        $.ajax({
+            url: 'backend/include/productCategorie.php',
+            dataType: 'json',
+            success: function (data) {
+
+                $.each(data, function (index, item) {
+
+                    $('.categoryFooter').append('<li><a class="text-white" href="index.html?page=productCatalog">' + item.dtName + '</a></li>');
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error("Fehler beim Abrufen der Daten: " + error);
+            }
+        });
+    });
+</script>

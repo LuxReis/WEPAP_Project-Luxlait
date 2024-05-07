@@ -1,0 +1,127 @@
+<!-- naviagtion.html from author @LuxLait (Tim frisch) -->
+<script>
+    $(document).ready(function () {
+        // AJAX-Anfrage senden
+        $.ajax({
+            url: 'backend/include/checkLogin.php',
+            method: 'GET',
+            success: function (response) {
+                if (response.username != false && (response.rights == 'Staff' || response.rights == 'Admin')) {
+                    $("#navbarRightsContent").append(`
+                        <li class="nav-item dropdown ms-5">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Staff
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="index.html?page=statistics">Statistics</a>
+                                <a class="dropdown-item" href="index.html?page=productconf">Product configuration</a>
+                            </div>
+                        </li>
+                `);
+                }
+
+                if (response.username != false) {
+
+                    $('.user-links').empty();
+                    $('.user-links').append('<li class="nav-item dropdown">' +
+                        '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + response.username + '<i class="bi bi-caret-down-fill"></i></a>' +
+                        '<div class="dropdown-menu" aria-labelledby="navbarDropdown">' +
+                        '<a class="dropdown-item" href="index.html?page=account"><i class="bi bi-person-circle"></i><span class="ms-3">Account</span></a>' +
+                        '<a class="dropdown-item" href="index.html?page=delivery"><i class="bi bi-clock-history"></i><span class="ms-3">History</span></a>' +
+                        '<a class="dropdown-item position-relative" href="index.html?page=cart">' +
+                                    '<i class="bi bi-basket"></i>' +
+                                    '<span class="badge bg-danger position-absolute top-50 start-0 translate-middle text-center" id="cartAmount"></span>' +
+                                    '<span class="ms-3">Cart</span>'+
+                                '</a>' +
+                        '<a class="dropdown-item" href="index.html?page=home" onclick="logout()"><i class="bi bi-box-arrow-right"></i><span class="ms-3">Logout</span></a>' +
+                        '</div>' +
+                        '</li>');
+
+                    cartAmount('Navigation');
+                } else {
+                    $('.user-links').empty();
+                    $('.user-links').append('<li class="nav-item">' +
+                        '<a class="nav-link" href="index.html?page=register">Sign Up</a>' +
+                        '</li>' +
+                        '<li class="nav-item">' +
+                        '<a class="nav-link" href="index.html?page=login">Login</a>' +
+                        '</li>');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+
+        function cartAmount() {
+            $.getJSON('backend/include/cart.php', { cartAmount: true })
+                .then(function (response) {
+                    $("#cartAmount").text(response);
+                });
+        }
+    });
+
+
+
+
+    // Logout-Funktion
+    function logout() {
+        $.ajax({
+            url: 'backend/include/logout.php',
+            method: 'POST',
+            success: function (response) {
+                window.location.href = 'index.html?page=home';  
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+
+            }
+        });
+    }
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand ms-5" href="index.html?page=home"><img
+                src="https://www.luxlait.lu/wp-content/themes/luxlait/logo.png?v=1.1.1" style="max-height: 40px;"
+                alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto" id="navbarRightsContent">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html?page=productCatalog">
+                        Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html?page=recipe">Recipes</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About us 
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="index.html?page=history">History</a>
+                        <a class="dropdown-item" href="index.html?page=contact">Contact Us</a>
+                        <a class="dropdown-item" href="index.html?page=value">Our Value</a>
+                        <a class="dropdown-item" href="index.html?page=support">Support</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-5 user-links">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html?page=register">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html?page=login">Login</a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+</nav>

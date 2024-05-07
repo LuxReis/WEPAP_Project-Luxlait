@@ -1,0 +1,23 @@
+/* footer.css from author @LuxLait (Tim frisch)*/
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.luxLink:link {
+    text-decoration: none;
+    color: #007FFF;
+}
+
+.luxLink:visited {
+    text-decoration: none;
+    color: #245bc9;
+}
+
+.luxLink:hover{
+    color: #00BFFF;
+}

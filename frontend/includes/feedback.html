@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Ratings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .icon-container {
+            position: relative;
+            margin: 5px;
+        }
+
+        .icon {
+            font-size: 30px;
+            color: #FFD700;
+            /* Gold color for full stars */
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0);
+            /* Transparent overlay */
+            z-index: 2;
+        }
+
+        .left-overlay {
+            left: 0;
+        }
+
+        .right-overlay {
+            right: 0;
+        }
+
+        #test {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        #average-rating {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="average-rating"></div>
+    <div id="container" class="container"></div>
+    <div id='test'></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        let value;
+        const users = ['frith033', 'friti725', 'ribpe261', 'guoka342', 'gammi625'];
+        const username = users[Math.floor(Math.random() * users.length)]; // Need to change afterwards when the username is saved in a session
+        let product = getRandomNumber(1, 210);; // Need to change based on the current selected product
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function checkRating(pUsername, pProduct, callback) {
+            $.getJSON({
+                url: 'feedback.php',
+                method: 'GET',
+                data: {
+                    check: true,
+                    username: pUsername,
+                    product: pProduct
+                },
+                success: function (validation) {
+                    callback(validation);
+                }
+            });
+        }
+
+        function ratingRange(callback) {
+            $.ajax({
+                url: 'feedback.php',
+                method: 'GET',
+                dataType: 'json',
+                data: { rate: true },
+                success: function (data) {
+                    callback(data);
+                }
+            });
+        }
+
+        function roundToNearestQuarter(number) {
+            let integerPart = Math.floor(number);
+            let decimalPart = number - integerPart;
+
+            let nearestQuarter;
+            if (decimalPart < 0.25) {
+                nearestQuarter = 0;
+            } else if (decimalPart < 0.75) {
+                nearestQuarter = 0.5;
+            } else {
+                nearestQuarter = 1;
+            }
+
+            return integerPart + nearestQuarter;
+        }
+
+        function calculateStars(pAverageStars, range) {
+            let fullStarCounter = 0;
+            let halfStarCounter = 0;
+            let emptyStarCounter = 0;
+            let maxStars = 5;
+
+            pAverageStars = roundToNearestQuarter(pAverageStars);
+
+            for (let i = 0; i < maxStars; i++) {
+                if (pAverageStars >= 1) {
+                    fullStarCounter++;
+                    pAverageStars--;
+                } else if (pAverageStars >= 0.5) {
+                    halfStarCounter++;
+                    pAverageStars -= 0.5;
+                } else {
+                    emptyStarCounter++;
+                }
+            }
+
+            let starImages = generateStars(fullStarCounter, halfStarCounter, emptyStarCounter, range);
+
+            return starImages;
+
+        }
+
+        function generateStars(pFullStar, pHalfStar, pEmptyStar, range) {
+            let starImages = "";
+
+            for (let f = 0; f < pFullStar; f++) {
+                starImages += `<i class="icon ${range[2].Image}"></i>`;
+            }
+
+            for (let h = 0; h < pHalfStar; h++) {
+                starImages += `<i class="icon ${range[1].Image}"></i>`;
+            }
+
+            for (let e = 0; e < pEmptyStar; e++) {
+                starImages += `<i class="icon ${range[0].Image}"></i>`;
+            }
+
+            return starImages;
+        }
+
+        function sentRating(pRating, pUsername, pProduct, callback) {
+            $.ajax({
+                url: 'feedback.php',
+                method: 'GET',
+                data: {
+                    rating: pRating,
+                    username: pUsername,
+                    product: pProduct
+                },
+                success: function () {
+                    if (typeof callback === 'function') {
+                        callback();
+                    }
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            ratingRange(function (data) {
+
+                function updateAverageRating() {
+                    let starImages = "";
+
+                    $("#average-rating").empty();
+                    $("#average-rating").append("Produktbewertung (" + product + "): ");
+
+                    $.getJSON({
+                        url: 'feedback.php',
+                        method: 'GET',
+                        data: { product_id: product },
+                        success: function (productRating) {
+                            averageStars = productRating.averageRating;
+                            starImages = calculateStars(averageStars, data);
+                            $("#average-rating").append(starImages);
+                        }
+                    });
+                }
+
+                updateAverageRating();
+
+
+                checkRating(username, product, function (validation) {
+                    if (validation === 'Not rated yet') {
+                        function generateChangeableStars(pRating) {
+                            $.getJSON({
+                                url: 'feedback.php',
+                                method: 'GET',
+                                data: { rate: true },
+                                success: function (range) {
+                                    $("#container").empty();
+                                    $("#container").append("Benutzerbewertung (" + username + "): ");
+                                    for (let i = 0; i < 5; i++) {
+                                        if (pRating >= 1) {
+                                            $("#container").append(`
+                                    <div class="icon-container">
+                                        <i class="icon ${range[2].Image}"></i>
+                                        <div class="overlay left-overlay" data-value="${i + 0.5}"></div>
+                                        <div class="overlay right-overlay" data-value="${i + 1}"></div>
+                                    </div>`);
+                                            pRating--;
+                                        } else if (pRating >= 0.5) {
+                                            $("#container").append(`
+                                    <div class="icon-container">
+                                        <i class="icon ${range[1].Image}"></i>
+                                        <div class="overlay left-overlay" data-value="${i + 0.5}"></div>
+                                        <div class="overlay right-overlay" data-value="${i + 1}"></div>
+                                    </div>`);
+                                            pRating -= 0.5;
+                                        } else {
+                                            $("#container").append(`
+                                    <div class="icon-container">
+                                        <i class="icon ${range[0].Image}"></i>
+                                        <div class="overlay left-overlay" data-value="${i + 0.5}"></div>
+                                        <div class="overlay right-overlay" data-value="${i + 1}"></div>
+                                    </div>`);
+                                        }
+                                    }
+                                    $("#container").append("<button id='submitRating'>Submit Rating</button>");
+                                }
+                            });
+                        }
+
+                        generateChangeableStars(0);
+
+                        let zeroCounter = 0;
+                        $('#container').on('click', '.overlay', function () {
+                            value = $(this).data('value');
+                            var side = $(this).hasClass('left-overlay') ? 'left' : 'right';
+                            if (value == 0.5) {
+                                zeroCounter++;
+                            } else {
+                                zeroCounter = 0;
+                            }
+                            if (zeroCounter == 2) {
+                                value = 0;
+                            }
+                            generateChangeableStars(value);
+                            $("#test").text(" " + value + " ");
+                        });
+
+                        $(document).on('click', '#submitRating', function () {
+                            sentRating(value, username, product, function () {
+                                $("#container").empty();
+                                $("#test").empty();
+                                updateAverageRating();
+                            });
+                        });
+                    }
+                });
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

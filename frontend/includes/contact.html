@@ -1,0 +1,116 @@
+<!-- contact.html from author @LuxJoghurt (Pedro Ribeiro Costa) -->
+<style>
+    body {
+        overflow-x: hidden;
+    }
+</style>
+<section>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/panoramique-luxlait@05x.jpg"
+                    style="width: 100%; height: auto;" alt="Production">
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5 mt-5">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3>CONTACT US</h3>
+                <hr>
+                <p>If you have any questions about our products, suggestions, or if you are interested in selling
+                    Luxlait products in your store, feel free to contact us. Our dedicated Luxlait team is here to
+                    assist you and answer any inquiries you may have.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="thirdMain bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>About us</h2>
+                <h6 class="mb-4">At Luxlait, we share a common ambition that motivates each of our employees at all
+                    levels of production: to be the benchmark in the dairy products sector in Europe.</h6>
+            </div>
+            <div class="col-md-6">
+                <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/vache_dans_un_pre.jpg"
+                    style="width: 100%; height: auto;" alt="Luxembourg farmers">
+            </div>
+            <div class="col-md-6 mt-5">
+                <h6> Luxembourg farmers</h6>
+                <h3>OUR AGRICULTURAL COOPERATIVE</h3>
+                <hr>
+                <p>Luxlait is wholly owned by the Luxembourg member farmers who are at the same time owners,
+                    customers and suppliers of the company. Check out our Cooperative</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main bg-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center text-white">
+                <h4 class="mb-3 mt-3">Contact</h4>
+                <h6>Staff Members</h6>
+                <div id="info" class="row"></div>
+                <script>
+                    $(document).ready(function () {
+                        // AJAX-Anfrage an contact.php senden, um Mitarbeiterdaten abzurufen
+                        $.getJSON("backend/include/contact.php", function (data) {
+                            // Durch die empfangenen Daten iterieren
+                            $.each(data, function (index, staff) {
+                                // Auf die einzelnen Attribute zugreifen und ausgeben
+                                $("#info").append('<div class="col-md-4 mb-4">' +
+                                    '<div class="text-center">' +
+                                    '<i class="material-icons md-96">account_circle</i>' +
+                                    '</div>' +
+                                    '<p>Name: ' + staff.name + '</p>' +
+                                    '<p>Email: ' + staff.email + '</p>' +
+                                    '<p>Role: ' + staff.role + '</p>' +
+                                    '</div>');
+                            });
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="bg-color-white py-5">
+        <div class="container">
+            <h3 class="text-center mb-4">Where to find us</h3>
+            <div class="row">
+                <div class="col-md-4 d-flex align-items-center">
+                    <div class="mr-3">
+                        <i class="fas fa-industry fa-3x material-icons" style="font-size: 48px;">factory</i>
+                    </div>
+                    <div>
+                        <h6>Factory</h6>
+                        <p>Luxlait / Vitarium<br>
+                            3, Am Seif<br>
+                            7759 Roost / Bissen</p>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                    <div class="mr-3">
+                        <i class="material-icons md-48" style="font-size: 48px;">email</i>
+                    </div>
+                    <div>
+                        <h6>Postal Address</h6>
+                        <p>Luxlait / Vitarium<br>
+                            B.P. 87<br>
+                            7501 Mersch</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="map-container">
+                        <iframe width="400px" height="200px" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFBbyjsNeJyJgXcOOA6JBQ0j6eieJCEmA&amp;q=LUXLAIT+Association+Agricole"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

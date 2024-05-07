@@ -1,0 +1,8 @@
+/* recipe_details.css from author @LuxJoghurt (Pedro Ribeiro Costa)*/
+
+.customImage {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

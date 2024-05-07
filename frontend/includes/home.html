@@ -1,0 +1,93 @@
+<!-- home.html from author @LuxJoghurt (Pedro Ribeiro Costa) -->
+<link href="frontend/styles/home.css" rel="stylesheet">
+
+<section>
+    <header class="productCatalogHeader">
+    <img class="w-100 headerImage"
+        src="https://www.luxlait.lu/wp-content/uploads/2019/09/panoramique-luxlait@05x.jpg"
+        alt="Bing Bong" >
+</header>
+</section>
+
+
+
+<section class="bg-white mt-5">
+    <div class="container">
+        <h1 class="mt-5 mb-5 display-4" >OUR RECIPES</h1>
+        <h4 class="lead ms-5 me-5">Recipe Idea</h4>
+        <p class="h5 lead ms-5 me-5 mb-5">Top quality products are the basis of every recipe. Be inspired by our recipes and spoil your loved ones with delicious dishes.</p>
+        <div class="row mt-5" id="recipes-container">
+
+            <script>
+                $(document).ready(function() {
+                    $.ajax({
+                        url: "backend/include/home.php",
+                        type: "GET",
+                        dataType: "json",
+                        success: function(recipes) {
+                            var container = $('#recipes-container');
+                            $.each(recipes, function(index, recipe) {
+                                var html = `
+                                <div class="background col-md-4 mb-5">
+                                    <div id="recipe-${index}" class="containerHome"> <!-- Eindeutige ID -->
+                                        <img src="${recipe.image}" alt="${recipe.name}" class="image">
+                                        <div class="overlay">
+                                            <div class="textHome">
+                                                    <h4>${recipe.name}</h4>
+                                                    <a href="index.html?page=recipe_details&id=${recipe.id}" class="btn btn-outline-primary">Go to</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `;
+                                container.append(html);
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error loading recipes:', status, error);
+                        }
+                    });
+                });
+            </script>
+            
+            
+
+        </div>
+    </div>
+    
+    <div class="col-md-12 text-center">
+        <button class="btn btn-outline-dark mt-2 mb-5 w-25" onclick="window.location.href='index.html?page=recipe'">See All Recipes</button>
+    </div>
+    
+</section>
+
+    <section class="thirdMain bg-danger text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>About us</h2>
+                    <h6 class="mb-4">At Luxlait, we share a common ambition that motivates each of our employees at all levels of production: to be the benchmark in the dairy products sector in Europe.</h6>
+                </div>
+                <div class="col-md-6">
+                    <img class=" w-100 rounded-3" src="https://www.luxlait.lu/wp-content/uploads/2019/09/vache_dans_un_pre.jpg" class="img-fluid" alt="Luxembourg farmers">
+                </div>
+                <div class="col-md-6 mt-5">
+                    <h6> Luxembourg farmers</h6>
+                    <h3>OUR AGRICULTURAL COOPERATIVE</h3>
+                    <hr>
+                    <p>Luxlait is wholly owned by the Luxembourg member farmers who are at the same time owners, customers and suppliers of the company. Check out our Cooperative</p>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <h6>The origins of Luxlait</h6>
+                    <h3>OUR HISTORY</h3>
+                    <hr>
+                    <p>The origins of Luxlait go back to 1894, which is marked by the foundation of the “Central-Molkerei” in Luxembourg City. This dairy quickly became a public limited company and changed its name to “Zentralmolkerei”. The structure of Luxlait today has gradually developed and was particularly marked during the Second World War.</p>
+                </div>
+                <div class="col-md-6">
+                    <img class=" w-100 rounded-3" src="https://www.luxlait.lu/wp-content/uploads/2019/10/Production-Lait-Laiterie-de-Luxembourg-1.jpg" class="img-fluid" alt="Production">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   

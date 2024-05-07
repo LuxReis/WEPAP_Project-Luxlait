@@ -1,0 +1,35 @@
+/* navigation.css from author @LuxLait (Tim frisch)*/
+.nav-link {
+    position: relative;
+    transition: all 0.2s;
+}
+
+.nav-link::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background-color: rgb(54, 71, 88);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+}
+
+.categorys {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.categorys li {
+    margin-right: 10px; /* Adjust as needed */
+}
+
+.categorys li:last-child {
+    margin-right: 0;
+}

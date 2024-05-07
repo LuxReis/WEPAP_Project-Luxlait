@@ -1,0 +1,88 @@
+<!-- index.html from author @LuxLait (Tim frisch) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autor" content="GUO Kaidi, FRISCH Tim, FRIEDERICI Thibaut, RIBEIRO COSTA Pedro, GAMASS Mihails, FORMICA Luca">
+    <link href="frontend/styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="frontend/styles/navigation.css" rel="stylesheet">
+    <link href="frontend/styles/customStyles.css" rel="stylesheet">
+    <link href="frontend/styles/productCatalog.css" rel="stylesheet">
+    <link href="frontend/styles/history.css" rel="stylesheet">
+    <link href="frontend/styles/footer.css" rel="stylesheet">
+    <link rel="icon" href="frontend\images\iconLuxlait.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>LuxLait</title>
+</head>
+<body>
+
+<div id="navigation"></div>
+<div id="content"></div>
+<div id="footer"></div>
+
+<script>
+    $(document).ready(function() {
+        $("#navigation").load("frontend/includes/navigation.html");
+
+        function loadPage(page) {
+            // Check which page is requested
+            switch(page) {
+                case "": // If no page specified, load home.html
+                    $("#content").load("frontend/includes/home.html");
+                    break;
+                default: // Otherwise, load the specified page
+                    $("#content").load("frontend/includes/" + page + ".html");
+                    break;
+            }
+        }
+
+        
+        // Get the value of the 'page' parameter from the URL
+        let page = getParameterByName('page');
+
+        // Check if the 'page' parameter is empty or not defined
+        if (page === null || page === "") { 
+            loadPage(""); // Load the default page if 'page' is empty or not defined
+        } else {
+            // Perform an AJAX request to check if the requested page exists
+            $.ajax({
+                url: "frontend/includes/" + page + ".html",
+                type: 'HEAD',
+                error: function() {
+                    loadPage(""); // Load the default page if the requested page doesn't exist
+                },
+                success: function() {
+                    loadPage(page); // Load the requested page if it exists
+                }
+            });
+        }
+
+       
+        $("#footer").load("frontend/includes/footer.html");
+
+        
+        // Function to get the value of a parameter from the URL
+        function getParameterByName(name, url = window.location.href) {
+            // Escape special characters in the parameter name
+            name = name.replace(/[\[\]]/g, '\\$&');
+            // Create a regular expression to match the parameter in the URL
+            let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            // Execute the regular expression on the URL to find matches
+            let results = regex.exec(url);
+            // If no matches are found, return null
+            if (!results) return null;
+            // If the parameter has no value, return an empty string
+            if (!results[2]) return '';
+            // Decode the parameter value and replace '+' with spaces
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    });
+</script>
+<script src="frontend/scripts/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

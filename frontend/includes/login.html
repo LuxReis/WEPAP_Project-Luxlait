@@ -1,0 +1,58 @@
+<!-- login.css link from author @LuxKeis (Gamass Mihails) -->
+<link href="frontend/styles/login.css" rel="stylesheet">
+<!-- login.html from author @LuxKeis (Gamass Mihails) -->
+<header class="productCatalogHeader bg-white border-3 border-secondary">
+    <img alt="Luxlait Milk Cows" class="headerImage" src="https://www.luxlait.lu/wp-content/uploads/2019/11/AdobeStock_291094827-e1574937098816.jpeg">
+    <div class="container mt-5 mb-5">
+        <h2 class="display-4 mt-5 mb-5 text-center text-info">Login</h2>
+
+    </div>
+</header>
+
+
+<section>
+    <div class="container mb-5 pt-5">
+      <div class="row">
+        <div class="col-12 col-sm-7 col-md-6 m-auto ">
+          <div class="card border-0 shadow border border-info">
+            <div class="card-body text-center"> 
+              <svg class="mx-auto my-3 text-info" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+              </svg>
+              <form method="post" action="..\backend\include\login.php">
+                <div class="d-flex justify-content-center mt-5 error">
+                    <div class="mb-3 w-75">
+                        <label for="username" class="form-label text-info">Username</label>
+                        <input type="text" class="form-control error" id="username" name="username" required>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="mb-3 w-75">
+                        <label for="password" class="form-label text-info">Password</label>
+                        <input type="password" class="form-control error" id="password" name="password" required>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                  <button class="btn btn-info">Login</button>
+                  <a href="../index.html?page=register" class="nav-link text-info">Don't have an account yet?</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- login Jquery from author @LuxKeis (Gamass Mihails) -->
+  <script>
+    // Get the URL parameters
+    const loginParam = new URLSearchParams(window.location.search).get('error');
+
+    // Check if the 'page' parameter exists
+    if (loginParam !== null) {
+      alert("Wrong Login Data")
+    }
+</script>

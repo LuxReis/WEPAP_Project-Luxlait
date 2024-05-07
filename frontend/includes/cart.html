@@ -1,0 +1,279 @@
+<!-- Author: FRIEDERICI Thibaut (HTML for cart page) -->
+
+<!-- Include cart page styles -->
+<link rel="stylesheet" href="frontend/styles/cart.css">
+
+<script>
+    $(document).ready(function () {
+        // Function to handle checkout button click
+        $("#checkout").on("click", function () {
+            // Extract total price from the cart and proceed to payment or product catalog based on total price
+            let totalPriceText = $("#total").text().replace('€', '').trim();
+            let totalPrice = parseFloat(totalPriceText);
+            if (totalPrice != 0) {
+                // If there are items in the cart, add total price to the session and redirect to payment page
+                $.getJSON('backend/include/cart.php', { addTotalPrice: totalPrice })
+                    .then(function (response) {
+                        window.location.replace("index.html?page=payment");
+                    });
+            } else {
+                // If cart is empty, redirect to product catalog page
+                window.location.replace("index.html?page=productCatalog");
+            }
+        });
+
+        // Function to retrieve delivery address and calculate delivery charges
+        function getAddress() {
+            // Get address details from the server and calculate delivery charges based on distance
+            $.getJSON('backend/include/cart.php', { address: true })
+                .then(function (response) {
+                    let origin = response.origin;
+                    let destination = `${response.destination[0].dtHouseNR}, ${response.destination[0].dtStreet}, ${response.destination[0].dtPLZ}, ${response.destination[0].dtCity}, Luxembourg`;
+                    deliveryKM(origin, destination);
+                });
+        }
+
+        // Function to calculate delivery charges based on distance
+        function deliveryKM(origin, destination) {
+            // Use Distance Matrix API to calculate distance between origin and destination
+            $.ajax({
+                url: "https://api.distancematrix.ai/maps/api/distancematrix/json",
+                method: 'GET',
+                dataType: 'json',
+                data: {
+                    origins: origin,
+                    destinations: destination,
+                    key: "xsciDg7pPMLQO71juVfkHJYdSmnrujrr8nyFLDiHOMdpWThAnkGxLeRMYiPkEv5e"
+                },
+                success: function (response) {
+                    // If distance is obtained successfully, calculate delivery charges
+                    if (response && response.rows && response.rows.length > 0 && response.rows[0].elements && response.rows[0].elements.length > 0) {
+                        let distance = (response.rows[0].elements[0].distance.value) / 1000;
+                        calculateDeliveryCharges(distance);
+                    }
+                }
+            });
+        }
+
+        // Function to calculate delivery charges based on distance
+        function calculateDeliveryCharges(distance) {
+            // Calculate delivery charges based on distance and update cart summary
+            let charges = (distance * 0.1) * 1.36;
+            charges = parseFloat(charges.toFixed(2));
+            $("#deliveryCharges").text(charges.toFixed(2) + "€");
+            updateCartSummary();
+        }
+
+        // Function to load cart items from the server
+        function loadCart() {
+            // Retrieve cart items from the server and update cart display
+            $.getJSON('backend/include/cart.php', { cart: true })
+                .done(function (cart) {
+                    const cartItemsContainer = $('#cartItems');
+                    cartItemsContainer.empty();
+                    let totalSubtotal = 0;
+
+                    // If cart is empty, show empty cart message; otherwise, populate cart items
+                    if (cart.length === 0) {
+                        toggleEmptyCartMessage(true);
+                        $("#subTotal").text('0.00€');
+                        $("#deliveryCharges").text('0.00€');
+                    } else {
+                        // If cart is not empty, retrieve delivery address and populate cart items
+                        getAddress();
+                        cart.forEach(function (item) {
+                            let subTotal = item.dtPrice * item.dtAmount;
+                            totalSubtotal += subTotal;
+
+                            // Generate HTML for each cart item and append to cart container
+                            let cartItemHtml = `
+                                <tr id="${item.idCart}">
+                                    <td><img src="${item.dtImage}" alt="${item.dtProduct}" class="product-image"></td>
+                                    <td>${item.dtProduct}</td>
+                                    <td>
+                                        <div class="quantity-control">
+                                            <button class="btn btn-primary quantityButton" data-operator="minus">-</button>
+                                            <input type="number" class="form-control quantity-input" value="${item.dtAmount}" min="0" max="99" data-price="${item.dtPrice}">
+                                            <button class="btn btn-primary quantityButton" data-operator="plus">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="subTotalCell" data-price="${item.dtPrice}">${parseFloat(subTotal.toFixed(2))}€</td>
+                                </tr>`;
+                            cartItemsContainer.append(cartItemHtml);
+                        });
+                        
+                        // Hide empty cart message if cart is not empty
+                        toggleEmptyCartMessage(false);
+                    }
+
+                    // Update cart summary
+                    updateCartSummary();
+                });
+        }
+
+        // Event handler for quantity buttons
+        $(document).on('click', '.quantityButton', function () {
+            // Increment or decrement quantity and update cart accordingly
+            let operator = $(this).data('operator');
+            let quantityInput = $(this).siblings('.quantity-input');
+            let currentQuantity = parseInt(quantityInput.val());
+
+            if (operator === 'minus') {
+                let newQuantity = Math.max(currentQuantity - 1, 0);
+                quantityInput.val(newQuantity);
+            } else if (operator === 'plus') {
+                let newQuantity = Math.min(currentQuantity + 1, 99);
+                quantityInput.val(newQuantity);
+            }
+
+            // Handle cart item update
+            handleCartItemUpdate(quantityInput);
+        });
+
+        // Event handler for quantity input blur
+        $(document).on('blur', '.quantity-input', function () {
+            // Validate quantity input and update cart accordingly
+            let quantityInput = $(this);
+            let newQuantity = parseInt(quantityInput.val());
+
+            if (isNaN(newQuantity) || newQuantity < 0) {
+                quantityInput.val(1);
+                newQuantity = 1;
+            } else if (newQuantity > 99) {
+                quantityInput.val(99);
+                newQuantity = 99;
+            }
+
+            // Handle cart item update
+            handleCartItemUpdate(quantityInput);
+        });
+
+        // Function to handle cart item update
+        function handleCartItemUpdate(quantityInput) {
+            // Update cart item quantity and subtotal, and refresh cart summary
+            let cartID = quantityInput.closest('tr').attr('id');
+            let newQuantity = parseInt(quantityInput.val());
+
+            if (newQuantity <= 0) {
+                removeCartItem(cartID);
+            } else {
+                updateCartItem(cartID, newQuantity);
+                updateRowSubtotal(cartID, newQuantity);
+                updateCartSummary();
+            }
+        }
+
+        // Function to remove cart item
+        function removeCartItem(cartID) {
+            // Remove cart item from the server and update cart display
+            $.ajax({
+                url: 'backend/include/cart.php',
+                method: 'GET',
+                data: { id: cartID, quantity: 0 },
+                dataType: 'json',
+                success: function (response) {
+                    $(`#${cartID}`).remove();
+                    updateCartSummary();
+                    toggleEmptyCartMessage($('.quantity-input').length === 0);
+                }
+            });
+        }
+
+        // Function to update cart item quantity
+        function updateCartItem(cartID, newQuantity) {
+            // Update cart item quantity on the server
+            $.ajax({
+                url: 'backend/include/cart.php',
+                method: 'GET',
+                data: { id: cartID, quantity: newQuantity },
+                dataType: 'json',
+                success: function (response) {
+                    // No action needed on success
+                }
+            });
+        }
+
+        // Function to update row subtotal
+        function updateRowSubtotal(cartID, newQuantity) {
+            // Update subtotal for a cart item
+            let dtPrice = parseFloat($(`#${cartID} .subTotalCell`).data('price'));
+            let subTotal = dtPrice * newQuantity;
+            $(`#${cartID} .subTotalCell`).text(parseFloat(subTotal.toFixed(2)) + '€');
+        }
+
+        // Function to update cart summary
+        function updateCartSummary() {
+            // Update subtotal, total, and toggle empty cart message based on cart contents
+            let totalSubtotal = 0;
+
+            $('.subTotalCell').each(function () {
+                let subTotal = parseFloat($(this).text().replace('€', ''));
+                totalSubtotal += subTotal;
+            });
+
+            $("#subTotal").text(totalSubtotal.toFixed(2) + '€');
+            toggleEmptyCartMessage($('.quantity-input').length === 0);
+
+            let deliveryCharges = parseFloat($("#deliveryCharges").text().replace('€', ''));
+            let total = totalSubtotal + deliveryCharges;
+            $("#total").text(total.toFixed(2) + '€');
+        }
+
+        // Function to toggle empty cart message visibility
+        function toggleEmptyCartMessage(show) {
+            // Show or hide empty cart message based on cart contents
+            const emptyCartMessage = $('.empty-cart-message');
+            if (show) {
+                emptyCartMessage.show();
+            } else {
+                emptyCartMessage.hide();
+            }
+        }
+
+        // Load cart items when document is ready
+        loadCart();
+    });
+</script>
+
+<div class="main-container mt-4">
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Product</th>
+                    <th>Quantity</th>
+                    <th>SubTotal</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <!-- Cart items will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <!-- Empty Cart Message (Visible when cart is empty) -->
+        <div class="empty-cart-message text-center mt-4">
+            <h4>Your Cart is Empty</h4>
+            <p>Looks like you haven't added any <a href="index.html?page=productCatalog">products</a>
+                yet.</p>
+        </div>
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="cart-summary">
+        <h4>Cart Summary</h4>
+        <div class="row mb-3">
+            <div class="col-6">Subtotal:</div>
+            <div class="col-6 text-end" id="subTotal">0€</div>
+        </div>
+        <div class="row mb-3" id="delivery">
+            <div class="col-6">Delivery:</div>
+            <div class="col-6 text-end" id="deliveryCharges">0€</div>
+        </div>
+        <hr>
+        <div class="row total-row">
+            <div class="col-6">Total:</div>
+            <div class="col-6 text-end" id="total">0€</div>
+        </div>
+        <button class="btn btn-primary mt-3" id="checkout">Proceed to Checkout</button>
+    </div>
+</div>
