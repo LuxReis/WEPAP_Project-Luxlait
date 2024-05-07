@@ -39,7 +39,7 @@ CREATE TABLE tblUser(
     dtHouseNR VARCHAR(3) NOT NULL,
     dtStreet VARCHAR(35) NOT NULL,
     dtCity VARCHAR(35) NOT NULL,
-    dtCountry VARCHAR(5) NOT NULL,
+    dtCountry VARCHAR(30) NOT NULL,
     dtRole VARCHAR(30) NOT NULL,
     dtCardNumber VARCHAR(16),
     dtCardHolder VARCHAR(50),
