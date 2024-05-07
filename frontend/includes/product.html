@@ -1,0 +1,426 @@
+<!-- product.html from author @LuxLait (Tim frisch) and  -->
+
+<header class="background-header d-flex justify-content-center align-items-center">
+    <img class="headerImage" id="backgroundImage" alt="Background Image">
+</header>
+
+<div class="container-fluid bg-white">
+    <div class="container mb-5 mt-5">
+        <h1 class="text-info text-center" id="productTypeTitle"></h1>
+        <div class="mt-5 mb-5" id="icons"></div>
+    </div>
+
+</div>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5 bg-light">
+    <div class="container containerFilter bg-light pt-2 d-flex align-items-center">
+        <div class="me-auto">
+            <button class="btn btn-info me-2" id="backButton">Back</button>
+        </div>
+
+
+
+        <div class="ms-auto">
+            <button class="btn btn-info me-2" id="toCard">Go to Cart</button>
+        </div>
+    </div>
+
+    <div class="container bg-light d-flex justify-content-center rounded-3">
+        <div class="row w-100 mt-5 rounded-3" id="productList">
+            <div id="average-rating"></div>
+            <div id="productInfo"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        
+        $('#toCard').click(function () {
+            window.location.href = 'index.html?page=cart';
+        });
+
+        $('#backButton').click(function () {
+            window.history.back();
+        });
+
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Function to fetch and display products
+        function fetchAndDisplayProducts(productType, option) {
+            $.ajax({
+                url: 'backend/include/product.php',
+                type: 'GET',
+                data: { type: productType, option: option },
+                dataType: 'json',
+                success: function (response) {
+                    displayProducts(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        //Function to show products
+        async function displayProducts(products) {
+            let backgroundImage = products[0].dtbackgroundImage;
+            $('#backgroundImage').attr('src', backgroundImage);
+            let productType = products[0].dtType;
+            $('#productTypeTitle').text(productType + ' Products');
+
+            
+            let icons = products[0].dtIcons.split(';');
+            let descriptions = products[0].dtIconsDescriptions.split(';');
+            
+            let iconsHtml = '<div class="row text-center">';
+            for (let i = 0; i < icons.length; i++) {
+                iconsHtml += `
+                    <div class="col-md-4">
+                        <img class="icons mt-5" src="${icons[i]}" alt="Icon" title="${descriptions[i]}">
+                        <p class="text-info mb-5">${descriptions[i]}</p>
+                    </div>
+                `;
+            }
+            iconsHtml += '</div>';
+            $('#icons').html(iconsHtml);
+
+            let productList = [];
+            let counter = 0; 
+            for (let i = 0; i < products.length; i++) {
+                let product = products[i];
+
+                let starImages = await calculateStars(product.averageRating);
+                let productCode = product.dtProductCode;
+                let productId = product.idProduct;
+                let additionalDiv = '';
+
+                try {
+                    let rating = await checkIfRatingAvailable(productId);
+                    if (rating === "Not rated yet") {
+                        console.log(rating);
+                        additionalDiv = `<p><div id="stars-${productId}" class="changeableStars"></div></p>`;
+                        await generateChangeableStars(productId, 0); // Pass productId as an argument
+                        counter++; // Increment counter if rating is not available
+                    }
+                } catch (error) {
+                    console.error('Error checking rating availability:', error);
+                }
+
+                let productHtml = `
+                                    <div class="col-md-6">
+                                        <div class="bg-white text-info product rounded-3">
+                                            <h5 class="text-info text-center mt-2 mb-5 productHeader"><strong>${product.dtProduct}</strong></h5><br>
+                                            <h5 class="text-white text-center productHeader"><strong>${product.dtCode}</strong></h5>
+                                            <img class="productImage mb-5" src="${product.dtImage}" alt="Product Image">
+                                            <p id="average-rating-${counter}" class="text-center icons"><span class="text-info">${product.averageRating}</span> ${starImages}</p>
+                                            ${additionalDiv}
+                                            <div class="row align-items-center">
+                                                <div class="col-md-5 d-flex align-items-center justify-content-center">
+                                                    <p class="text-info text-center productInfoHeader"><strong>${product.dtProduct}</strong></p>
+                                                </div>
+                                                <div class="col-md-5 d-flex align-items-center justify-content-center">
+                                                    <p class="text-info"><span class="text-info"><strong>${product.dtPrice}€</strong></span></p>
+                                                </div>
+                                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                                    <button class="btn btn-info btnCart" id="cartFillUp" value='${product.idProduct}'><i class="bi bi-cart-plus-fill"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-center mt-3">
+                                                <button class="w-25 btn btn-outline-info btnShowInfo" data-product-code='${product.dtCode}'>More Infos<i class="bi bi-caret-down"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                productList.push(productHtml);
+            }
+
+            if ($('#productList').length === 0) {
+                console.error('HTML container #productList not found.');
+            } else {
+
+                showProducts(productList);
+            }
+        }
+
+
+        $(document).on('click', '.btnHideInfo', function () {
+
+            $(this).text("More Infos").removeClass("btnHideInfo").addClass("btnShowInfo");
+            window.location.reload();
+        });
+
+
+        $(document).on('click', '.btnShowInfo', function () {
+            let productCode = $(this).data('product-code'); // Produktcode des geklickten Produkts
+            let apiUrl = 'https://world.openfoodfacts.org/api/v0/product/' + productCode + '.json';
+            let button = $(this);
+
+            $.ajax({
+                url: apiUrl,
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === 1) {
+                        let product = response.product;
+
+                        let info = "";
+
+                        info += "<p><strong>Manufacturer:</strong> " + product.brands + "</p>";
+                        info += "<p><strong>Country of Origin:</strong> " + product.countries + "</p>";
+
+                        if (product.categories && Array.isArray(product.categories) && product.categories.length > 0) {
+                            info += "<p><strong>Categories:</strong> " + product.categories.join(", ") + "</p>";
+                        }
+                        if (product.ingredients_text) {
+                            info += "<p><strong>Ingredients:</strong> " + product.ingredients_text + "</p>";
+                        }
+
+                        if (product.nutriments) {
+                            info += "<table class='table'>";
+                            info += "<tr><th>Nutrient</th><th>Amount</th><th>Unit</th></tr>";
+                            info += "<tr><td>Energy</td><td>" + product.nutriments.energy + "</td><td>" + product.nutriments.energy_unit + "</td></tr>";
+                            info += "<tr><td>Fat</td><td>" + product.nutriments.fat + "</td><td>" + product.nutriments.fat_unit + "</td></tr>";
+                            info += "<tr><td>Sugar</td><td>" + product.nutriments.sugars + "</td><td>" + product.nutriments.sugars_unit + "</td></tr>";
+                            info += "<tr><td>Salt</td><td>" + product.nutriments.salt + "</td><td>" + product.nutriments.salt_unit + "</td></tr>";
+                            info += "</table>";
+                        }
+                        if (product.nutrition_grades) {
+                            // Hier fügen Sie das Bild basierend auf dem Nutri-Score hinzu
+                            let nutriScoreImage;
+                            switch (product.nutrition_grades.toUpperCase()) {
+                                case 'A':
+                                    nutriScoreImage = 'a.jpg';
+                                    break;
+                                case 'B':
+                                    nutriScoreImage = 'b.jpg';
+                                    break;
+                                case 'C':
+                                    nutriScoreImage = 'c.jpg';
+                                    break;
+                                case 'D':
+                                    nutriScoreImage = 'd.jpg';
+                                    break;
+                                case 'E':
+                                    nutriScoreImage = 'e.jpg';
+                                    break;
+                                default:
+                                    nutriScoreImage = 'no.png';
+                                    break;
+                            }
+                            info += `<img class="rounded-3" src="frontend/images/${nutriScoreImage}" alt="Nutri-Score" />`;
+                        }
+
+
+                        button.parent().append(info);
+                        button.text("Show Less").removeClass("btnShowInfo").addClass("btnHideInfo");
+                    } else {
+
+                        button.parent().append("<p>Produkt nicht gefunden.</p>");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Fehler beim Aufrufen der API:', error);
+                    // Fehlermeldung anzeigen, wenn die API-Abruf fehlschlägt
+                    button.parent().append("<p>Ein Fehler ist aufgetreten. Bitte versuche es später erneut.</p>");
+                }
+            });
+        });
+
+
+        function generateChangeableStars(productId, pRating) {
+            let starsHtml = '';
+            for (let i = 0; i < 5; i++) {
+                if (pRating >= 1) {
+                    starsHtml += `
+        <div class="icon-container">
+            <i class="icon bi bi-star-fill"></i>
+            <div class="overlay left-overlay" data-value="${i + 0.5}" data-product-id="${productId}"></div>
+            <div class="overlay right-overlay" data-value="${i + 1}" data-product-id="${productId}"></div>
+        </div>`;
+                    pRating--;
+                } else if (pRating >= 0.5) {
+                    starsHtml += `
+        <div class="icon-container">
+            <i class="icon bi bi-star-half"></i>
+            <div class="overlay left-overlay" data-value="${i + 0.5}" data-product-id="${productId}"></div>
+            <div class="overlay right-overlay" data-value="${i + 1}" data-product-id="${productId}"></div>
+        </div>`;
+                    pRating -= 0.5;
+                } else {
+                    starsHtml += `
+        <div class="icon-container">
+            <i class="icon bi bi-star"></i>
+        </div>`;
+                }
+            }
+            console.log(`#stars-${productId}`);
+            $(`#stars-${productId}`).html(starsHtml);
+
+            let zeroCounter = 0;
+            $(`#stars-${productId}`).on('click', '.overlay', function () {
+                let value = $(this).data('value');
+                let side = $(this).hasClass('left-overlay') ? 'left' : 'right';
+                if (value == 0.5) {
+                    zeroCounter++;
+                } else {
+                    zeroCounter = 0;
+                }
+                if (zeroCounter == 2) {
+                    value = 0;
+                }
+                generateChangeableStars(productId, value); // Remove the 's' here
+                // Update the value in some element
+                $("#test").text(" " + value + " ");
+            });
+        }
+
+
+
+
+        function showModal(message) {
+            // Nachricht in das Modal einfügen und zentrieren
+            $('#modalMessage').text(message).addClass("text-center").addClass("text-info");
+
+            // Modal anzeigen
+            $('#myModal').modal('show');
+
+            // Modal nach 1,5 Sekunden ausblenden
+            setTimeout(function () {
+                $('#myModal').modal('hide');
+            }, 1000);
+        }
+
+        // Funktion zum Rendern der Produktliste
+        function showProducts(productList) {
+            var productListContainer = $('#productList');
+            productListContainer.empty();
+
+            $.each(productList, function (index, productHtml) {
+                productListContainer.append(productHtml);
+            });
+        }
+
+        function cartAmount() {
+            $.getJSON('backend/include/cart.php', { cartAmount: true })
+                .then(function (response) {
+                    $("#cartAmount").text(response);
+                });
+        }
+
+        $(document).on('click', '#cartFillUp', function () {
+            let productID = $(this).val();
+            $.getJSON('backend/include/cart.php', { cartFillUp: productID })
+                .then(function (response) {
+                    console.log(response);
+                    if (response === 'Product limit reached') {
+                        showModal("Product limit reached");
+                    } else if (response === '') {
+                        showModal("Successfully added to your cart");
+                        cartAmount();
+                    } else {
+                        showModal("Successfully added to your cart");
+                        cartAmount();
+                    }
+                });
+        });
+
+        function roundToNearestQuarter(number) {
+            let integerPart = Math.floor(number);
+            let decimalPart = number - integerPart;
+
+            let nearestQuarter;
+            if (decimalPart < 0.25) {
+                nearestQuarter = 0;
+            } else if (decimalPart < 0.75) {
+                nearestQuarter = 0.5;
+            } else {
+                nearestQuarter = 1;
+            }
+
+            return integerPart + nearestQuarter;
+        }
+
+        function generateStars(avg) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: 'backend/include/feedback.php',
+                    method: 'GET',
+                    data: { ratingRange: true },
+                    dataType: 'json',
+                    success: function (range) {
+                        let starsAmount = (range.length - 1) / 2;
+                        let starImages = ``;
+                        for (let i = 0; i < starsAmount; i++) {
+                            if (avg >= 1) {
+                                starImages += `<i class="icon bi bi-star-fill"></i>`;
+                                avg--;
+                            } else if (avg >= 0.5) {
+                                starImages += `<i class="icon bi bi-star-half"></i>`;
+                                avg -= 0.5;
+                            } else {
+                                starImages += `<i class="icon bi bi-star"></i>`;
+                            }
+                        }
+                        resolve(starImages);
+                    }
+                });
+            });
+        }
+
+
+        function checkIfRatingAvailable(productId) {
+            return new Promise(function (resolve, reject) {
+                $.ajax({
+                    url: 'backend/include/feedback.php',
+                    method: 'GET',
+                    data: {
+                        checkIfRated: productId
+                    },
+                    dataType: 'json',
+                    success: function (rating) {
+                        resolve(rating);
+                    },
+                    error: function (xhr, status, error) {
+                        reject(error);
+                    }
+                });
+            });
+        }
+
+
+
+        async function calculateStars(avg) {
+            let id = ("#average-rating")
+            avg = roundToNearestQuarter(avg);
+            let starImages = await generateStars(avg);
+            return starImages;
+        }
+
+        // Produkttyp aus der URL abrufen und Produkte laden
+        let productType = getParameterByName('type');
+        fetchAndDisplayProducts(productType);
+    });
+
+</script>
