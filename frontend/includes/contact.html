@@ -1,34 +1,28 @@
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
- <!-- Bootstrap CSS -->
- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
- <!-- Bootstrap JS -->
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Include Font Awesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Include Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
+<!-- contact.html from author @LuxJoghurt (Pedro Ribeiro Costa) -->
+<style>
     body {
-        overflow-x: hidden; /* Disable horizontal scrollbar */
+        overflow-x: hidden;
     }
 </style>
 <section>
     <div class="container-fluid p-0">
-    <div class="row">
-        <div class="col-md-12">
-            <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/panoramique-luxlait@05x.jpg"
-                style="width: 100%; height: auto;" alt="Production">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="https://www.luxlait.lu/wp-content/uploads/2019/09/panoramique-luxlait@05x.jpg"
+                    style="width: 100%; height: auto;" alt="Production">
+            </div>
         </div>
-    </div>
     </div>
     <div class="container mb-5 mt-5">
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <h3>CONTACT US</h3>
-            <hr>
-            <p>If you have any questions about our products, suggestions, or if you are interested in selling Luxlait products in your store, feel free to contact us. Our dedicated Luxlait team is here to assist you and answer any inquiries you may have.</p>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3>CONTACT US</h3>
+                <hr>
+                <p>If you have any questions about our products, suggestions, or if you are interested in selling
+                    Luxlait products in your store, feel free to contact us. Our dedicated Luxlait team is here to
+                    assist you and answer any inquiries you may have.</p>
+            </div>
         </div>
-    </div>
     </div>
 </section>
 <section class="thirdMain bg-dark text-white py-5">
@@ -56,14 +50,14 @@
 <section class="main bg-info">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center text-white">
                 <h4 class="mb-3 mt-3">Contact</h4>
                 <h6>Staff Members</h6>
                 <div id="info" class="row"></div>
                 <script>
                     $(document).ready(function () {
-                        // AJAX-Anfrage an contact.php senden
-                        $.getJSON("../../backend/include/contact.php", function (data) {
+                        // AJAX-Anfrage an contact.php senden, um Mitarbeiterdaten abzurufen
+                        $.getJSON("backend/include/contact.php", function (data) {
                             // Durch die empfangenen Daten iterieren
                             $.each(data, function (index, staff) {
                                 // Auf die einzelnen Attribute zugreifen und ausgeben
@@ -73,7 +67,7 @@
                                     '</div>' +
                                     '<p>Name: ' + staff.name + '</p>' +
                                     '<p>Email: ' + staff.email + '</p>' +
-                                    '<p>Rolle: ' + staff.role + '</p>' +
+                                    '<p>Role: ' + staff.role + '</p>' +
                                     '</div>');
                             });
                         });
@@ -90,10 +84,10 @@
             <div class="row">
                 <div class="col-md-4 d-flex align-items-center">
                     <div class="mr-3">
-                        <i class="fas fa-industry fa-3x" style="font-size: 48px;"></i> <!-- Höhe angepasst -->
+                        <i class="fas fa-industry fa-3x material-icons" style="font-size: 48px;">factory</i>
                     </div>
                     <div>
-                        <h6>Sitz</h6>
+                        <h6>Factory</h6>
                         <p>Luxlait / Vitarium<br>
                             3, Am Seif<br>
                             7759 Roost / Bissen</p>
@@ -101,10 +95,10 @@
                 </div>
                 <div class="col-md-4 d-flex align-items-center">
                     <div class="mr-3">
-                        <i class="material-icons md-48" style="font-size: 48px;">email</i> <!-- Höhe angepasst -->
+                        <i class="material-icons md-48" style="font-size: 48px;">email</i>
                     </div>
                     <div>
-                        <h6>Postanschrift</h6>
+                        <h6>Postal Address</h6>
                         <p>Luxlait / Vitarium<br>
                             B.P. 87<br>
                             7501 Mersch</p>
@@ -112,7 +106,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="map-container">
-                        <iframe width="400px" height="200px" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFBbyjsNeJyJgXcOOA6JBQ0j6eieJCEmA&amp;q=LUXLAIT+Association+Agricole"></iframe>
+                        <iframe width="400px" height="200px" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFBbyjsNeJyJgXcOOA6JBQ0j6eieJCEmA&amp;q=LUXLAIT+Association+Agricole"></iframe>
                     </div>
                 </div>
             </div>
