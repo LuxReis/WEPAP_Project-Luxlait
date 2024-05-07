@@ -1,0 +1,163 @@
+<!-- register.css link from author @LuxKeis (Gamass Mihails) -->
+<link href="frontend/styles/login.css" rel="stylesheet">
+<!-- register.html from author @LuxKeis (Gamass Mihails) -->
+<header class="productCatalogHeader bg-white border-3 border-secondary">
+    <img alt="Luxlait Milk Cows" class="headerImage" src="https://www.luxlait.lu/wp-content/uploads/2019/11/AdobeStock_291094827-e1574937098816.jpeg">
+    <div class="container mt-5 mb-5">
+        <h2 class="display-4 mt-5 mb-5 text-center text-info">Sign Up</h2>
+
+    </div>
+</header>
+
+
+<section>
+    <div class="container mb-5 pt-5">
+      <div class="row">
+        <div class="col-12 col-sm-7 col-md-6 m-auto ">
+          <div class="card border-0 shadow border border-info">
+            <div class="card-body text-center">
+              <svg class="mx-auto my-3 text-info" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+              </svg>
+              <form method="post" action="../backend/include/register.php">
+                <div>
+                <div class="row"> 
+                    
+                    <div class="mb-3 col-md-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" name="dtFirstName" required>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" name="dtLastName" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="idUsername" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="dtEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="dtPassword" required>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-2">
+                        <label for="houseNr" class="form-label">House Nr</label>
+                        <input type="text" class="form-control" id="houseNr" name="dtHouseNR" required>
+                    </div>
+                    <div class="mb-3 col-md-10">
+                        <label for="street" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="street" name="dtStreet" required>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="city" class="form-label">City</label>
+                        <select class="form-select" id="city" name="dtCity" required>
+                            <option disabled>Please select Country</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-2">
+                        <label for="plz" class="form-label">PLZ</label>
+                        <input type="text" class="form-control" id="plz" name="dtPLZ" required>
+                    </div>
+                    <div class="mb-3 col-md-10">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" id="country" name="dtCountry" required>
+                            <option disabled>Select Country</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="telephone" class="form-label">Telephone</label>
+                    <input type="text" class="form-control" id="telephone" name="dtTelephone">
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-6 mb-3 text-center mt-5 mb-5"> 
+                        <button type="submit" class="btn btn-info btn-block" name="register">Register</button>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="text-center text-muted">Already have an account? <a href="../index.html?page=login">Login here</a>.</p>
+                    </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- register.html JQuery from author @LuxKeis (Gamass Mihails) -->
+  <script>
+    // function when document is ready
+    $(document).ready(function() {
+        // Variable to store countries
+        var data;
+        // Make ajax request
+        $.ajax({
+            url: "https://restcountries.com/v2/all",
+            type: "GET",
+            // If success, execute funtion
+            success: function(response) {
+                // store respone to variable
+                data = response;
+                // for every object(country) in data
+                $.each(data, function(index, country) {
+                    // add to select with id country new option, option have 2 symbole code as value, and country name as text
+                    $("#country").append("<option value='" + country.alpha2Code + "'>" + country.name + "</option>");
+                });
+            },
+            // if error execute functions, xhr=request, status=404
+            error: function(xhr, status, error) {
+                console.error("Error fetching countries:", error);
+            }
+        });
+
+        // When select with countries is changed
+        $("#country").change(function() {
+            // Save selected option
+            var countryCode = $(this).val();
+            // Find the selected country in the data array
+            var selectedCountry = data.find(country => country.alpha2Code === countryCode);
+            // If variable is not empty (country founded)
+            if (selectedCountry) {
+                // Update the phone code input field
+                $("#telephone").val(selectedCountry.callingCodes[0]);
+                
+                // Make ajax request
+                $.ajax({
+                    method: 'GET',
+                    // insert selected country code in url as get parameter
+                    url: 'https://api.api-ninjas.com/v1/city?country=' + countryCode + "&limit=30",
+                    // Insert API key as header
+                    headers: { 'X-Api-Key': 'aOIJ688qoiAFPrS1i1BiRw==hez9bImFN64EfikN'},
+                    // answer as json
+                    contentType: 'application/json',
+                    // when request is successfull
+                    success: function(response) {
+                        // save respone to variable
+                        let cities = response;
+                        // delete all options from city select
+                        $('#city').html('');
+                        // for every object(city) in data
+                        $.each(cities, function(index, city) {
+                            // add to select with id city new option, option have city name as value, and city name as text
+                            $("#city").append("<option value='" + city.name + "'>" + city.name + "</option>");
+                        });
+                    },
+                    // if error execute functions, jqHXR = fullanswer
+                    error: function ajaxError(jqXHR) {
+                        console.error('Error: ', jqXHR.responseText);
+                    }
+                });
+            }
+        });
+    });
+</script>
