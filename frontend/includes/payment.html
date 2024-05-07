@@ -235,7 +235,6 @@
     $('#order').on('click', function (event) {
       event.preventDefault();
       var formData = $('#orderForm').serialize(); // Serialize form data
-      console.log(formData);
       // AJAX request to send form data to the server
       $.ajax({
         method: 'GET',
