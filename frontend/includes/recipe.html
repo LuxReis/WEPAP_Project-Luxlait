@@ -1,0 +1,50 @@
+<!-- recipe.html from author @LuxJoghurt (Pedro Ribeiro Costa) -->
+<link href="frontend/styles/recipe.css" rel="stylesheet">
+
+<header class="productCatalogHeader bg-white border-3 border-secondary">
+    <img alt="Luxlait Milk Cows" class="headerImage"
+        src="https://www.luxlait.lu/wp-content/uploads/2023/01/banniererecettes.png">
+    <div class="container mt-5 mb-5">
+        <h2 class="display-4 mt-5 mb-5">THE RECIPES</h2>
+        <h4 class="ms-5 me-5 lead">Recipe Idea</h4>
+        <p class="ms-5 me-5 mb-5 lead">Top quality products are the basis of every recipe. Be inspired by our recipes
+            and spoil your loved ones with delicious dishes.</p>
+    </div>
+</header>
+<div class="container">
+    <div id="recipes-container"></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "backend/include/recipe.php",
+            type: "GET",
+            dataType: "json",
+            success: function (recipes) {
+                var container = $('#recipes-container');
+                $.each(recipes, function (index, recipe) {
+                    var html = `
+                    <div class="background">
+                        <div id="recipe-${recipe.id}" class="containerHome"> <!-- Pass recipe ID -->
+                            <a href="index.html?page=recipe_details&id=${recipe.id}">
+                                <img src="${recipe.image}" alt="${recipe.name}" class="image">
+                                <div class="overlay">
+                                    <div class="textHome">
+                                        <h4>${recipe.name}</h4>
+                                        <p>${recipe.description}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    `;
+                    container.append(html);
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error loading recipes:', status, error);
+            }
+        });
+    });
+</script>
