@@ -1,0 +1,66 @@
+<!-- recipe_details.html from author @LuxJoghurt (Pedro Ribeiro Costa) -->
+<link href="frontend/styles/recipe_details.css" rel="stylesheet">
+
+<header class="productCatalogHeader bg-white border-3 border-secondary">
+    <img alt="Luxlait Milk Cows" class="headerImage"
+        src="https://www.luxlait.lu/wp-content/uploads/2023/01/banniererecettes.png">
+</header>
+
+
+<div class="container mb-5">
+    <div id="recipe-details-container"></div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        // Fetch recipe ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const recipeId = urlParams.get('id');
+
+        if (recipeId) {
+            $.ajax({
+                url: `backend/include/recipe_details.php?id=${recipeId}`,
+                type: "GET",
+                dataType: "json",
+                success: function (recipe) {
+                    var container = $('#recipe-details-container');
+                    var html = `
+                    <div class="recipe-details ms-5">
+                        <div class="d-flex justify-content-center">
+                        <h1 class="display-4 mt-5 mb-5">${recipe.name}</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="${recipe.image}" alt="${recipe.name}" class="image img-fluid h-100 rounded-3 customImage">
+                            </div>
+                            <div class="col-md-6 text-white bg-info rounded-3 d-flex flex-column align-items-center">
+                                <div class="d-flex justify-content-center">
+                                    <p class="mt-5 mb-5">${recipe.description}</p>
+                                </div>
+                                <h2 class="display-5 mb-5">Steps:</h2>
+                                <ol>
+                                    ${recipe.steps.map(step => `<li>${step.dtStep}</li>`).join('')}
+                                </ol>
+                                <h2 class="display-5 mt-5 mb-5 text-center">Ingredients:</h2> 
+                                <div class="d-felx justify-content-start">
+                                <ul>
+                                    ${recipe.ingredients.map(ingredient => `<li class=""><i class="bi bi-caret-right-fill"></i> ${ingredient.dtMetricUnit} ${ingredient.dtIngredient}</li>`).join('')} 
+                                </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    `;
+                    container.append(html);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error loading recipe details:', status, error);
+                }
+            });
+        } else {
+            console.error('Recipe ID not provided');
+        }
+    });
+</script>
