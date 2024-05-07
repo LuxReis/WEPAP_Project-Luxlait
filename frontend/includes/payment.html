@@ -137,7 +137,7 @@
         $('#productTable').empty();
         // Append rows to the table with the orders
         $.each(orders, function(index, order) {
-          var row = `<tr>
+          let row = `<tr>
                     <td><img src="${order.image}" alt="${order.product}" style="height: 100px"></td>
                     <td>${order.product}</td>
                     <td>${order.amount}</td>
@@ -162,7 +162,7 @@
     // Function to process account information
     function processAccountInfo(accountInfo) {
       if (accountInfo.length > 0) {
-        var info = accountInfo[0];
+        let info = accountInfo[0];
         // Fill the form with the account information
         $('#firstname').val(info.firstname);
         $('#lastname').val(info.lastname);
@@ -234,7 +234,7 @@
     // Event listener for the order button
     $('#order').on('click', function (event) {
       event.preventDefault();
-      var formData = $('#orderForm').serialize(); // Serialize form data
+      let formData = $('#orderForm').serialize(); // Serialize form data
       // AJAX request to send form data to the server
       $.ajax({
         method: 'GET',
