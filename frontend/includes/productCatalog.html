@@ -1,0 +1,154 @@
+<!-- productCatalog.html from author @LuxLait (Tim frisch)  -->
+
+
+<header class="productCatalogHeader bg-white border-3 border-secondary">
+    <img alt="Luxlait Milk Cows" class="headerImage" src="https://www.luxlait.lu/wp-content/uploads/2019/09/produits-luxlait.jpg">
+    <div class="container mt-5 mb-5">
+        <h2 class="mt-5 mb-5 display-4">OUR PRODUCTS</h2>
+        <p class="ms-5 me-5 mt-5 mb-5 lead ">Luxlait’s teams come up with new products every day. They scan the market to discover the latest consumer trends and refine the quality criteria. Luxlait’s sole aim has always been respect for natural resources and animal life, excellence in milk processing and the well-being of Luxembourg’s agriculture and consumers. Consuming Luxlait products means you have confidence in one of the best dairy companies in Europe.</p>
+    </div>
+</header>
+
+<section class="bg-light text-white py-5 backgroundCategory">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <ul class="categorys">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="container categoryContainer">
+
+    </div>
+</section>
+
+<script>
+    $(document).ready(function(){
+        //Shows the Categories
+        $.ajax({
+            url: 'backend/include/productCategorie.php',
+            dataType: 'json',
+            success: function(data) {
+                
+                $.each(data, function(index, item) {
+                    
+                    let categoryId = item.dtName + '_' + index;
+    
+                    let content = '<div class="row contentCatalog" id="' + categoryId + '">';
+                    if (index % 2 === 0) {
+                        
+                        content +=
+                            '<div class="col-md-6 mt-5 d-flex justify-content-center">' +
+                            '<img class="w-100 rounded-3 productCatalogImage mt-5 mb-5 img-fluid" src="' + item.dtImage + '">' +
+                            '</div>' +
+                            '<div class="col-md-6 mt-5">' +
+                            '<h2 class=" text-info ms-5 display-5">' + item.dtName + '</h2>' +
+                            '<div class="ms-5 custom-border-left"></div>' +
+                            '<p class="ms-5 mt-5 bg-info text-white p-5 rounded-3 lead">' + item.dtDescription + '</p>' + // Hintergrundfarbe für den Textbereich
+                            '<div class="d-flex justify-content-start">' +
+                            '<button class="btn btn-info ms-5 productButton" data-product="' + item.dtName + '">' + item.dtName + '</button>' +
+                            '</div>' +
+                            '</div>';
+                    } else {
+                        content +=
+                            '<div class="col-md-6 mt-5">' +
+                            '<h2 class=" text-info text-lg-end me-5 display-5">' + item.dtName + '</h2>' +
+                            '<div class="me-5 custom-border-right"></div>' +
+                            '<p class="me-5 mt-5 bg-info text-white p-5 rounded-3 lead">' + item.dtDescription + '</p>' + // Hintergrundfarbe für den Textbereich
+                            '<div class="d-flex justify-content-end">' +
+                            '<button class="btn btn-info me-5 productButton" data-product="' + item.dtName + '">' + item.dtName + '</button>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="col-md-6 mt-5 d-flex justify-content-center">' +
+                            '<img class="w-100 rounded-3 productCatalogImage mt-5 mb-5 img-fluid" src="' + item.dtImage + '">' +
+                            '</div>';
+                    }
+                    content += '</div>'; 
+                    let category = $('<div class="category"><div class="content"></div></div>');
+                    category.find('.content').append(content);
+                    $('.categoryContainer').append(category);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error("Fehler beim Abrufen der Daten: " + error);
+            }
+        });
+    });
+    
+    //Shows the Product Typ from a Categorie
+    function showProductTyps(productType, category) {
+    $.ajax({
+        type: 'GET',
+        url: 'backend/include/productType.php',
+        dataType: 'json',
+        data: { productType: productType },
+        success: function(data) {
+            category.find('.productTyps').empty();
+           
+            let imageHeight = 200; 
+            
+            $.each(data, function(index, element) {
+                let productTypContainer = `
+                    <div class="row bg-white productTypContainer customBorder shadow">
+                        <div class="col-md-4">
+                            <button class="btn w-100 productTypeButton" data-producttype="${element.dtType}">
+                                <div style="width: 100%; height: ${imageHeight}px; display: flex; align-items: center; justify-content: center;">
+                                    <img class="mt-3 productCatalogImage img-fluid" src="${element.dtImage}" alt="${element.dtType}" style="max-width: 50%; max-height: 50%;">
+                                </div>
+                            </button>
+                           
+                        </div>
+                        <div class="col-md-8 mt-5">
+                            <button class="btn w-100 productTypeButton" data-producttype="${element.dtType}">
+                                <div class="text-info d-flex flex-column justify-content-between h-100">
+                                    <h5 class=" text-info">${element.dtType}</h5>
+                                    <p class="text-info description">${element.dtDescription}</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>`;
+                category.find('.productTyps').append(productTypContainer);
+            });
+
+           
+            category.find('.productTypeButton').click(function(event) {
+                event.preventDefault();
+                let productTypeName = $(this).data('producttype');
+    
+                window.location.href = 'index.html?page=product&type=' + encodeURIComponent(productTypeName);
+            });
+        }
+    });
+
+    category.append('<button class="btn btn-info backButton">Back</button>');
+    category.find('.lead, .productButton, .productCatalogImage').fadeOut();
+    category.append('<div class="mt-5 mb-5 p-5 productTyps bg-light rounded-3"></div>');
+}
+
+
+    $(document).on('click', '.productButton', function (event) {
+        event.preventDefault();
+        let productType = $(this).data('product');
+        let category = $(this).closest('.category');
+        showProductTyps(productType, category);
+    });
+    
+    
+    $(document).on('click', '.backButton', function (event) {
+        event.preventDefault();
+        let category = $(this).closest('.category');
+        category.find('.lead, .productButton, .productCatalogImage').fadeIn();
+        category.find('.productTyps').fadeOut();
+        $(this).fadeOut();
+    });
+    
+    </script>
+
+
+

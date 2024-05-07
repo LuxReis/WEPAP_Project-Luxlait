@@ -1,0 +1,109 @@
+/* prductCatalog.css from author @LuxLait (Tim frisch)*/
+:root {
+    --main-bg-color: #d9dbdd;
+    --secondary-bg-color: #5b656e;
+    --light-bg-color: #ececec;
+    --white-color: #ffffff;
+    --border-color: #364758;
+    --box-shadow-color: rgb(146, 146, 146);
+    --box-shadow-transparent-color: rgba(185, 185, 185, 0.1);
+}
+
+
+.watcher {
+    height: 6px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--main-bg-color);
+    width: 100%;
+    transform-origin: left;
+    animation: watcher linear;
+    animation-timing-function: linear; 
+    animation-timeline: scroll();
+}
+
+@keyframes watcher {
+    to { transform: scale(1.1); }
+}
+
+.contentCatalog {
+    transform: scale(.8);
+    opacity: 0;
+    animation: fadeIn 0.9s linear forwards;
+    animation-timeline: view();
+    animation-range: 20% 25%;
+}
+
+@keyframes fadeIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+.custom-border-right, .custom-border-left {
+    border-bottom: 2px solid var(--border-color);
+}
+
+
+.card-img-top,
+.product img {
+    height: 100px;
+    object-fit: scale-down;
+}
+
+.headerImage {
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+}
+
+
+.product {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px var(--box-shadow-color);
+}
+
+.product img {
+    box-shadow: 0px 4px 8px var(--box-shadow-transparent-color);
+    display: block;
+    margin: 0 auto;
+}
+
+.product-info{
+    display: none;
+}
+
+.backgroundCategory {
+    background: linear-gradient(to bottom, var(--light-bg-color), var(--white-color));
+}
+
+.productTypContainer {
+    transition: all 0.3s ease;
+}
+
+.productTypContainer:hover {
+    transform: scale(1.0);
+}
+
+.productTypContainer:hover .productCatalogImage {
+    filter: none;
+}
+
+.borderInfoRight {
+    display: none;
+    transition: display 0.3s ease;
+}
+
+.icons {
+    width: 100%;
+    height: 5vh;
+    color:  gold/*var( --border-color)*/;
+    
+}
