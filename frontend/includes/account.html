@@ -1,0 +1,268 @@
+<!-- @author GUO Kaidi HTML for account page -->
+<div class="container mt-5 mb-5">
+    <h2 class="display-6 text-center">Your Profile</h2><hr>
+    <div class="info text-center"></div>
+</div>
+
+<script>
+    // Author GUO Kaidi JQUERY for account page
+  
+    $(document).ready(function () {
+
+        // Event listener for the cancel button
+        $(document).on('click', '#cancel', function (event) {
+            event.preventDefault(); // Prevent the default behavior of the button
+            window.location.href = 'index.html?page=account'; // Redirect to the account page
+        });
+    
+        // Function to style error messages
+        function errorMsgCSS(){
+            $("#content").css("color", "red"); // Set text color to red
+            $("#content").css("font-size", "20px"); // Set font size to 20px
+            $("#content").css("text-align", "center"); // Align text to center
+            $("#content").css("margin-top", "200px"); // Set top margin to 200px
+            $("#content").css("margin-bottom", "200px"); // Set bottom margin to 200px
+        }
+
+        // Function to display account information
+        function showAccountInfo(infos) {
+            $.each(infos, function(index, info) {
+                let infoHtml =  `<p><strong>First Name:</strong> ${info.firstname}</p>
+                                <p><strong>Last Name: </strong>${info.lastname}</p>
+                                <p><strong>Email:</strong> ${info.email}</p>
+                                <p><strong>Telephone:</strong> ${info.telephone}</p>
+                                <p><strong>House Number:</strong> ${info.houseNR}</p>
+                                <p><strong>Street:</strong> ${info.street}</p>
+                                <p><strong>City:</strong> ${info.city}</p>
+                                <p><strong>PLZ:</strong> ${info.plz}</p>
+                                <p><strong>Country:</strong> ${info.country}</p>
+                                <form class="text-center mt-3">
+                                    <input type="submit" class="btn btn-info mx-2 my-3" id="editProfile" value="Edit profile">
+                                    <input type="submit" class="btn btn-info mx-2 my-3" id="editCC" value="Edit credit card">
+                                    <input type="submit" class="btn btn-outline-dark mx-2 my-3" id="delete" value="Delete">
+                                </form>`;
+                $('.info').html(infoHtml);
+            });
+        }
+
+        // Function to display the form for editing profile
+        function showEditProfile(infos) {
+            $.each(infos, function(index, info) {
+                let infoHtml =  `<form id="profileForm" class="text-center mt-3">
+                                    <label for="firstname" class="form-label">Firstname: </label>
+                                    <input type="text" class="form-control" id="firstname" name="firstName" value="${info.firstname}" required>
+                                    <label for="lastname" class="form-label">Lastname: </label>
+                                    <input type="text" class="form-control" id="lastname" name="lastName" value="${info.lastname}" required>
+                                    <label for="email" class="form-label">Email: </label>
+                                    <input type="email" class="form-control" id="email" name="email" value="${info.email}" required>
+                                    <label for="tele" class="form-label">Telephone: </label>
+                                    <input type="number" class="form-control" id="tele" name="telephone" value="${info.telephone}">
+                                    <label for="houseNr" class="form-label">House Number: </label>
+                                    <input type="number" class="form-control" id="houseNr" name="houseNr" value="${info.houseNR}" required>
+                                    <label for="street" class="form-label">Street: </label>
+                                    <input type="text" class="form-control" id="street" name="street" value="${info.street}" required>
+                                    <label for="city" class="form-label">City: </label>
+                                    <input type="text" class="form-control" id="city" name="city" value="${info.city}" required>
+                                    <label for="plz" class="form-label">PLZ: </label>
+                                    <input type="number" class="form-control" id="plz" name="plz" value="${info.plz}" minlength="4" maxlength="6" required>
+                                    <label for="country" class="form-label">Country: </label>
+                                    <input type="text" class="form-control" id="country" name="country" value="${info.country}" required>
+                                    <input type="submit" class="btn btn-info mx-2 my-3" id="updateP" value="Update">
+                                    <input type="submit" class="btn btn-outline-dark mx-2 my-3" id="cancel" value="Cancel" formnovalidate>
+                                </form>`;
+                $('.info').html(infoHtml);
+            });
+        }
+
+        // Function to display the form for editing credit card
+        function showEditCreditCard(cards) {
+            $.each(cards, function(index, card) {
+                let infoHtml =  `<form id="creditCardForm" class="text-center mt-3">
+                                    <label for="cardNumber" class="form-label">Card Number: </label>
+                                    <input type="number" id="cardNumber" minlength="16" maxlength="16" class="form-control" name="cardNumber" value="${card.cardNumber}" required>
+                                    <label for="cardHolder">Card holder</label>
+                                    <input type="text" class="form-control" id="cardHolder" name="cardHolder" value="${card.cardHolder}" required>
+                                    <label for="validDate">Expires</label>
+                                    <input type="text" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" maxlength="5" class="form-control" id="validDate" name="validDate" value="${card.validDate}" required>
+                                    <label for="CVV">CVV</label>
+                                    <input type="number" class="form-control" id="CVV" minlength="3" maxlength="3" name="CVV" value="${card.CVV}" required>
+                                    <input type="submit" class="btn btn-info mx-2 my-3" id="updateCC" value="Update">
+                                    <input type="submit" class="btn btn-outline-dark mx-2 my-3" id="cancel" value="Cancel" formnovalidate>
+                                </form>`;
+                $('.info').html(infoHtml);
+            });
+        }
+
+        // AJAX request to check if the user is logged in
+        $.ajax({
+            url: 'backend/include/checkLogin.php',
+            method: 'GET',
+            success: function(response) {
+                if (response.username === false) {
+                    // If user is not logged in, display error message
+                    errorMsgCSS();
+                    $("#content").html("You have to be logged in to see your profile.");
+                        
+                    // Redirect to login page after 5 seconds
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=login"; 
+                    }, 5000); 
+                }
+            },
+            error: function(xhr, status, error) {
+                // If AJAX request fails, display error message
+                errorMsgCSS();
+                $("#content").html("Error: Ajax check login doesn't work.");
+                setTimeout(function() {
+                    window.location.href = "index.html?page=home"; 
+                }, 5000);
+            }
+        });
+
+        // AJAX request to fetch account information
+        $.ajax({
+            url: 'backend/include/account.php',
+            method: 'GET',
+            success: function(response) {
+                // On success, display account information
+                showAccountInfo(response.info);
+            },
+            error: function(xhr, status, error) {
+                // If AJAX request fails, display error message
+                errorMsgCSS();
+                $("#content").html("Error: Ajax getting Information doesn't work.");
+                setTimeout(function() {
+                    window.location.href = "index.html?page=home"; 
+                }, 5000);
+            }
+        });
+
+        // Event listener for the edit profile button
+        $(document).on('click', '#editProfile', function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: 'backend/include/account.php',
+                method: 'GET',
+                success: function(response) {
+                    showEditProfile(response.info);
+                },
+                error: function(xhr, status, error) {
+                    // If AJAX request fails, display error message
+                    errorMsgCSS();
+                    $("#content").html("Error: Ajax getting Information for edit doesn't work.");
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=home"; 
+                    }, 5000);
+                }
+            });
+        });
+
+        // Event listener for the edit credit card button
+        $(document).on('click', '#editCC', function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: 'backend/include/account.php',
+                method: 'GET',
+                success: function(response) {
+                    showEditCreditCard(response.creditCard);
+                },
+                error: function(xhr, status, error) {
+                    // If AJAX request fails, display error message
+                    errorMsgCSS();
+                    $("#content").html("Error: Ajax getting credit card information for edit doesn't work.");
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=home"; 
+                    }, 5000);
+                }
+            });
+        });
+
+        // Event listener for the delete button
+        $(document).on('click', '#delete', function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: 'backend/include/account.php',
+                method: 'GET',
+                data: { delete: true },
+                success: function(response) {
+                    errorMsgCSS();
+                    alert(response.delMsg);
+                    window.location.href = "index.html?page=home"; 
+                },
+                error: function(xhr, status, error) {
+                    // If AJAX request fails, display error message
+                    errorMsgCSS();
+                    $("#content").html("Error: Ajax delete the user doesn't work.");
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=home"; 
+                    }, 5000);
+                }
+            });
+        });
+
+        // Event listener for the update profile button
+        $(document).on('click', '#updateP', function (event) {
+            event.preventDefault(); 
+            let formData = $('#profileForm').serialize(); 
+
+            $.ajax({
+                url: 'backend/include/account.php',
+                type: 'GET',
+                data: formData,
+                success: function(response) {
+                    // If AJAX request succeeds, display success message
+                    errorMsgCSS();
+                    let output = "";
+                    $.each(response.updatePMsg, function(index, msg) {
+                        output += msg;
+                    });
+                    $("#content").html(output);
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=account"; 
+                    }, 5000);
+                },
+                error: function(xhr, status, error) {
+                    // If AJAX request fails, display error message
+                    errorMsgCSS();
+                    $("#content").html("Error: Ajax update account information to database doesn't work.");
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=home"; 
+                    }, 5000);
+                }
+            });
+        });
+        
+        // Event listener for the update credit card button
+        $(document).on('click', '#updateCC', function (event) {
+            event.preventDefault(); 
+            let formData = $('#creditCardForm').serialize(); 
+
+            $.ajax({
+                url: 'backend/include/account.php',
+                type: 'GET',
+                data: formData,
+                success: function(response) {
+                    // If AJAX request succeeds, display success message
+                    errorMsgCSS();
+                    let output = "";
+                    $.each(response.updateCCMsg, function(index, msg) {
+                        output += msg;
+                    });
+                    $("#content").html(output);
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=account"; 
+                    }, 5000);
+                },
+                error: function(xhr, status, error) {
+                    // If AJAX request fails, display error message
+                    errorMsgCSS();
+                    $("#content").html("Error: Ajax update credit card information to database doesn't work.");
+                    setTimeout(function() {
+                        window.location.href = "index.html?page=home"; 
+                    }, 5000);
+                }
+            });
+        });
+
+    });
+</script>
