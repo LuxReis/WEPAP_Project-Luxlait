@@ -140,32 +140,32 @@
 
                 // Check first name
                 if (empty($firstName)) {
-                    $pErrors[] = "<p>First name is required.</p>";
+                    $pErrors[] = "First name is required.";
                 }
 
                 // Check last name
                 if (empty($lastName)) {
-                    $pErrors[] = "<p>Last name is required.</p>";
+                    $pErrors[] = "Last name is required.";
                 }
 
                 // Check email
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $pErrors[] = "<p>Invalid email address.</p>";
+                    $pErrors[] = "Invalid email address.";
                 }
 
                 // Check telephone number
                 if (!empty($telephone) && !preg_match("/^[0-9]{10}$/", $telephone)) {
-                    $pErrors[] = "<p>Invalid telephone number.</p>";
+                    $pErrors[] = "Invalid telephone number.";
                 }
 
                 // Check house number
                 if (empty($houseNr)) {
-                    $pErrors[] = "<p>House number is required.</p>";
+                    $pErrors[] = "House number is required.";
                 }
 
                 // Check postal code
                 if (empty($plz) || !preg_match("/^[0-9]{4,6}$/", $plz)) {
-                    $pErrors[] = "<p>Invalid postal code.</p>";
+                    $pErrors[] = "Invalid postal code.";
                 }
 
                 // If there are no errors, update account information
@@ -188,7 +188,7 @@
                 }
 
             } else {
-                $pErrors[] = "<p>No Get Information.</p>";
+                $pErrors[] = "No Get Information.";
             }
 
             // Check if credit card update data is present in GET request
@@ -204,17 +204,17 @@
 
                 // Validate card number
                 if (!preg_match('/^\d{16}$/', $cardNumber)) {
-                    $cErrors[] = "<p>Invalid card number.</p>";
+                    $cErrors[] = "Invalid card number.";
                 }
 
                 // Validate expiry date
                 if (!preg_match('/^(0[1-9]|1[0-2])\/?\d{2}$/', $validDate)) {
-                    $cErrors[] = "<p>Invalid expiry date.</p>";
+                    $cErrors[] = "Invalid expiry date.";
                 }
 
                 // Validate CVV
                 if (!preg_match('/^\d{3}$/', $CVV)) {
-                    $cErrors[] = "<p>Invalid CVV.</p>";
+                    $cErrors[] = "Invalid CVV.";
                 }
 
                 // If there are no errors, update credit card information
@@ -235,7 +235,7 @@
                 }
 
             } else {
-                $cErrors[] = "<p>No Get credit card.</p>";
+                $cErrors[] = "No Get credit card.";
             }
         }
 
